@@ -63,7 +63,7 @@ python3 -m venv ~/Mavlink_venv
 ### ⓪ 基地局座標の再測（新規場所のみ・Mac mini）
 
 ```bash
-cd ~/EVK-F9P/base_station_verify/rtcm_compare
+cd ~/rtk-pipeline/base_station_verify/rtcm_compare
 python3 standalone_obs.py --set-rover --duration 120 --save
 ```
 
@@ -74,7 +74,7 @@ python3 standalone_obs.py --set-rover --duration 120 --save
 ### ① ローバー側 GLONASS を無効化（ラズパイ）
 
 ```bash
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 source ~/Mavlink_venv/bin/activate
 python3 set_gnss_mode.py --no-glonass
 ```
@@ -86,7 +86,7 @@ python3 set_gnss_mode.py --no-glonass
 ### ② 基地局側 GLONASS を無効化（Mac mini）
 
 ```bash
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 python3 glonass_toggle.py --off
 ```
 
@@ -96,7 +96,7 @@ python3 glonass_toggle.py --off
 ### ③ ローバー側を起動（ラズパイ・先に起動）
 
 ```bash
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 source ~/Mavlink_venv/bin/activate
 python3 rover_recorder.py --rtscts --log-dir logs
 ```
@@ -109,7 +109,7 @@ python3 rover_recorder.py --rtscts --log-dir logs
 **新規場所（再設定が必要）の場合：**
 
 ```bash
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 python3 base_recorder.py --lat <新緯度> --lon <新経度> --alt <新高度HAE>
 ```
 
@@ -119,7 +119,7 @@ python3 base_recorder.py --lat <新緯度> --lon <新経度> --alt <新高度HAE
 **基地局が設定済みの場合：**
 
 ```bash
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 python3 base_recorder.py
 ```
 
@@ -143,7 +143,7 @@ python3 base_recorder.py
 
 ```bash
 # 基地局を 1Hz に（Mac mini）
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 python3 set_rtcm_rate.py --rate 1
 
 # 5Hz（200ms）に戻す場合
@@ -159,7 +159,7 @@ python3 set_rtcm_rate.py --restore 200
 ### 1. RTK 状態 CSV の解析
 
 ```bash
-cd ~/EVK-F9P/rtk_field_test
+cd ~/rtk-pipeline/rtk_field_test
 python3 analyze_status.py logs/rtk_status_YYYYMMDD_HHMMSS.csv
 ```
 
@@ -178,7 +178,7 @@ python3 analyze_status.py logs/rtk_status_YYYYMMDD_HHMMSS.csv
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 dronecan_gps_rtk/ntrip_rtk_client/analyze_rtcm.py \
   rtk_field_test/logs/rtcm_base_YYYYMMDD_HHMMSS.rtcm3
 ```

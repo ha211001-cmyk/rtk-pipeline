@@ -219,7 +219,7 @@ def main():
     csv_filename = os.path.join(log_dir, f"gpslog_{dtstr}.csv")
     csvfile = open(csv_filename, "w", encoding="utf-8", newline="")
 
-    # 1. シリアルポート(EVK-F9P)のオープン
+    # 1. シリアルポート(rtk-pipeline)のオープン
     try:
         ser = serial.Serial(COM_PORT, BAUD, timeout=0.5)
         print(f"[OK] F9Pに接続しました ({COM_PORT})")

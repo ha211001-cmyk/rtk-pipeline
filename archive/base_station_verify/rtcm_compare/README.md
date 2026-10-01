@@ -38,7 +38,7 @@ rtcm_compare/
 ### 初回セットアップ
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m venv .venv
 source .venv/bin/activate
 pip install pyserial pyubx2 pyyaml pyrtcm
@@ -50,7 +50,7 @@ F9P モジュールを接続し、引数なしで実行します。
 シリアルポート `/dev/ttyACM2`、F9P 設定スキップがデフォルトです。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate
 cd base_station_verify/rtcm_compare
 python3 rtk_RTCM_Log2.py
@@ -102,7 +102,7 @@ pip install pyserial pyubx2 pyyaml
 ### 1. F9P 基地局側で RTCM ログを取得
 
 ```bash
-cd ~/EVK-F9P/base_station_verify/rtcm_compare
+cd ~/rtk-pipeline/base_station_verify/rtcm_compare
 python3 rtk_RTCM_Log2.py
 ```
 
@@ -113,7 +113,7 @@ python3 rtk_RTCM_Log2.py
 `dronecan_gps_rtk/ntrip_rtk_client/analyze_rtcm.py` を使用します。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 dronecan_gps_rtk/ntrip_rtk_client/analyze_rtcm.py \
   base_station_verify/rtcm_compare/logs/rtcm_raw_YYYYMMDD_HHMMSS.rtcm3
 ```

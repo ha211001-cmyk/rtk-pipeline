@@ -1,6 +1,6 @@
-# EVK-F9P プロジェクト
+# rtk-pipeline プロジェクト
 
-u-blox ZED-F9P（EVK-F9P）を用いた RTK 測位システムのプロジェクトです。
+u-blox ZED-F9P（rtk-pipeline）を用いた RTK 測位システムのプロジェクトです。
 基地局（Base Station）/ 移動局（Rover）の設定、NTRIP 補正データの配信・受信、
 および PPK（後処理 RTK）用の生観測値ロギングなどを扱っています。
 
@@ -13,7 +13,7 @@ u-blox ZED-F9P（EVK-F9P）を用いた RTK 測位システムのプロジェク
 ## ディレクトリ構成
 
 ```text
-EVK-F9P/
+rtk-pipeline/
 ├── README.md                               # 本ドキュメント
 ├── PROJECT_STRUCTURE_AND_CONTENT_REPORT.md # 構造・プログラム調査報告書
 ├── requirements.txt                        # 依存ライブラリ

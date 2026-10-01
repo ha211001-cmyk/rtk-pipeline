@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EVK-F9P GPS Display Program
+rtk-pipeline GPS Display Program
 Displays GPS data from u-blox F9P in NMEA format
 【Raspberry Pi 5 対応版】
 """
@@ -106,7 +106,7 @@ def main():
             pass
 
     print("=" * 70)
-    print("EVK-F9P GPS Data Display Program (NMEA Format) [Raspberry Pi 5版]")
+    print("rtk-pipeline GPS Data Display Program (NMEA Format) [Raspberry Pi 5版]")
     print("=" * 70)
     print(f"Port: {port}, Baudrate: {baudrate}")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")

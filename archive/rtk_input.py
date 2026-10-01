@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EVK-F9P RTK Input Program - RTK修正データ流し込みプログラム
+rtk-pipeline RTK Input Program - RTK修正データ流し込みプログラム
 NTRIP/SPARTNプロトコルで修正データを取得し、F9P受信機に流し込みます
 リアルタイムで位置情報も表示します
 
@@ -258,7 +258,7 @@ class RTKIntegration:
 def parse_arguments():
     """コマンドライン引数をパース"""
     parser = argparse.ArgumentParser(
-        description="EVK-F9P RTK Integration - NTRIP修正データ流し込みプログラム"
+        description="rtk-pipeline RTK Integration - NTRIP修正データ流し込みプログラム"
     )
     parser.add_argument("--port", default="COM13", help="Serial port (default: COM13)")
     parser.add_argument("--baudrate", type=int, default=38400, help="Baudrate (default: 38400)")
@@ -275,7 +275,7 @@ def parse_arguments():
 def interactive_mode():
     """対話モード"""
     print("="*70)
-    print("EVK-F9P RTK Integration - Interactive Mode")
+    print("rtk-pipeline RTK Integration - Interactive Mode")
     print("="*70 + "\n")
     
     # ポート設定

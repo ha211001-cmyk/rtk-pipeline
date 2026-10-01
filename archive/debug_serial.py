@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Debug program to check serial data from EVK-F9P
+Debug program to check serial data from rtk-pipeline
 Shows raw bytes being received on COM6
 """
 

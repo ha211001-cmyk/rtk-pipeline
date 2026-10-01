@@ -1,7 +1,7 @@
 
 #!/usr/bin/env python3
 """
-EVK-F9P GPS Display Program - Final Version
+rtk-pipeline GPS Display Program - Final Version
 Displays GPS data from u-blox F9P on COM6 in NMEA format
 """
 
@@ -137,7 +137,7 @@ def main():
         except ValueError:
             pass
     print("=" * 70)
-    print("EVK-F9P GPS Data Display Program (NMEA Format)")
+    print("rtk-pipeline GPS Data Display Program (NMEA Format)")
     print("=" * 70)
     print(f"Port: {port}, Baudrate: {baudrate}")
     print(f"Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")

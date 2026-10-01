@@ -37,7 +37,7 @@ for arg in "$@"; do
 done
 
 echo "=============================================="
-echo "  EVK-F9P gcs — Raspberry Pi Setup"
+echo "  rtk-pipeline gcs — Raspberry Pi Setup"
 echo "=============================================="
 echo "  install_dir = ${INSTALL_DIR}"
 echo ""

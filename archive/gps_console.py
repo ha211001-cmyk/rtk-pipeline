@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GPS Information Display Program for EVK-F9P
+GPS Information Display Program for rtk-pipeline
 Reads GNSS data from u-blox F9P receiver via COM6
 Supports both UBX and NMEA protocols
 """
@@ -19,7 +19,7 @@ except ImportError as e:
 
 
 class GPSConsoleDisplay:
-    """Displays GPS information from EVK-F9P in real-time"""
+    """Displays GPS information from rtk-pipeline in real-time"""
     
     def __init__(self, port='COM6', baudrate=38400):
         """
@@ -214,10 +214,10 @@ class GPSConsoleDisplay:
         if not self.connect():
             return False
         
-        print("\nListening for GPS messages from EVK-F9P...\n")
+        print("\nListening for GPS messages from rtk-pipeline...\n")
         
         try:
-            # Use NMEA reader primarily since EVK-F9P sends NMEA format
+            # Use NMEA reader primarily since rtk-pipeline sends NMEA format
             reader = self.nmea_reader if self.nmea_reader else self.ubx_reader
             
             if reader is None:
@@ -264,7 +264,7 @@ class GPSConsoleDisplay:
 def main():
     """Main entry point"""
     print("=" * 70)
-    print("EVK-F9P GPS Information Display Program")
+    print("rtk-pipeline GPS Information Display Program")
     print("=" * 70)
     
     # Check if port is specified as argument
@@ -293,7 +293,7 @@ if __name__ == '__main__':
 
 
 class GPSConsoleDisplay:
-    """Displays GPS information from EVK-F9P in real-time"""
+    """Displays GPS information from rtk-pipeline in real-time"""
     
     def __init__(self, port='COM6', baudrate=38400):
         """
@@ -437,7 +437,7 @@ class GPSConsoleDisplay:
         if not self.connect():
             return False
         
-        print("\nListening for GPS messages from EVK-F9P...\n")
+        print("\nListening for GPS messages from rtk-pipeline...\n")
         
         try:
             # Create UBXReader once with the serial port
@@ -479,7 +479,7 @@ class GPSConsoleDisplay:
 def main():
     """Main entry point"""
     print("=" * 70)
-    print("EVK-F9P GPS Information Display Program")
+    print("rtk-pipeline GPS Information Display Program")
     print("=" * 70)
     
     # Check if port is specified as argument

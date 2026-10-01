@@ -274,7 +274,7 @@ def main():
     csvfile = open(csv_filename, "w", encoding="utf-8", newline="")
     rtcm_filename = os.path.join(log_dir, f"rtcm_{dtstr}.rtcm3")
 
-    # 1. シリアルポート(EVK-F9P)のオープン
+    # 1. シリアルポート(rtk-pipeline)のオープン
     try:
         ser = serial.Serial(port, args.baudrate, timeout=0.5)
         print(f"[OK] F9Pに接続しました ({port})")

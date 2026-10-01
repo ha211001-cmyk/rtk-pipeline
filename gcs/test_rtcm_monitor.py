@@ -3,7 +3,7 @@
 rtcm_monitor のユニットテスト（実ハードウェア不要）
 
 実行方法:
-    cd ~/EVK-F9P
+    cd ~/rtk-pipeline
     python3 -m unittest gcs.test_rtcm_monitor -v
     # または
     python3 gcs/test_rtcm_monitor.py

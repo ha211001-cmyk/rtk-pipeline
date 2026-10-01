@@ -88,7 +88,7 @@ source ~/Mavlink_venv/bin/activate
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/dronecan_gps_rtk/ntrip_rtk_client
+cd ~/rtk-pipeline/dronecan_gps_rtk/ntrip_rtk_client
 python3 ntrip_rtk_client.py
 ```
 

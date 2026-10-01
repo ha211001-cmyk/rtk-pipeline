@@ -124,7 +124,7 @@ gcs/ekf_failsafe/
 ### 7-1. コマンドライン（1 コマンド実行）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source ~/Mavlink_venv/bin/activate        # pymavlink を使う場合
 
 # 実機（F9P は DroneCAN Serial Forwarding / FC は MAVLink シリアル）
@@ -220,7 +220,7 @@ RTK→EKF + フェイルセーフ + RTK 喪失挙動の 4 項目を同一スキ�
 ## 11. テスト
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 
 # 本モジュールのユニットテスト（実機不要 / MAVLink モック）
 python3 -m unittest gcs.ekf_failsafe.test_golden \

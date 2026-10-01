@@ -151,7 +151,7 @@ def main():
     print(f"対象ポート: {COM_PORT}")
     print(f"サーバー: {SERVER}:{PORT} / {MOUNTPOINT}")
     
-    # 1. シリアルポート(EVK-F9P)のオープン
+    # 1. シリアルポート(rtk-pipeline)のオープン
     try:
         ser = serial.Serial(COM_PORT, BAUD, timeout=0.5)
         print(f"[OK] F9Pに接続しました ({COM_PORT})")

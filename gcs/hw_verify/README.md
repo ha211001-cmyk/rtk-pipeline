@@ -77,7 +77,7 @@
    既存ツールで基地局を設定します（設定は Flash 保存されます）:
 
    ```bash
-   cd ~/EVK-F9P
+   cd ~/rtk-pipeline
 
    # 方法 A: 統合ランナーの Phase 0（基地局設定）を使う
    python3 gcs/integration/runner.py --setup-base --skip-phase1
@@ -90,7 +90,7 @@
 
    ```bash
    # 方法 B: 基地局単体で設定＋RTCM 読取
-   cd ~/EVK-F9P/udp
+   cd ~/rtk-pipeline/udp
    python3 udp_base_sender.py
    ```
 
@@ -109,7 +109,7 @@
 `config.local.example.yaml` をコピーして編集します。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 cp gcs/config/config.local.example.yaml gcs/config/config.local.yaml
 ```
 
@@ -135,7 +135,7 @@ forward:
 ### 5-1. ヘルパーで一括確認（推奨）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 gcs/hw_verify/check_connectivity.py --host 192.168.11.50 --port 5001
 ```
 
@@ -206,7 +206,7 @@ ls -l /dev/ttyACM* /dev/ttyUSB*
 準備と疎通確認が完了したら、統合ランナーを実行します。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate        # または ~/Mavlink_venv
 
 # ①→②→③ を順番に実行（設定は gcs/config/ から読み込み。①は TCP 接続）

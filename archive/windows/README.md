@@ -1,6 +1,6 @@
 # windows — Windows PC 向け F9P 運用スクリプト集
 
-EVK-F9P（u-blox ZED-F9P GNSS レシーバー）を **Windows PC** から COM ポート（USB 接続）経由で
+rtk-pipeline（u-blox ZED-F9P GNSS レシーバー）を **Windows PC** から COM ポート（USB 接続）経由で
 制御・データ取得するためのスクリプト集です。
 
 基地局モード（TMODE3）の設定・RTCM 受信、NTRIP キャスター（基地局配信）、
@@ -13,7 +13,7 @@ EVK-F9P（u-blox ZED-F9P GNSS レシーバー）を **Windows PC** から COM �
 
 ## 背景・目的
 
-本プロジェクト（EVK-F9P-1）では、ラズパイ上で基地局・移動局の検証を行ってきました
+本プロジェクト（rtk-pipeline-1）では、ラズパイ上で基地局・移動局の検証を行ってきました
 （`rtk_base_mavlink/`、`base_station_verify/` など参照）。一方で、現場での簡易確認や
 デバッグには **Windows PC 単体** で完結できると便利な場面が多くあります。
 
@@ -103,7 +103,7 @@ pip install pyserial pynmeagps pyubx2 pyrtcm numpy
 
 ## 実行方法
 
-すべてのスクリプトは Windows PC 上で、EVK-F9P を USB 接続した状態で実行します。
+すべてのスクリプトは Windows PC 上で、rtk-pipeline を USB 接続した状態で実行します。
 
 ```bash
 # 仮想環境を使う場合（PowerShell）

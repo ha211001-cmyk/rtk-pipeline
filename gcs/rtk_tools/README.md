@@ -1,6 +1,6 @@
 # gcs/rtk_tools — F9P 設定・RTCM 注入・Fix 監視（GCS-UmemotoLab rtk_tools/ 統合版）
 
-GCS-UmemotoLab の `rtk_tools/` を `gcs/rtk_tools/` へ移行し、EVK-F9P の `gcs/` 側の
+GCS-UmemotoLab の `rtk_tools/` を `gcs/rtk_tools/` へ移行し、rtk-pipeline の `gcs/` 側の
 正典モジュールと一本化したツール群です（Phase 0 統合計画 `gcs/PHASE0_INTEGRATION_PLAN.md` §4 / §7 Phase 4）。
 
 ## 正典（canonical）の所在

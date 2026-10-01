@@ -20,7 +20,7 @@ rtcm_verification/
 ## 実行方法
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 base_station_verify/rtcm_verification/step1_analyze_f9p_logs.py
 python3 base_station_verify/rtcm_verification/step2_analyze_ichimill_logs.py
 python3 base_station_verify/rtcm_verification/step3_compare.py

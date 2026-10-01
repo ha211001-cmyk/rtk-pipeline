@@ -32,8 +32,8 @@
 
 | 機材 | 役割 | 備考 |
 | :--- | :--- | :--- |
-| ZED-F9P（EVK-F9P）× 1 | **基地局** | 基地局側ホストに USB 接続。TMODE3/RTCM3 を設定 |
-| ZED-F9P（EVK-F9P / H-RTK F9P 等）× 1 | **ローバー** | ArduPilot（Pixhawk）に DroneCAN 接続（実績構成） |
+| ZED-F9P（rtk-pipeline）× 1 | **基地局** | 基地局側ホストに USB 接続。TMODE3/RTCM3 を設定 |
+| ZED-F9P（rtk-pipeline / H-RTK F9P 等）× 1 | **ローバー** | ArduPilot（Pixhawk）に DroneCAN 接続（実績構成） |
 | Pixhawk / ArduPilot | RTCM 中継（DroneCAN 転送） | ローバー F9P を DroneCAN で搭載 |
 | 基地局側ホスト（Mac mini 等） | `run_base.py` / `run_survey.py` を実行 | 基地局 F9P と USB 接続 |
 | ローバー側ホスト（Raspberry Pi 等） | `run_rover.py` を実行 | Pixhawk と UART(MAVLink) 接続 |
@@ -113,7 +113,7 @@ python3 -m venv ~/Mavlink_venv
 RTK_FIXED になっても出力位置が移動距離ぶんズレるため）。
 
 ```bash
-cd ~/EVK-F9P/single_unit_test
+cd ~/rtk-pipeline/single_unit_test
 python3 run_survey.py --set-rover --duration 120 --save
 ```
 
@@ -125,7 +125,7 @@ python3 run_survey.py --set-rover --duration 120 --save
 ### ① 基地局を起動（基地局側ホスト・後から起動）
 
 ```bash
-cd ~/EVK-F9P/single_unit_test
+cd ~/rtk-pipeline/single_unit_test
 
 # 新規場所（再設定が必要）の場合：座標を指定して TMODE3 + RTCM3 を設定（Flash 保存 → 自動再検出）
 python3 run_base.py --lat <新緯度> --lon <新経度> --alt <新高度HAE>
@@ -144,7 +144,7 @@ python3 run_base.py
 ### ② ローバーを起動（ローバー側ホスト・先に起動）
 
 ```bash
-cd ~/EVK-F9P/single_unit_test
+cd ~/rtk-pipeline/single_unit_test
 source ~/Mavlink_venv/bin/activate
 python3 run_rover.py --rtscts --log-dir logs
 ```
@@ -171,7 +171,7 @@ python3 run_rover.py --rtscts --log-dir logs
 RTK 状態 CSV を解析します。
 
 ```bash
-cd ~/EVK-F9P/single_unit_test
+cd ~/rtk-pipeline/single_unit_test
 python3 run_analyze.py logs/rtk_status_YYYYMMDD_HHMMSS.csv
 ```
 

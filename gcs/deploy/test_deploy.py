@@ -42,23 +42,23 @@ class TestServiceTemplates(unittest.TestCase):
     def test_substitution_removes_all_placeholders(self):
         for name in ("rtk-uart4-inject.service", "tcp2serial.service"):
             text = (_DEPLOY_DIR / name).read_text(encoding="utf-8")
-            unit = substitute(text, "/opt/EVK-F9P", "pi")
+            unit = substitute(text, "/opt/rtk-pipeline", "pi")
             self.assertFalse(_PLACEHOLDER_RE.search(unit), f"{name} に未置換プレースホルダが残っています")
 
     def test_execstart_uses_module_form(self):
         unit = substitute(
             (_DEPLOY_DIR / "rtk-uart4-inject.service").read_text(encoding="utf-8"),
-            "/opt/EVK-F9P", "pi",
+            "/opt/rtk-pipeline", "pi",
         )
-        self.assertIn("ExecStart=/opt/EVK-F9P/.venv/bin/python -m gcs.rtk_tools.rtk_forwarder_service", unit)
-        self.assertIn("WorkingDirectory=/opt/EVK-F9P", unit)
+        self.assertIn("ExecStart=/opt/rtk-pipeline/.venv/bin/python -m gcs.rtk_tools.rtk_forwarder_service", unit)
+        self.assertIn("WorkingDirectory=/opt/rtk-pipeline", unit)
         self.assertIn("User=pi", unit)
 
         unit2 = substitute(
             (_DEPLOY_DIR / "tcp2serial.service").read_text(encoding="utf-8"),
-            "/opt/EVK-F9P", "pi",
+            "/opt/rtk-pipeline", "pi",
         )
-        self.assertIn("ExecStart=/opt/EVK-F9P/.venv/bin/python -m gcs.rtk_tools.tcp2serial", unit2)
+        self.assertIn("ExecStart=/opt/rtk-pipeline/.venv/bin/python -m gcs.rtk_tools.tcp2serial", unit2)
 
     def test_unit_has_required_sections(self):
         for name in ("rtk-uart4-inject.service", "tcp2serial.service"):

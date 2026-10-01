@@ -1,7 +1,7 @@
 """gcs.rtk_tools — F9P 設定・RTCM 検証・設定解決（GCS-UmemotoLab rtk_tools/ 由来）。
 
 Phase 0 統合計画（`gcs/PHASE0_INTEGRATION_PLAN.md` §4 / §7 Phase 4）に基づき、
-GCS-UmemotoLab の ``rtk_tools/`` を ``gcs/rtk_tools/`` へ移行し、EVK-F9P/gcs/ 側の
+GCS-UmemotoLab の ``rtk_tools/`` を ``gcs/rtk_tools/`` へ移行し、rtk-pipeline/gcs/ 側の
 正典モジュールと一本化した。
 
 正典（canonical）の所在:

@@ -6,7 +6,7 @@ A をすべて満たし、B は「手順書としての確認」までを行い�
 
 ## 0. 前提
 
-- リポジトリ: `~/EVK-F9P`
+- リポジトリ: `~/rtk-pipeline`
 - Python: 3.9 以上
 - 依存導入: `pip install -r requirements.txt`（Raspberry Pi 側は
   `gcs/deploy/requirements_raspi.txt` も追加）
@@ -16,7 +16,7 @@ A をすべて満たし、B は「手順書としての確認」までを行い�
 ## A. 実機なしで確認できる項目（CI / ローカル）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 ```
 
 ### A1. 全テスト（単一コマンド）
@@ -85,7 +85,7 @@ kill %1
 ### B1. Raspberry Pi（Rover 側）の systemd 常駐化
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 ./gcs/deploy/setup_raspi.sh            # venv + 依存 + サービス導入
 sudo systemctl start rtk-uart4-inject.service tcp2serial.service
 systemctl status rtk-uart4-inject.service tcp2serial.service

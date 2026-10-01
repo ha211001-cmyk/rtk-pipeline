@@ -56,7 +56,7 @@ dronecan_gps_rtk/
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/dronecan_gps_rtk/gps_can_verify
+cd ~/rtk-pipeline/dronecan_gps_rtk/gps_can_verify
 python3 setup_dronecan_gps.py
 ```
 
@@ -71,7 +71,7 @@ python3 verify_gps_fix2.py
 ### 3. RTK Fixクライアント実行
 
 ```bash
-cd ~/EVK-F9P/dronecan_gps_rtk/rtk_fix_client
+cd ~/rtk-pipeline/dronecan_gps_rtk/rtk_fix_client
 python3 -u rtk_fix_client.py
 ```
 

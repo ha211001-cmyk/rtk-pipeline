@@ -6,7 +6,7 @@
 原因: USBポート（/dev/ttyACM2）向け設定キーが欠落していたため、
 工場出荷設定（MSM4 + 1005 + 4072）が出力され続けた。
 
-ファイル: /home/taki/EVK-F9P/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_164820.rtcm3
+ファイル: /home/taki/rtk-pipeline/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_164820.rtcm3
   サイズ: 12,080 bytes
   0xD3同期バイト: 213
   メッセージ数: 170 (エラー: 0)
@@ -22,7 +22,7 @@
 【最終検証（USB+UART1 両方に MSM7 設定後）】
 f9p_configurator_v2.py に _USB 向け設定を追加し、全 MSM7 + QZSS を有効化。
 
-ファイル: /home/taki/EVK-F9P/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_181910.rtcm3
+ファイル: /home/taki/rtk-pipeline/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_181910.rtcm3
   サイズ: 40,187 bytes
   0xD3同期バイト: 462
   メッセージ数: 393 (エラー: 0)

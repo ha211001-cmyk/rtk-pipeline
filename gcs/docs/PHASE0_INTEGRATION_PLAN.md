@@ -1,4 +1,4 @@
-# PHASE 0 — GCS-UmemotoLab 機能の EVK-F9P/gcs/ への統合計画書
+# PHASE 0 — GCS-UmemotoLab 機能の rtk-pipeline/gcs/ への統合計画書
 
 > バージョン: 0.1（Phase 0 成果物）
 > 作成日: 2026-09-28
@@ -9,8 +9,8 @@
 
 ## 1. 目的とスコープ
 
-- **目的**: 本格 GCS（`KeitaTK/GCS-UmemotoLab`）と EVK-F9P 内の `gcs/`（判定ロジック＋軽量 GUI）を、
-  `EVK-F9P/gcs/` に一本化し、単一の実用的な GCS にする。
+- **目的**: 本格 GCS（`KeitaTK/GCS-UmemotoLab`）と rtk-pipeline 内の `gcs/`（判定ロジック＋軽量 GUI）を、
+  `rtk-pipeline/gcs/` に一本化し、単一の実用的な GCS にする。
 - **統合ベース（確定済み）**: GCS-UmemotoLab の Web ダッシュボード『Multi-Drone Dashboard（`web/static/`）』をメイン UI とする。
 - **本フェーズの成果物**: 下記 3 点を文書化する。
   1. 重複ロジック・差分の洗い出し（§3）
@@ -36,7 +36,7 @@
 
 ## 3. 調査結果：両リポジトリの重複ロジックと差分
 
-### 3.1 EVK-F9P/gcs/ の現状（判定ロジック＋軽量 GUI）
+### 3.1 rtk-pipeline/gcs/ の現状（判定ロジック＋軽量 GUI）
 
 | モジュール | 役割 | 主要クラス/関数 | 依存 |
 |---|---|---|---|
@@ -73,7 +73,7 @@
 
 ### 3.3 重複ロジックの洗い出し（3 軸）
 
-| 軸 | EVK-F9P/gcs/ | GCS-UmemotoLab | 関係 |
+| 軸 | rtk-pipeline/gcs/ | GCS-UmemotoLab | 関係 |
 |---|---|---|---|
 | **RTK Fix 判定** | `fix_metrics.py`（純集計・正規化・UBX変換） | `rtk_tools/gcs_fix_monitor.py`（REST API ポーリング＋carrSoln マッピング） / `rtk_tools/f9p_fix_monitor.py`（UBX 直読、**DEPRECATED**） | **重複**（carrSoln/fix_type 正規化が二重定義）。Web は WebSocket で fix_type を直接 push するため、Um 側ポーリング監視は不要 |
 | **F9P 設定** | `backend/f9p_configurator.py`（Golden 4 キー退行監視＋TCP/シリアル抽象化） | `rtk_tools/f9p_config_all.py`（基地局12＋移動局18＝全30キー write-verify）＋ `f9p_configurator.py`/`f9p_rover_config.py`/`f9p_verify_config.py`/`f9p_config_monitor.py` | **重複**（退行監視 vs write-verify の概念が分散）。EVK の TCP トランスポートは Um 側に無いユニーク資産 |
@@ -122,7 +122,7 @@
 GCS-UmemotoLab の `app/`・`web/static/`・`rtk_tools/` を `gcs/` 配下に自然にマージする。既存 EVK の判定ロジック（`fix_metrics.py` 等）は `gcs/` 直下に残す。
 
 ```
-EVK-F9P/
+rtk-pipeline/
 └── gcs/
     ├── PHASE0_INTEGRATION_PLAN.md   # 本計画書
     ├── __init__.py
@@ -223,7 +223,7 @@ EVK-F9P/
 
 ### Phase 1: Web フロントエンド移行（静的ファイル、依存なし）
 
-| # | 移行元（GCS-UmemotoLab） | 移行先（EVK-F9P/gcs/） | 依存 | 順序 | 備考 |
+| # | 移行元（GCS-UmemotoLab） | 移行先（rtk-pipeline/gcs/） | 依存 | 順序 | 備考 |
 |---|---|---|---|---|---|
 | 1 | `web/static/index.html` | `gcs/web/static/index.html` | なし | 1 | タイトル・UI は既存どおり |
 | 2 | `web/static/css/style.css` | `gcs/web/static/css/style.css` | index.html | 1 | ダークテーマ継承 |

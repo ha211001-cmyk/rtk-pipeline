@@ -1,4 +1,4 @@
-# EVK-F9P GPS & RTK プロジェクト サマリー
+# rtk-pipeline GPS & RTK プロジェクト サマリー
 
 ## 📋 プロジェクト概要
 
@@ -13,7 +13,7 @@ u-blox F9P GNSS受信機を使用した GPS データ表示と、RTK (Real-Time 
 ## 📁 プロジェクト構成
 
 ```
-EVK-F9P/
+rtk-pipeline/
 ├── 📄 README.md                    ← メインドキュメント ⭐
 ├── 📄 ENVIRONMENT_INFO.md          ← 環境情報詳細（AI用）
 ├── 📄 RTK_GUIDE.md                 ← RTK利用ガイド
@@ -47,7 +47,7 @@ EVK-F9P/
 ### 1️⃣ GPS データ表示
 
 ```powershell
-C:\Users\keita\Documents\Local\EVK-F9P> python gps_display.py
+C:\Users\keita\Documents\Local\rtk-pipeline> python gps_display.py
 ```
 
 **出力**:
@@ -64,7 +64,7 @@ C:\Users\keita\Documents\Local\EVK-F9P> python gps_display.py
 ### 2️⃣ RTK 修正データ流し込み（対話モード）
 
 ```powershell
-C:\Users\keita\Documents\Local\EVK-F9P> python rtk_input.py --interactive
+C:\Users\keita\Documents\Local\rtk-pipeline> python rtk_input.py --interactive
 ```
 
 **出力**:
@@ -94,7 +94,7 @@ Position Data:
 ### 3️⃣ Windows バッチメニュー
 
 ```powershell
-C:\Users\keita\Documents\Local\EVK-F9P> .\run.bat
+C:\Users\keita\Documents\Local\rtk-pipeline> .\run.bat
 ```
 
 対話メニューで プログラムを選択実行
@@ -136,7 +136,7 @@ RTK Fixed     : ±2-3cm ⭐ TARGET
          │ USB Serial (修正データ)
          ▼
     ┌──────────────┐
-    │ EVK-F9P      │
+    │ rtk-pipeline      │
     │ (f9p GNSS)   │
     └──┬───────────┘
        │
@@ -167,7 +167,7 @@ requests      (2.32.5)  # HTTP requests
 
 ### ハードウェア
 
-- **受信機**: u-blox EVK-F9P (RTK対応)
+- **受信機**: u-blox rtk-pipeline (RTK対応)
 - **接続**: USB 仮想COM (COM13 typical)
 - **プロトコル**: NMEA 0183, UBX, RTCM3, SPARTN
 - **アンテナ**: u-blox standard antenna
@@ -273,7 +273,7 @@ python rtk_input.py --port COM13 --server rtk2go.com --mountpoint YMSK
 
 - **OS**: Windows 10 / Windows 11
 - **Python**: 3.11.x
-- **デバイス**: u-blox EVK-F9P (RTK対応)
+- **デバイス**: u-blox rtk-pipeline (RTK対応)
 - **RTK サービス**: rtk2go.com, イチミル等 (NTRIP/SPARTN互換)
 
 ---

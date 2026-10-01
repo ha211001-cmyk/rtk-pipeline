@@ -105,7 +105,7 @@ pip install pyserial pyubx2 pymavlink
 source ~/Mavlink_venv/bin/activate
 
 # ディレクトリに移動
-cd ~/EVK-F9P/rtk_base_mavlink
+cd ~/rtk-pipeline/rtk_base_mavlink
 
 # 実行
 python3 main.py

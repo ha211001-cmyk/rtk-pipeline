@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-EVK-F9P UBX MON-HW/EXTENDED モニタリング
+rtk-pipeline UBX MON-HW/EXTENDED モニタリング
 F9Pの内部負荷率やバッファ余裕などをUBXバイナリで取得
 """
 import serial

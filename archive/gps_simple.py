@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Simple GPS Data Display for EVK-F9P using NMEA format
+Simple GPS Data Display for rtk-pipeline using NMEA format
 Simplified version with better debugging
 """
 
@@ -29,7 +29,7 @@ def main():
             pass
     
     print("=" * 70)
-    print("EVK-F9P GPS Data Display (NMEA Format)")
+    print("rtk-pipeline GPS Data Display (NMEA Format)")
     print("=" * 70)
     print(f"Port: {port}, Baudrate: {baudrate}\n")
     

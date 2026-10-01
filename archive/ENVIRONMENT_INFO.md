@@ -3,7 +3,7 @@
 ## 基本情報
 - **OS**: Windows 10/11
 - **Python**: 3.11.9 (native installation at C:/Users/keita/AppData/Local/Programs/Python/Python311)
-- **Project location**: C:/Users/keita/Documents/Local/EVK-F9P
+- **Project location**: C:/Users/keita/Documents/Local/rtk-pipeline
 - **Execution**: Use standalone Python executable: `C:/Users/keita/AppData/Local/Programs/Python/Python311/python.exe`
 - **Device**: u-blox F9P GNSS receiver (RTK-capable)
 - **Connection**: USB Serial Device (COM13 - normally, COM6 in gps_display.py)

@@ -1,8 +1,8 @@
-# EVK-F9P プロジェクト概要
+# rtk-pipeline プロジェクト概要
 
 ## プロジェクトの目的
 
-u-blox ZED-F9P RTK受信機（EVK-F9P）を使用して、GNSS測位システムを構築する。
+u-blox ZED-F9P RTK受信機（rtk-pipeline）を使用して、GNSS測位システムを構築する。
 
 ## 主な機能
 

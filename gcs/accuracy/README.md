@@ -48,7 +48,7 @@ gcs/accuracy/
 ### 1. データ取得（タスク63504 → 本モジュール）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 
 # タスク63504: 2 ローバーの RELPOSNED をペアリングして CSV に記録
 python3 gcs/relpos/monitor.py \
@@ -189,7 +189,7 @@ gcs/accuracy/reports/
 ## テスト
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m unittest gcs.accuracy.test_baseline -v
 # または
 python3 gcs/accuracy/test_baseline.py

@@ -1,7 +1,7 @@
 # ichimill_log — イチミル NTRIP RTCM ログ取得ディレクトリ
 
 イチミル（`ntrip.ales-corp.co.jp`）の NTRIP Caster から RTCM3 補正データを受信し、
-USB 直結した ZED-F9P（EVK-F9P）へ注入しながら、F9P が出力する NMEA GGA を解析して
+USB 直結した ZED-F9P（rtk-pipeline）へ注入しながら、F9P が出力する NMEA GGA を解析して
 RTK Float / Fixed 状態を表示・記録するためのディレクトリです。
 
 本ディレクトリの `ichimile_log.py` は **macOS 対応版**です。同名のスクリプトが

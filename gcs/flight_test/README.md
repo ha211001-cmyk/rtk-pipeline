@@ -73,7 +73,7 @@ gcs/flight_test/
 ### 5-1. 実飛行の観測（記録＋評価）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source ~/Mavlink_venv/bin/activate        # pymavlink を使う場合
 
 # MAVLink シリアルで 300 秒観測
@@ -176,7 +176,7 @@ ekf_flags, ekf_pos_horiz_m, ekf_pos_vert_m, ekf_vel_var
 ## 9. テスト
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 
 # 本モジュールのユニットテスト（実機不要）
 python3 -m unittest gcs.flight_test.test_metrics -v

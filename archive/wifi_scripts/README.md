@@ -125,7 +125,7 @@ wifi_scripts/
 ### NetworkManager 方式
 
 ```bash
-cd ~/EVK-F9P/wifi_scripts
+cd ~/rtk-pipeline/wifi_scripts
 
 # 推奨（改良版）
 sudo python3 setup_wifi4.py
@@ -137,7 +137,7 @@ sudo bash setup_wifi.sh
 ### wpa_supplicant + dhclient 方式
 
 ```bash
-cd ~/EVK-F9P/wifi_scripts
+cd ~/rtk-pipeline/wifi_scripts
 
 # 推奨（passphrase が一致する直書きハッシュ版）
 sudo bash setup_wifi5.sh

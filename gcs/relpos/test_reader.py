@@ -5,7 +5,7 @@ pyubx2 で NAV-RELPOSNED フレームを実際にパースし、reader.py が正
 cm→m / 0.1mm→m へ換算できていることを検証する（実ハードウェア不要）。
 
 実行:
-    cd ~/EVK-F9P
+    cd ~/rtk-pipeline
     python3 -m unittest gcs.relpos.test_reader -v
 """
 

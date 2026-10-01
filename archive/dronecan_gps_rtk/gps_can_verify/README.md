@@ -81,7 +81,7 @@ gps_can_verify/
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/dronecan_gps_rtk/gps_can_verify
+cd ~/rtk-pipeline/dronecan_gps_rtk/gps_can_verify
 python3 check_ardupilot_version.py
 ```
 

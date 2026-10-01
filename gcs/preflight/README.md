@@ -63,7 +63,7 @@ gcs/preflight/
 ### 4-1. コマンドライン（1 コマンド実行）
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate
 
 # 実機（機体 Wi-Fi IP + ポートへ接続）
@@ -145,7 +145,7 @@ GCS からも再利用できます。
 ## 8. テスト
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m unittest gcs.preflight.test_checklist gcs.preflight.test_runner -v
 
 # 既存テストとの一括実行

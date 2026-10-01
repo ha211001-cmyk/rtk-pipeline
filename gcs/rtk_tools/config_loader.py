@@ -1,7 +1,7 @@
 """gcs.rtk_tools.config_loader — 環境別 YAML の自動選択と DEFAULT_CONFIG 補完を統合したローダー。
 
 Phase 0 統合計画（§4.4 / §7 Phase 4）に基づき、GCS-UmemotoLab の
-``rtk_tools/config_loader.py``（優先順位解決）と EVK-F9P の
+``rtk_tools/config_loader.py``（優先順位解決）と rtk-pipeline の
 ``gcs/config/loader.py``（DEFAULT_CONFIG の deep merge）を一本化する。
 
 優先順位（高いほど優先）:
@@ -39,7 +39,7 @@ _CONFIG_CANDIDATES = (
 # ---------------------------------------------------------------------------
 # 既定値（YAML が一部欠けていても補完される）
 #   - MAVLink 接続（GCS-UmemotoLab gcs.yml 由来）
-#   - 監視・判定（EVK-F9P gcs/config/config.yaml 由来）
+#   - 監視・判定（rtk-pipeline gcs/config/config.yaml 由来）
 # ---------------------------------------------------------------------------
 DEFAULT_CONFIG: Dict[str, Any] = {
     # --- MAVLink 接続（MavlinkConnection が参照） ---

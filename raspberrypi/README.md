@@ -1,6 +1,6 @@
 # raspberrypi — Raspberry Pi 5 向け実行スクリプト
 
-u-blox ZED-F9P（EVK-F9P）を Raspberry Pi 5 で動作させるための実行スクリプト集です。
+u-blox ZED-F9P（rtk-pipeline）を Raspberry Pi 5 で動作させるための実行スクリプト集です。
 F9P は USB 接続で **`/dev/ttyACM0`**（ボーレート `38400`）として認識されることを前提としており、
 基地局モード・NTRIP クライアント/キャスター・NMEA 表示・GPS 統計・PPK ロギングまで、
 RTK 測位に関わる一連の機能をカバーしています。
@@ -76,7 +76,7 @@ pip3 install pyserial pynmeagps pyubx2 pyrtcm numpy
 ### 1. 初回セットアップ
 
 ```bash
-cd ~/EVK-F9P/raspberrypi
+cd ~/rtk-pipeline/raspberrypi
 chmod +x setup.sh
 ./setup.sh
 ```
@@ -86,7 +86,7 @@ chmod +x setup.sh
 ### 2. 各スクリプトの実行
 
 ```bash
-cd ~/EVK-F9P/raspberrypi
+cd ~/rtk-pipeline/raspberrypi
 
 # NMEA 表示（単独測位の確認）
 python3 gps_display.py
@@ -112,7 +112,7 @@ python3 ppk_logger.py --out ./log
 ### 3. テスト（PPK / NTRIP）
 
 ```bash
-cd ~/EVK-F9P/raspberrypi/test
+cd ~/rtk-pipeline/raspberrypi/test
 
 # PPK Step 1: RXM-RAWX/SFRBX 有効化 & 受信確認
 python3 test_01_rawx_enable.py

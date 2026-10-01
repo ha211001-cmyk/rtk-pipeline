@@ -22,7 +22,7 @@
 
 | 項目 | 値 |
 |---|---|
-| 基地局 GNSS | ZED-F9P（EVK-F9P） |
+| 基地局 GNSS | ZED-F9P（rtk-pipeline） |
 | 基地局シリアル | `/dev/cu.usbmodem112301` @ 115200bps |
 | 基地局設定 | 事前設定済み（起動時に基地局設定スキップ） |
 | RTCM 搬送 | UDP ユニキャスト → `192.168.11.50:50010` |
@@ -41,7 +41,7 @@
 > `Network is unreachable` で到達不可だったため、**Mac 側コピーを正本として採用**した。
 
 **保全先ディレクトリ**: `rtk_field_test/logs/`
-（ワークスペース上の `rtk_field_test/logs` は `rtk_field_test/logs -> /Users/taitai0123/EVK-F9P/rtk_field_test/logs` のシンボリックリンク。実体の解決先は `/Users/taitai0123/EVK-F9P/rtk_field_test/logs/`）
+（ワークスペース上の `rtk_field_test/logs` は `rtk_field_test/logs -> /Users/taitai0123/rtk-pipeline/rtk_field_test/logs` のシンボリックリンク。実体の解決先は `/Users/taitai0123/rtk-pipeline/rtk_field_test/logs/`）
 
 | ファイル名 | 出所 | サイズ | 内容 |
 |---|---|---|---|

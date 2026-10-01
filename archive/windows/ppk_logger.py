@@ -137,7 +137,7 @@ def x1_to_csv(value):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="PPK logger for EVK-F9P (Windows)")
+    parser = argparse.ArgumentParser(description="PPK logger for rtk-pipeline (Windows)")
     parser.add_argument("--port", default=SERIAL_PORT)
     parser.add_argument("--baud", type=int, default=BAUD)
     parser.add_argument("--duration", type=int, default=0, help="秒数。0 は無制限")

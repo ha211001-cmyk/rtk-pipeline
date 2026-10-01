@@ -71,7 +71,7 @@ print(paired.matched)           # エポック整合状態
 2 台のローバー（F9P 直結シリアル）を PC / ラズパイに接続して実行します。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 gcs/relpos/monitor.py \
     --rover-a-port /dev/cu.usbmodem101 \
     --rover-b-port /dev/cu.usbmodem102 \
@@ -150,7 +150,7 @@ acc_n_m, acc_e_m, acc_d_m, acc_horizontal_m, acc_3d_m, valid
 ## テスト
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m unittest gcs.relpos.test_pairing gcs.relpos.test_reader -v
 # または
 python3 gcs/relpos/test_pairing.py

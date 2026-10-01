@@ -3,7 +3,7 @@
 ======================================================================
 
 ソース: ichimill_sim
-ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_001719.rtcm3
+ファイル: /home/taki/rtk-pipeline/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_001719.rtcm3
   サイズ: 38,260 bytes
   0xD3同期バイト: 254
   メッセージ数: 160 (エラー: 0)
@@ -21,7 +21,7 @@
     LLH: 36.0853352°, 136.2586599°, 57.09m
 
 ソース: ichimill_sim
-ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002625.rtcm3
+ファイル: /home/taki/rtk-pipeline/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002625.rtcm3
   サイズ: 27,965 bytes
   0xD3同期バイト: 218
   メッセージ数: 120 (エラー: 0)
@@ -39,7 +39,7 @@
     LLH: 36.0853352°, 136.2586599°, 57.09m
 
 ソース: ichimill_sim
-ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002647.rtcm3
+ファイル: /home/taki/rtk-pipeline/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002647.rtcm3
   サイズ: 27,730 bytes
   0xD3同期バイト: 206
   メッセージ数: 120 (エラー: 0)
@@ -57,7 +57,7 @@
     LLH: 36.0853352°, 136.2586599°, 57.09m
 
 ソース: ntrip_rtk_client
-ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030201.rtcm3
+ファイル: /home/taki/rtk-pipeline/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030201.rtcm3
   サイズ: 101,964 bytes
   0xD3同期バイト: 711
   メッセージ数: 406 (エラー: 0)
@@ -75,7 +75,7 @@
     LLH: 36.0853352°, 136.2586599°, 57.09m
 
 ソース: ntrip_rtk_client
-ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030438.rtcm3
+ファイル: /home/taki/rtk-pipeline/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030438.rtcm3
   サイズ: 49,284 bytes
   0xD3同期バイト: 329
   メッセージ数: 196 (エラー: 0)

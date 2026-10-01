@@ -1,7 +1,7 @@
 """gcs.app — GCS-UmemotoLab 由来の Web バックエンド（FastAPI + MAVLink 通信）。
 
 Phase 0 統合計画書（gcs/PHASE0_INTEGRATION_PLAN.md §5）に基づき、GCS-UmemotoLab の
-``app/`` を EVK-F9P の ``gcs/app/`` へ移行したパッケージ。
+``app/`` を rtk-pipeline の ``gcs/app/`` へ移行したパッケージ。
 
 サブパッケージ:
 - ``gcs.app.api``      : REST API（/api/*）+ WebSocket（/ws/telemetry）

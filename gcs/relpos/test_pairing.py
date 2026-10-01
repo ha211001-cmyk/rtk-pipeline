@@ -2,7 +2,7 @@
 """test_pairing.py — gcs.relpos.pairing のユニットテスト（ハードウェア不要）
 
 実行:
-    cd ~/EVK-F9P
+    cd ~/rtk-pipeline
     python3 -m unittest gcs.relpos.test_pairing -v
     # または
     python3 gcs/relpos/test_pairing.py

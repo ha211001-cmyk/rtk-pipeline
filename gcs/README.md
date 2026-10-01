@@ -1,8 +1,8 @@
-# gcs — 統合 GCS（EVK-F9P / GCS-UmemotoLab 一本化）
+# gcs — 統合 GCS（rtk-pipeline / GCS-UmemotoLab 一本化）
 
 u-blox ZED-F9P を使った RTK 測位システムの地上管制（GCS）を一本化したパッケージです。
 GCS-UmemotoLab の **Web ダッシュボード（Multi-Drone Dashboard）** をメイン UI とし、
-EVK-F9P 側の判定ロジック（RTK-FIXED 定量判定・RTCM 連続監視）と F9P 設定・RTCM
+rtk-pipeline 側の判定ロジック（RTK-FIXED 定量判定・RTCM 連続監視）と F9P 設定・RTCM
 転送ツールを統合しています。
 
 ```text
@@ -56,6 +56,7 @@ gcs/
 ├── rtk_tools/              # F9P 設定・RTCM 転送ツール群（正典）
 ├── config/                 # 設定・スキーマ検証（README 参照）
 ├── deploy/                 # systemd サービス・Raspberry Pi セットアップ（README 参照）
+├── docs/                   # 運用手順・各機能ドキュメント群
 ├── backend/                # F9pConfigGuard（後方互換ラッパー）
 ├── integration/            # 統合テストランナー（Phase 1）
 ├── preflight/              # 飛行前セルフテスト
@@ -74,7 +75,7 @@ gcs/
 ### 依存ライブラリ
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -128,7 +129,7 @@ Mac（地上基地局・GCS）と Raspberry Pi 5（ドローン搭載機・Pixha
 #### Step 1: 基地局 RTCM 配信の起動（Mac 側）
 Mac の第 1 ターミナルで、基地局 F9P を固定座標モードで起動し TCP:2101 で配信します：
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.json --serial-port /dev/cu.usbmodem112301
 ```
 *(※ `TCP listening on 0.0.0.0:2101` が出れば待機完了)*
@@ -136,7 +137,7 @@ python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.js
 #### Step 2: GCS Web ダッシュボードの起動（Mac 側）
 Mac の第 2 ターミナルで、Web サーバーを起動します：
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 python3 -m gcs.server --port 9000
 ```
 ブラウザで **http://localhost:9000** を開き、右上の **「Connect」** を 1 回クリックします（データ待機状態）。
@@ -144,7 +145,7 @@ python3 -m gcs.server --port 9000
 #### Step 3: MAVLink ブリッジ & RTK 注入・ロギング起動（Raspberry Pi 側）
 ラズパイのターミナルで、統合ブリッジを実行します：
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate
 python3 mavlink_bridge.py --target-host 100.80.225.4
 ```
@@ -217,7 +218,7 @@ python3 mavlink_bridge.py --target-host 100.80.225.4
 ### 単一ホストでの直接起動
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate
 
 # 既定（0.0.0.0:8000）
@@ -232,7 +233,7 @@ python3 -m gcs.server --port 9000
 単一コマンドで全テストを実行できます（実機不要）。
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 source .venv/bin/activate
 
 # 全テスト（ユニット + 結合 + 合成データ自己検証）

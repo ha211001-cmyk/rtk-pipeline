@@ -1,9 +1,9 @@
 PPKログ品質評価
 ========================================
 入力ファイル:
-- POS: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_pos_20260314_144809.csv
-- RAW: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_raw_20260314_144809.csv
-- NAV: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_nav_20260314_144809.csv
+- POS: C:\Users\keita\Documents\Local\rtk-pipeline\ppkLogs\data\ppk_pos_20260314_144809.csv
+- RAW: C:\Users\keita\Documents\Local\rtk-pipeline\ppkLogs\data\ppk_raw_20260314_144809.csv
+- NAV: C:\Users\keita\Documents\Local\rtk-pipeline\ppkLogs\data\ppk_nav_20260314_144809.csv
 
 位置品質サマリ:
 - samples: 1458

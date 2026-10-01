@@ -12,7 +12,7 @@ ArduPilotがDroneCAN経由でH-RTK F9Pに転送し、RTK Fixを実現する。
 
 Usage:
     source ~/Mavlink_venv/bin/activate
-    cd ~/EVK-F9P/rtk_base_mavlink
+    cd ~/rtk-pipeline/rtk_base_mavlink
     python3 main.py
 """
 

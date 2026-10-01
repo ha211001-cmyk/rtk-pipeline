@@ -55,7 +55,7 @@ python3 -m venv ~/Mavlink_venv
 ## ラズパイ側の実行手順（先に起動）
 
 ```bash
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 source ~/Mavlink_venv/bin/activate
 python3 udp_mavlink_rover.py --rtscts
 ```
@@ -101,7 +101,7 @@ python3 udp_mavlink_rover.py --rtscts
 ラズパイが `UDP受信待機中` になってから実行します。
 
 ```bash
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 python3 udp_base_sender.py --skip-config
 ```
 
@@ -137,10 +137,10 @@ python3 udp_base_sender.py --skip-config
 ```bash
 # Mac mini ターミナル①: SSHでラズパイへ入って rover を起動（先に）
 ssh taki@raspi5.local
-cd ~/EVK-F9P/udp && source ~/Mavlink_venv/bin/activate && python3 udp_mavlink_rover.py --rtscts
+cd ~/rtk-pipeline/udp && source ~/Mavlink_venv/bin/activate && python3 udp_mavlink_rover.py --rtscts
 
 # Mac mini ターミナル②: ローカルで基地局送信を起動（後から）
-cd ~/EVK-F9P/udp && python3 udp_base_sender.py --skip-config
+cd ~/rtk-pipeline/udp && python3 udp_base_sender.py --skip-config
 ```
 
 - `raspi5.local` は mDNS なので、IPを覚える必要はありません。
@@ -227,7 +227,7 @@ RTK_FIXED 到達は物理環境（基地局↔移動局の基線長・アンテ�
 （TMODE3 のままだと「設定済みの固定座標」が出力されるため、解除が必須です）
 
 ```bash
-cd ~/EVK-F9P/base_station_verify/rtcm_compare
+cd ~/rtk-pipeline/base_station_verify/rtcm_compare
 python3 standalone_obs.py --set-rover --duration 120 --save
 ```
 
@@ -241,7 +241,7 @@ python3 standalone_obs.py --set-rover --duration 120 --save
 `--skip-config` を**付けずに**、新座標を指定して起動し Flash に書き込みます。
 
 ```bash
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 python3 udp_base_sender.py \
     --lat <新緯度> --lon <新経度> --alt <新高度HAE> \
     --host <ラズパイのIP/host> --port 50010
@@ -302,7 +302,7 @@ RTK_FLOAT 到達後に「十分待ったか」「なぜ FIX しないか」を�
 
 ```bash
 # 基地局送信を停止してから実行（シリアル排他アクセスのため）
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 python3 base_ubx_logger.py --duration 120 --interval 5
 ```
 
@@ -329,7 +329,7 @@ OK/NG を判定します。
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/udp
+cd ~/rtk-pipeline/udp
 python3 f9p_rtcm_monitor.py --monitor-rtcm 60
 ```
 

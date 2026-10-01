@@ -155,7 +155,7 @@ def parse_nmea_gga(line: str) -> Optional[GpsSample]:
 # ポート自動検出（USBポートのみ、VID=0x1546 + PID=0x01A9）
 # ---------------------------------------------------------------------------
 def _auto_detect_port() -> str:
-    """利用可能なCOMポートをスキャンし、EVK-F9PのUSBポートを返す。
+    """利用可能なCOMポートをスキャンし、rtk-pipelineのUSBポートを返す。
 
     USBポート（VID=0x1546, PID=0x01A9）を最優先で検出する。
     USBポートがない場合は UART1（PID=0x0507）→ UART2（PID=0x0508）の順にフォールバック。

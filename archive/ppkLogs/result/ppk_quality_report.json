@@ -1,8 +1,8 @@
 {
   "input_files": {
-    "pos": "C:\\Users\\keita\\Documents\\Local\\EVK-F9P\\ppkLogs\\data\\ppk_pos_20260314_144809.csv",
-    "raw": "C:\\Users\\keita\\Documents\\Local\\EVK-F9P\\ppkLogs\\data\\ppk_raw_20260314_144809.csv",
-    "nav": "C:\\Users\\keita\\Documents\\Local\\EVK-F9P\\ppkLogs\\data\\ppk_nav_20260314_144809.csv"
+    "pos": "C:\\Users\\keita\\Documents\\Local\\rtk-pipeline\\ppkLogs\\data\\ppk_pos_20260314_144809.csv",
+    "raw": "C:\\Users\\keita\\Documents\\Local\\rtk-pipeline\\ppkLogs\\data\\ppk_raw_20260314_144809.csv",
+    "nav": "C:\\Users\\keita\\Documents\\Local\\rtk-pipeline\\ppkLogs\\data\\ppk_nav_20260314_144809.csv"
   },
   "position_quality": {
     "samples": 1458,

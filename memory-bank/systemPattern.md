@@ -3,7 +3,7 @@
 ## ディレクトリ構成
 
 ```
-EVK-F9P/
+rtk-pipeline/
 |-- archive/windows/      # Windows環境用スクリプト（archiveへ退避）
 |   |-- base_station.py   # 基地局モード設定・RTCM生成
 |   |-- ntrip_caster.py   # NTRIP Caster機能（ローカル配信）

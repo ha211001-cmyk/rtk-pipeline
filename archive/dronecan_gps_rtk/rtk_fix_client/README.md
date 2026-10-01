@@ -83,7 +83,7 @@ pip install pyrtcm
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/dronecan_gps_rtk/rtk_fix_client
+cd ~/rtk-pipeline/dronecan_gps_rtk/rtk_fix_client
 python3 rtk_fix_client.py
 ```
 
@@ -217,7 +217,7 @@ rtk_fix_client/
 
 ```bash
 source ~/Mavlink_venv/bin/activate
-cd ~/EVK-F9P/dronecan_gps_rtk/rtk_fix_client
+cd ~/rtk-pipeline/dronecan_gps_rtk/rtk_fix_client
 python3 -u rtk_fix_client.py
 ```
 

@@ -1,6 +1,6 @@
 # gcs/deploy — systemd 常駐化・Raspberry Pi セットアップ
 
-GCS-UmemotoLab から移行したデプロイ資産を、統合後の `EVK-F9P/gcs/` 構成に
+GCS-UmemotoLab から移行したデプロイ資産を、統合後の `rtk-pipeline/gcs/` 構成に
 合わせて再配置したものです。Raspberry Pi（Rover 側）で、RTCM 注入系サービスを
 **systemd で常駐起動**するためのテンプレートとインストールスクリプトを提供します。
 
@@ -28,7 +28,7 @@ GCS-UmemotoLab から移行したデプロイ資産を、統合後の `EVK-F9P/g
 
 ## 前提
 
-- Raspberry Pi 5（Rover 側）に本リポジトリを配置済み（例: `~/EVK-F9P`）。
+- Raspberry Pi 5（Rover 側）に本リポジトリを配置済み（例: `~/rtk-pipeline`）。
 - `/dev/ttyAMA0`（Pixhawk TELEM1）と `/dev/ttyAMA4`（F9P UART2）を
   `config.txt` で有効化済み（`enable_uart=1` / `dtoverlay=uart4`）。
 - 基地局側（Mac など）が TCP:2101 で RTCM を配信している。
@@ -36,7 +36,7 @@ GCS-UmemotoLab から移行したデプロイ資産を、統合後の `EVK-F9P/g
 ## 単一セットアップ手順
 
 ```bash
-cd ~/EVK-F9P
+cd ~/rtk-pipeline
 
 # 1. venv 作成 + 依存導入 + systemd サービス導入（一括）
 ./gcs/deploy/setup_raspi.sh
@@ -59,7 +59,7 @@ journalctl -u rtk-uart4-inject.service -f
 `/etc/systemd/system/` へ配置します。
 
 ```bash
-cd ~/EVK-F9P/gcs/deploy
+cd ~/rtk-pipeline/gcs/deploy
 ./install_rtk_uart4_service.sh     # rtk-uart4-inject.service のみ
 ./install_tcp2serial_service.sh    # tcp2serial.service のみ
 ./install_all_services.sh          # 両方
