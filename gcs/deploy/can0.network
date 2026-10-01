@@ -1,0 +1,12 @@
+# CAN0 — MCP2515 DroneCAN monitoring interface (systemd-networkd)
+#
+# Deploy: gcs/deploy/can_setup_raspi.sh
+# Target: /etc/systemd/network/80-can0.network
+
+[Match]
+Name=can0
+
+[CAN]
+Bitrate=1000000
+ListenOnly=true
+RestartSec=100ms

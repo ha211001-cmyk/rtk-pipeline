@@ -1,0 +1,94 @@
+======================================================================
+ Step 2: ichimill RTCMログ解析結果
+======================================================================
+
+ソース: ichimill_sim
+ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_001719.rtcm3
+  サイズ: 38,260 bytes
+  0xD3同期バイト: 254
+  メッセージ数: 160 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Stationary RTK Reference Station ARP (with antenna height)): 20
+    Type 1033 (Receiver and Antenna Description): 20
+    Type 1077 (GPS MSM7): 40
+    Type 1087 (GLONASS MSM7): 20
+    Type 1097 (Galileo MSM7): 20
+    Type 1117 (QZSS MSM7): 20
+    Type 1127 (BeiDou MSM7): 20
+  基地局座標:
+    局ID: 2849
+    ECEF: X=-3728279.4766, Y=3567971.4105, Z=3735881.5539
+    LLH: 36.0853352°, 136.2586599°, 57.09m
+
+ソース: ichimill_sim
+ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002625.rtcm3
+  サイズ: 27,965 bytes
+  0xD3同期バイト: 218
+  メッセージ数: 120 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Stationary RTK Reference Station ARP (with antenna height)): 15
+    Type 1033 (Receiver and Antenna Description): 15
+    Type 1077 (GPS MSM7): 30
+    Type 1087 (GLONASS MSM7): 15
+    Type 1097 (Galileo MSM7): 15
+    Type 1117 (QZSS MSM7): 15
+    Type 1127 (BeiDou MSM7): 15
+  基地局座標:
+    局ID: 2849
+    ECEF: X=-3728279.4766, Y=3567971.4105, Z=3735881.5539
+    LLH: 36.0853352°, 136.2586599°, 57.09m
+
+ソース: ichimill_sim
+ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ichimill_sim/logs/rtcm_20260808_002647.rtcm3
+  サイズ: 27,730 bytes
+  0xD3同期バイト: 206
+  メッセージ数: 120 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Stationary RTK Reference Station ARP (with antenna height)): 15
+    Type 1033 (Receiver and Antenna Description): 15
+    Type 1077 (GPS MSM7): 30
+    Type 1087 (GLONASS MSM7): 15
+    Type 1097 (Galileo MSM7): 15
+    Type 1117 (QZSS MSM7): 15
+    Type 1127 (BeiDou MSM7): 15
+  基地局座標:
+    局ID: 2849
+    ECEF: X=-3728279.4766, Y=3567971.4105, Z=3735881.5539
+    LLH: 36.0853352°, 136.2586599°, 57.09m
+
+ソース: ntrip_rtk_client
+ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030201.rtcm3
+  サイズ: 101,964 bytes
+  0xD3同期バイト: 711
+  メッセージ数: 406 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Stationary RTK Reference Station ARP (with antenna height)): 58
+    Type 1033 (Receiver and Antenna Description): 58
+    Type 1077 (GPS MSM7): 58
+    Type 1087 (GLONASS MSM7): 58
+    Type 1097 (Galileo MSM7): 58
+    Type 1117 (QZSS MSM7): 58
+    Type 1127 (BeiDou MSM7): 58
+  基地局座標:
+    局ID: 2849
+    ECEF: X=-3728279.4766, Y=3567971.4105, Z=3735881.5539
+    LLH: 36.0853352°, 136.2586599°, 57.09m
+
+ソース: ntrip_rtk_client
+ファイル: /home/taki/EVK-F9P/dronecan_gps_rtk/ntrip_rtk_client/logs/rtcm_20260808_030438.rtcm3
+  サイズ: 49,284 bytes
+  0xD3同期バイト: 329
+  メッセージ数: 196 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Stationary RTK Reference Station ARP (with antenna height)): 28
+    Type 1033 (Receiver and Antenna Description): 28
+    Type 1077 (GPS MSM7): 28
+    Type 1087 (GLONASS MSM7): 28
+    Type 1097 (Galileo MSM7): 28
+    Type 1117 (QZSS MSM7): 28
+    Type 1127 (BeiDou MSM7): 28
+  基地局座標:
+    局ID: 2849
+    ECEF: X=-3728279.4766, Y=3567971.4105, Z=3735881.5539
+    LLH: 36.0853352°, 136.2586599°, 57.09m
+

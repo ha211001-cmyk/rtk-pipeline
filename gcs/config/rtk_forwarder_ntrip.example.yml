@@ -1,0 +1,34 @@
+# rtk_forwarder_ntrip.example.yml — NTRIP 接続用の設定テンプレート
+#
+# 使い方:
+#   1. このファイルを rtk_forwarder_ntrip.yml にコピーする（gitignore 対象）。
+#   2. 認証情報は環境変数で渡す（シークレットをハードコードしない）:
+#        export NTRIP_HOST=ntrip.example.co.jp
+#        export NTRIP_PORT=2101
+#        export NTRIP_MOUNTPOINT=YOUR_MOUNT
+#        export NTRIP_USER=your_user
+#        export NTRIP_PASSWORD=your_password
+#   3. 起動:
+#        python3 -m gcs.rtk_tools.rtk_forwarder_service --config rtk_forwarder_ntrip.yml
+
+source:
+  source_type: ntrip
+  host: ${NTRIP_HOST}
+  port: ${NTRIP_PORT}
+  mountpoint: ${NTRIP_MOUNTPOINT}
+  user_agent: NTRIP PythonClient
+  username: ${NTRIP_USER}
+  password: ${NTRIP_PASSWORD}
+  timeout_sec: 10.0
+
+forward:
+  type: serial
+  serial_port: /dev/tty.usbmodem114301
+  baudrate: 115200
+
+retry:
+  reconnect_sec: 5.0
+
+log:
+  level: INFO
+  stats_interval_sec: 10

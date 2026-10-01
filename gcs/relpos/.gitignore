@@ -1,0 +1,5 @@
+# monitor.py の出力先（ログ・CSV はコミットしない）
+logs/
+*.csv
+__pycache__/
+*.pyc

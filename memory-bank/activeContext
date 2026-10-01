@@ -1,0 +1,42 @@
+# プロジェクト状況・進捗
+
+## 現在の状態（2026/7/1 時点）
+
+### 完了済み
+
+1. **移動局（Rover）としての動作確認**（構成A・退避済み）
+   - `archive/legacy_ntrip_ichimill/windows/ichimile_log.py`, `archive/legacy_ntrip_ichimill/windows/ichimile_nolog.py` で実装済み
+   - イチミルRTKのNTRIP補正データを受信してRTK Float到達を確認
+   - 上記スクリプトはロードマップ方針転換（自作基地局＝構成Bベース）に伴い
+     `archive/legacy_ntrip_ichimill/` へ退避済み
+
+2. **基地局（Base Station）としての動作確認**
+   - `archive/windows/base_station.py` を新規作成（2026/7/1）
+   - TMODE3 Fixed Mode設定 → ACK成功
+   - 標準RTCM3メッセージ生成確認完了
+     - 1005（基準局座標）: 5秒毎
+     - 1077（GPS MSM7）: 1Hz
+     - 1087（GLONASS MSM7）: 1Hz
+     - 1097（Galileo MSM7）: 1Hz
+     - 1127（BeiDou MSM7）: 1Hz
+     - 1230（GLOバイアス）: 5秒毎
+     - 4072（u-blox独自）: 1Hz
+
+3. **NTRIP Caster機能**
+   - `archive/windows/ntrip_caster.py`, `raspberrypi/ntrip_caster.py` で実装済み
+
+4. **PPKログ機能**
+   - `archive/windows/ppk_logger.py`, `raspberrypi/ppk_logger.py` で実装済み
+
+### 保留中・未対応
+
+- RTK Fixed（固定解）への到達は未確認（アンテナ環境に依存）
+- u-centerでのNTRIP Client設定手順の文書化（リポジトリ内に手順書なし）
+- Raspberry Pi版の基地局スクリプトは未検証
+
+## 今後の課題
+
+1. RTK Fixed到達の検証（良好なアンテナ環境で）
+2. u-centerを使ったNTRIP Client設定手順の文書化
+3. Raspberry Pi版base_station.pyの検証
+4. 基地局RTCMデータをNTRIP Caster経由で配信する統合テスト

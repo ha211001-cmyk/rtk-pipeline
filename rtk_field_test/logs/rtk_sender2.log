@@ -1,0 +1,23 @@
+[INFO] 基地局F9P: /dev/cu.usbmodem112301
+[INFO] 基地局設定をスキップします（事前設定済み前提）
+============================================================
+RTCM → UDP 送信を開始します
+  シリアル: /dev/cu.usbmodem112301 @ 115200 bps
+  送信先:   192.168.11.50:50010 (ユニキャスト)
+  連番ヘッダ: 無効
+  Ctrl+C で終了
+============================================================
+[INFO] frames=164  bytes=21409  udp_pkts=164  udp_bytes=21409  最終受信から0.0秒 (OK)
+[INFO] frames=329  bytes=43553  udp_pkts=329  udp_bytes=43553  最終受信から0.0秒 (OK)
+[INFO] frames=491  bytes=64910  udp_pkts=491  udp_bytes=64910  最終受信から0.0秒 (OK)
+[INFO] frames=660  bytes=87085  udp_pkts=660  udp_bytes=87085  最終受信から0.0秒 (OK)
+[INFO] frames=823  bytes=108618  udp_pkts=823  udp_bytes=108618  最終受信から0.0秒 (OK)
+[INFO] frames=989  bytes=130563  udp_pkts=989  udp_bytes=130563  最終受信から0.0秒 (OK)
+[INFO] frames=1152  bytes=151947  udp_pkts=1152  udp_bytes=151947  最終受信から0.0秒 (OK)
+[INFO] frames=1321  bytes=174271  udp_pkts=1321  udp_bytes=174271  最終受信から0.0秒 (OK)
+[INFO] frames=1485  bytes=195785  udp_pkts=1485  udp_bytes=195785  最終受信から0.0秒 (OK)
+[INFO] frames=1650  bytes=217579  udp_pkts=1650  udp_bytes=217579  最終受信から0.0秒 (OK)
+[INFO] frames=1812  bytes=239286  udp_pkts=1812  udp_bytes=239286  最終受信から0.0秒 (OK)
+[INFO] frames=1978  bytes=261898  udp_pkts=1978  udp_bytes=261898  最終受信から0.0秒 (OK)
+[INFO] frames=2139  bytes=283729  udp_pkts=2139  udp_bytes=283729  最終受信から0.0秒 (OK)
+[INFO] frames=2299  bytes=305459  udp_pkts=2299  udp_bytes=305459  最終受信から0.0秒 (OK)

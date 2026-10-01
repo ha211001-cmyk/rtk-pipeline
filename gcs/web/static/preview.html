@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi-Drone Dashboard — Static Preview</title>
+<style>
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f5f5; color: #222;
+    display: flex; flex-direction: column; height: 100vh;
+}
+/* ---- Status bar ---- */
+.status-bar {
+    display: flex; align-items: center; gap: 16px;
+    padding: 5px 16px; background: #ffffff;
+    border-bottom: 1px solid #ddd;
+    font-size: 12px; font-weight: 600; flex-shrink: 0;
+}
+.status-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.status-dot.on  { background: #2ecc71; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.status-dot.off { background: #e74c3c; }
+.status-label { color: #666; }
+.status-value { color: #666; }
+/* ---- Alert bar ---- */
+.alert-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 16px; font-size: 13px; font-weight: bold;
+    border-bottom: 2px solid; flex-shrink: 0; min-height: 36px;
+}
+.alert-bar.alert-warn     { background: rgba(243,156,18,0.15); border-color: #f39c12; color: #f39c12; }
+.alert-bar.alert-critical { background: rgba(231,76,60,0.2); border-color: #e74c3c; color: #e74c3c; }
+/* ---- 4-column grid ---- */
+.multi-drone-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; align-items: stretch; width: 100%;
+    padding: 10px 16px; flex: 1 1 auto; min-height: 0;
+}
+/* ---- Drone card ---- */
+.drone-card {
+    background: #ffffff; border-radius: 10px; padding: 12px 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); border: 2px solid #ddd;
+    display: flex; flex-direction: column; gap: 6px;
+    transition: border-color 0.3s, opacity 0.3s;
+}
+.drone-card.armed { border-color: #ddd; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.drone-card.offline { opacity: 0.4; filter: grayscale(50%); border-color: #ddd; }
+/* Card header */
+.card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #ddd; padding-bottom: 6px;
+}
+.drone-label { font-size: 18px; font-weight: 900; letter-spacing: 1px;
+               color: #222; text-transform: uppercase; }
+.conn-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.conn-dot.on  { background: #2ecc71; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.conn-dot.off { background: #e74c3c; }
+/* Armed badge */
+.armed-badge-wrap { text-align: center; padding: 4px 0; }
+.armed-badge-large {
+    display: inline-block; padding: 10px 28px; border-radius: 8px;
+    font-size: 24px; font-weight: 900; letter-spacing: 2px;
+    text-transform: uppercase; transition: all 0.3s;
+}
+.armed-badge-large.status-ok {
+    background: #27ae60; border: none;
+    color: #fff;
+}
+.armed-badge-large.status-warn {
+    background: #c0392b; border: none; color: #fff;
+}
+.armed-badge-large.status-neutral {
+    background: #e0e0e0; border: none; color: #333;
+}
+/* Flight mode */
+.mode-display {
+    text-align: center; font-size: 18px; font-weight: 700;
+    color: #333; text-transform: uppercase; letter-spacing: 1px; padding: 2px 0;
+}
+/* ---- Battery gauge ---- */
+.battery-compact {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 10px; background: #f0f0f0; border-radius: 6px; font-size: 13px;
+}
+.battery-voltage { font-weight: 700; min-width: 48px; color: #222; }
+.battery-gauge-mini {
+    flex: 1; height: 14px; background: #ddd;
+    border-radius: 7px; overflow: hidden; border: 1px solid #ddd;
+}
+.battery-gauge-fill-mini { height: 100%; border-radius: 6px; transition: width 0.6s ease; }
+.battery-gauge-fill-mini.green  { background: #2ecc71; }
+.battery-gauge-fill-mini.yellow { background: #f39c12; }
+.battery-gauge-fill-mini.red    { background: #e74c3c; }
+.battery-pct { font-weight: 700; min-width: 36px; text-align: right; }
+/* ---- GPS row ---- */
+.gps-compact {
+    display: flex; align-items: center; gap: 10px;
+    padding: 5px 10px; background: #f0f0f0; border-radius: 6px; font-size: 12px;
+}
+.gps-fix-badge {
+    display: inline-block; padding: 3px 10px; border-radius: 4px;
+    font-weight: 800; font-size: 12px; letter-spacing: 1px;
+}
+.gps-fix-badge.status-ok   { background: none; border: none; color: #27ae60; }
+.gps-fix-badge.status-warn { background: none; border: none; color: #e67e22; }
+.gps-fix-badge.status-bad  { background: none; border: none; color: #c0392b; }
+.gps-altitude { font-weight: 700; color: #222; }
+.gps-supplement {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 2px 10px; font-size: 11px; color: #666;
+}
+/* ---- Debug / STATUSTEXT scroll box ---- */
+.debug-box {
+    max-height: 50px; overflow-y: auto;
+    font-size: 9px;
+    background: #f0f0f0; border-radius: 4px;
+    padding: 4px; margin: 4px 0;
+    border: 1px solid #ddd;
+}
+.debug-box::-webkit-scrollbar { width: 3px; }
+.debug-box::-webkit-scrollbar-track { background: transparent; }
+.debug-box::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+.debug-msg {
+    padding: 1px 0; line-height: 1.3;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.debug-msg.error { color: #e74c3c; }
+.debug-msg.warn  { color: #f39c12; }
+.debug-msg.info  { color: #2ecc71; }
+/* ---- EMG STOP button ---- */
+.btn-emergency-land {
+    width: 100%; padding: 12px; border-radius: 8px;
+    background: #e74c3c;
+    color: #fff; border: 2px solid #e74c3c;
+    font-size: 15px; font-weight: 900; margin-top: auto;
+}
+.drone-card:not(.armed) .btn-emergency-land { opacity: 0.4; pointer-events: none; }
+.btn-emergency-land:disabled { opacity: 0.4; cursor: not-allowed; }
+/* ---- RTK bar ---- */
+.rtk-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 5px 16px; background: #ffffff; border-top: 1px solid #ddd;
+    font-size: 11px; color: #666; flex-shrink: 0;
+}
+.rtk-label { color: #666; font-weight: bold; }
+.rtk-val   { color: #666; font-weight: 600; }
+/* ---- Broadcast panel ---- */
+.broadcast-panel {
+    background: #ffffff; border-radius: 10px; padding: 10px 16px;
+    border: 2px solid #ddd; display: flex; align-items: center;
+    gap: 10px; flex-shrink: 0; margin: 0 16px 8px; flex-wrap: wrap;
+}
+.broadcast-label { color: #666; font-weight: 900; font-size: 14px; margin-right: 6px; }
+.broadcast-panel button {
+    padding: 8px 16px; border-radius: 6px; font-weight: 700; font-size: 12px;
+    border: none; color: #333; white-space: nowrap;
+}
+.broadcast-panel button:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-arm      { background: #e0e0e0; }
+.btn-disarm   { background: #e0e0e0; }
+.btn-takeoff  { background: #e0e0e0; }
+.btn-land     { background: #e0e0e0; }
+.btn-connect  { background: #e0e0e0; }
+.btn-disconnect { background: #e0e0e0; }
+.takeoff-alt-input {
+    width: 52px; padding: 6px 4px; border-radius: 4px;
+    background: #ffffff; border: 1px solid #ddd; color: #333;
+    text-align: center; font-size: 12px;
+}
+.takeoff-alt-input:disabled { opacity: 0.45; cursor: not-allowed; }
+</style>
+</head>
+<body>
+
+
+
+<!-- ====== STATUS BAR ====== -->
+<div class="status-bar">
+    <span class="status-dot on"></span>
+    <span class="status-label">WebSocket</span>
+    <span class="status-value">● Connected</span>
+    <span style="color:#ddd;margin:0 6px;">|</span>
+    <span class="status-label">Backend</span>
+    <span class="status-value">Connected</span>
+    <span style="margin-left:auto;color:#666;">All Systems Nominal</span>
+</div>
+
+<!-- ====== ALERT BAR (dummy: 1 anomaly) ====== -->
+<div class="alert-bar alert-critical">
+    <span>⚠️</span>
+    <span>Drone-3 GPS NO_FIX (0 sats), Battery 18%</span>
+</div>
+
+<!-- ====== 4-COLUMN GRID ====== -->
+<div class="multi-drone-grid">
+
+    <!-- Drone 1: ARMED, GUIDED, 11.8V 72%, RTK_FIXED, 18 sats, alt 12.5m -->
+    <div class="drone-card armed">
+        <div class="card-header">
+            <span class="drone-label">DRONE 1</span>
+            <span class="conn-dot on"></span>
+        </div>
+        <div class="armed-badge-wrap">
+            <span class="armed-badge-large status-ok">● ARMED</span>
+        </div>
+        <div class="mode-display">GUIDED</div>
+        <div class="battery-compact">
+            <span class="battery-voltage">🔋 11.8V</span>
+            <div class="battery-gauge-mini">
+                <div class="battery-gauge-fill-mini green" style="width:72%"></div>
+            </div>
+            <span class="battery-pct">72%</span>
+        </div>
+        <div class="gps-compact">
+            <span class="gps-fix-badge status-ok">🛰 RTK_FIXED</span>
+            <span class="gps-altitude">▲ 12.5m</span>
+        </div>
+        <div class="gps-supplement">
+            <span>📡 18 sats</span>
+            <span>HDOP 0.55</span>
+            <span class="gps-coords-small">35.1234, 139.5678</span>
+        </div>
+        <div class="debug-box">
+            <div class="debug-msg error">⚠ EKF variance</div>
+            <div class="debug-msg warn">⚡ GPS glitch</div>
+            <div class="debug-msg info">✓ PreArm OK</div>
+        </div>
+        <button class="btn-emergency-land" disabled>🛑 EMERGENCY LAND</button>
+    </div>
+
+    <!-- Drone 2: DISARMED, LOITER, 10.8V 38%, 3D_FIX, 12 sats, alt 8.2m -->
+    <div class="drone-card">
+        <div class="card-header">
+            <span class="drone-label">DRONE 2</span>
+            <span class="conn-dot on"></span>
+        </div>
+        <div class="armed-badge-wrap">
+            <span class="armed-badge-large status-warn">○ DISARMED</span>
+        </div>
+        <div class="mode-display">LOITER</div>
+        <div class="battery-compact">
+            <span class="battery-voltage">🔋 10.8V</span>
+            <div class="battery-gauge-mini">
+                <div class="battery-gauge-fill-mini yellow" style="width:38%"></div>
+            </div>
+            <span class="battery-pct">38%</span>
+        </div>
+        <div class="gps-compact">
+            <span class="gps-fix-badge status-warn">🛰 3D_FIX</span>
+            <span class="gps-altitude">▲ 8.2m</span>
+        </div>
+        <div class="gps-supplement">
+            <span>📡 12 sats</span>
+            <span>HDOP 0.82</span>
+            <span class="gps-coords-small">35.1236, 139.5681</span>
+        </div>
+        <div class="debug-box">
+            <div class="debug-msg warn">⚡ Battery low</div>
+            <div class="debug-msg info">✓ PreArm OK</div>
+        </div>
+        <button class="btn-emergency-land" disabled>🛑 EMERGENCY LAND</button>
+    </div>
+
+    <!-- Drone 3: ARMED, LAND, 10.2V 18%, NO_FIX, 0 sats (alert) -->
+    <div class="drone-card armed">
+        <div class="card-header">
+            <span class="drone-label">DRONE 3</span>
+            <span class="conn-dot on"></span>
+        </div>
+        <div class="armed-badge-wrap">
+            <span class="armed-badge-large status-ok">● ARMED</span>
+        </div>
+        <div class="mode-display">LAND</div>
+        <div class="battery-compact">
+            <span class="battery-voltage">🔋 10.2V</span>
+            <div class="battery-gauge-mini">
+                <div class="battery-gauge-fill-mini red" style="width:18%"></div>
+            </div>
+            <span class="battery-pct" style="color:#e74c3c;">18%</span>
+        </div>
+        <div class="gps-compact">
+            <span class="gps-fix-badge status-bad">🛰 NO_FIX</span>
+            <span class="gps-altitude">▲ 0.3m</span>
+        </div>
+        <div class="gps-supplement">
+            <span style="color:#e74c3c;">📡 0 sats</span>
+            <span>HDOP --</span>
+            <span class="gps-coords-small">--, --</span>
+        </div>
+        <div class="debug-box">
+            <div class="debug-msg error">⚠ No GPS fix</div>
+            <div class="debug-msg warn">⚡ EKF lane reset</div>
+        </div>
+        <button class="btn-emergency-land" disabled>🛑 EMERGENCY LAND</button>
+    </div>
+
+    <!-- Drone 4: OFFLINE -->
+    <div class="drone-card offline">
+        <div class="card-header">
+            <span class="drone-label">DRONE 4</span>
+            <span class="conn-dot off"></span>
+        </div>
+        <div class="armed-badge-wrap">
+            <span class="armed-badge-large status-neutral">◎ OFFLINE</span>
+        </div>
+        <div class="mode-display">--</div>
+        <div class="battery-compact">
+            <span class="battery-voltage">🔋 --</span>
+            <div class="battery-gauge-mini">
+                <div class="battery-gauge-fill-mini" style="width:0%"></div>
+            </div>
+            <span class="battery-pct">--</span>
+        </div>
+        <div class="gps-compact">
+            <span class="gps-fix-badge status-bad">🛰 --</span>
+            <span class="gps-altitude">▲ --</span>
+        </div>
+        <div class="gps-supplement">
+            <span>📡 --</span>
+            <span>HDOP --</span>
+            <span class="gps-coords-small">--</span>
+        </div>
+        <div class="debug-box">
+        </div>
+        <button class="btn-emergency-land" disabled>--</button>
+    </div>
+
+</div><!-- end grid -->
+
+
+<!-- ====== RTK BASE STATION BAR ====== -->
+<div class="rtk-bar">
+    <span class="rtk-label">📡 RTK Base</span>
+    <span>Status: <span class="rtk-val">Connected</span></span>
+    <span>|</span>
+    <span>Messages: <span class="rtk-val">1,234</span></span>
+    <span>|</span>
+    <span>Reconnects: <span class="rtk-val">0</span></span>
+</div>
+
+<!-- ====== BROADCAST PANEL ====== -->
+<div class="broadcast-panel">
+    <span class="broadcast-label">📢 ALL DRONES</span>
+    <button class="btn-arm" disabled>🔓 ARM ALL</button>
+    <button class="btn-disarm" disabled>🔒 DISARM ALL</button>
+    <input type="number" class="takeoff-alt-input" value="10" disabled>
+    <button class="btn-takeoff" disabled>🚀 TAKEOFF ALL</button>
+    <button class="btn-land" disabled>🛬 LAND ALL</button>
+    <button class="btn-connect" disabled>🟢 Connect</button>
+    <button class="btn-disconnect" disabled>🔴 Disconnect</button>
+</div>
+
+</body>
+</html>

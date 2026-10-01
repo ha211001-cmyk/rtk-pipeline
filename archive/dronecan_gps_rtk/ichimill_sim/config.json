@@ -1,0 +1,9 @@
+{
+  "server": "ntrip.ales-corp.co.jp",
+  "port": 2101,
+  "mount_point": "RTCM32M7S",
+  "username": "6y8swddj",
+  "password": "xxu2w5",
+  "latitude": 36.077240,
+  "longitude": 136.211767
+}

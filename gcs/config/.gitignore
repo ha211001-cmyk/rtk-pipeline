@@ -1,0 +1,9 @@
+# 個人用設定上書き（シリアルポート等の環境依存値を置く）
+config.local.yaml
+gcs.user.local.yml
+
+# NTRIP 認証情報を含む個人用設定（テンプレートは *.example.yml で管理）
+rtk_forwarder_ntrip.yml
+
+__pycache__/
+*.pyc

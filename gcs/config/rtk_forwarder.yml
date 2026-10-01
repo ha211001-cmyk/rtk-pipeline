@@ -1,0 +1,52 @@
+# rtk_forwarder.yml — RTCM 転送サービス（rtk_forwarder_service.py）設定
+#
+# Mac 側の RTK 基地局（TCP:2101）から RTCM を受信し、Rover F9P の UART2
+# （例: /dev/ttyAMA4）へ注入する。
+#
+# 【認証情報の扱い】
+#   NTRIP の username / password はこのファイルに平文で書かない。
+#   ``${NTRIP_USER}`` / ``${NTRIP_PASSWORD}`` の形式で環境変数を参照する。
+#   環境変数が未設定の場合は空文字になり、ベーシック認証を送信しない。
+
+source:
+  # tcp / ntrip / serial
+  #   tcp   = 生TCPストリーム (rtk_base_station_v2.py の出力)
+  #   ntrip = NTRIP caster (HTTPハンドシェイク有り)
+  #   serial= シリアルポート直受け
+  source_type: tcp
+
+  # source_type: tcp の場合 → 基地局（Tailscale IP / host 名を明示）
+  host: 127.0.0.1
+  port: 2101
+
+  # source_type: ntrip の場合
+  mountpoint: ${NTRIP_MOUNTPOINT}
+  user_agent: NTRIP PythonClient
+  username: ${NTRIP_USER}
+  password: ${NTRIP_PASSWORD}
+
+  # source_type: serial の場合
+  serial_port: /dev/ttyAMA4
+  baudrate: 115200
+
+  # 共通
+  timeout_sec: 5.0
+
+forward:
+  # udp または serial
+  type: serial
+
+  # type: udp の場合
+  host: 127.0.0.1
+  port: 50010
+
+  # type: serial の場合（F9P Rover UART）
+  serial_port: /dev/ttyAMA4
+  baudrate: 115200
+
+retry:
+  reconnect_sec: 3.0
+
+log:
+  level: INFO
+  stats_interval_sec: 5

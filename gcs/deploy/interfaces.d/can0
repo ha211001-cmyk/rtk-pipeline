@@ -1,0 +1,13 @@
+# CAN0 — MCP2515 DroneCAN monitoring interface (ifupdown)
+#
+# Deploy: gcs/deploy/can_setup_raspi.sh --interfaces
+# Target: /etc/network/interfaces.d/can0
+#
+# NOTE: systemd-networkd (80-can0.network) を推奨。
+#       このファイルは ifupdown が必要な場合の代替。
+
+auto can0
+iface can0 inet manual
+    pre-up /sbin/ip link set can0 type can bitrate 1000000 listen-only on
+    up /sbin/ip link set up can0
+    down /sbin/ip link set down can0

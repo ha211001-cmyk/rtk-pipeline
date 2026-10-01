@@ -1,0 +1,32 @@
+# =============================================================================
+# tcp2serial.service — TCP→シリアル橋渡しサービス（systemd テンプレート）
+# =============================================================================
+# 【重要】このファイルはテンプレートです。直接 systemd へ配置しないでください。
+#   @INSTALL_DIR@ … EVK-F9P リポジトリルート（gcs/ の親ディレクトリ）
+#   @GCS_USER@    … 実行ユーザー（通常 pi など）
+# プレースホルダは deploy/install_tcp2serial_service.sh が自動置換して
+# /etc/systemd/system/ へインストールします。
+#
+# 役割:
+#   TCP（0.0.0.0:2102）で受けた RTCM3 バイト列を、そのまま F9P Rover の
+#   UART（/dev/ttyAMA4）へ注入する。設定は gcs/config/tcp2serial.yml を参照。
+#   自動再接続・ヘルスチェック・SIGTERM による graceful shutdown 対応。
+# =============================================================================
+
+[Unit]
+Description=TCP-to-Serial Bridge (tcp2serial) for F9P UART (EVK-F9P gcs)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=@GCS_USER@
+WorkingDirectory=@INSTALL_DIR@
+Environment=PYTHONUNBUFFERED=1
+ExecStart=@INSTALL_DIR@/.venv/bin/python -m gcs.rtk_tools.tcp2serial --config @INSTALL_DIR@/gcs/config/tcp2serial.yml
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

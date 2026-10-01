@@ -1,0 +1,22 @@
+# ============================================================================
+# gcs.user.local.example.yml — 個人用設定上書きのテンプレート
+# ============================================================================
+# このファイルを ``gcs.user.local.yml`` にコピーして、環境依存の値を上書きする。
+#
+# 優先順位（高いほど優先）:
+#   GCS_CONFIG_PATH > gcs.user.local.yml > gcs_local.yml > gcs.yml
+#
+# gcs.user.local.yml は .gitignore 対象（個人のシリアルポート / エンドポイントを
+# コミットしないため）。認証情報・シークレットはここに置かず、環境変数等で管理する。
+# ============================================================================
+
+# connection_type: udp            # "udp" または "serial"
+# udp_listen_port: 14550
+# serial_port: /dev/ttyACM0       # serial 接続時
+# serial_baudrate: 115200
+#
+# drones:
+#   drone1:
+#     system_id: 1
+#     endpoint: "127.0.0.1:14550"
+#     name: "Main Drone"

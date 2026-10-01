@@ -1,0 +1,73 @@
+[2026-08-09 04:58:36] INFO root: ============================================================
+[2026-08-09 04:58:36] INFO root: RTK Base Station via MAVLink 起動
+[2026-08-09 04:58:36] INFO root: ============================================================
+[2026-08-09 04:58:39] INFO root: F9Pポート自動検出: /dev/ttyACM2
+[2026-08-09 04:58:39] INFO root: 基地局座標 (動的): 60秒間単独測位
+[2026-08-09 04:58:39] INFO root: TMODE3を無効化しました（単独測位モード）
+[2026-08-09 04:58:45] INFO root: 単独測位開始: 60秒間 (/dev/ttyACM2)
+[2026-08-09 04:58:51] INFO root:   測位中... 経過: 5s / 残り: 55s | サンプル: 26 | 現在: lat=36.0755107 lon=136.2136643 alt=-53.9m
+[2026-08-09 04:58:56] INFO root:   測位中... 経過: 10s / 残り: 50s | サンプル: 52 | 現在: lat=36.0755420 lon=136.2136405 alt=-55.6m
+[2026-08-09 04:59:01] INFO root:   測位中... 経過: 15s / 残り: 45s | サンプル: 77 | 現在: lat=36.0755630 lon=136.2136225 alt=-56.5m
+[2026-08-09 04:59:06] INFO root:   測位中... 経過: 20s / 残り: 40s | サンプル: 101 | 現在: lat=36.0755810 lon=136.2136072 alt=-56.9m
+[2026-08-09 04:59:11] INFO root:   測位中... 経過: 26s / 残り: 34s | サンプル: 127 | 現在: lat=36.0755988 lon=136.2135948 alt=-57.5m
+[2026-08-09 04:59:16] INFO root:   測位中... 経過: 31s / 残り: 29s | サンプル: 153 | 現在: lat=36.0756150 lon=136.2135868 alt=-58.1m
+[2026-08-09 04:59:21] INFO root:   測位中... 経過: 36s / 残り: 24s | サンプル: 178 | 現在: lat=36.0756260 lon=136.2135812 alt=-58.3m
+[2026-08-09 04:59:26] INFO root:   測位中... 経過: 41s / 残り: 19s | サンプル: 203 | 現在: lat=36.0756320 lon=136.2135775 alt=-57.9m
+[2026-08-09 04:59:31] INFO root:   測位中... 経過: 46s / 残り: 14s | サンプル: 229 | 現在: lat=36.0756395 lon=136.2135738 alt=-57.7m
+[2026-08-09 04:59:36] INFO root:   測位中... 経過: 51s / 残り: 9s | サンプル: 254 | 現在: lat=36.0756455 lon=136.2135715 alt=-57.4m
+[2026-08-09 04:59:42] INFO root:   測位中... 経過: 56s / 残り: 4s | サンプル: 280 | 現在: lat=36.0756512 lon=136.2135703 alt=-57.0m
+[2026-08-09 04:59:45] INFO root: 単独測位完了: lat=36.0755967 lon=136.2136022 alt=-56.77m (samples=299, std_lat=5.534m, std_lon=3.080m, std_alt=1.527m)
+[2026-08-09 04:59:45] INFO root: 基地局座標 (動的): lat=36.0755967 lon=136.2136022 alt=-56.77m (samples=299)
+[2026-08-09 04:59:45] INFO root: F9P基地局モード設定を開始します...
+[2026-08-09 04:59:45] INFO root: =======================================================
+[2026-08-09 04:59:45] INFO root: F9P 基地局モード設定 (MSM7 RTCM3)
+[2026-08-09 04:59:45] INFO root: =======================================================
+[2026-08-09 04:59:46] INFO root: TMODE3 FIXED: lat=36.0755967 lon=136.2136022 alt=-56.8m
+[2026-08-09 04:59:48] INFO root: RTCM3設定: 33成功, 0失敗
+[2026-08-09 04:59:49] INFO root: F9Pの再起動を待機中 (5秒)...
+[2026-08-09 04:59:57] WARNING root: CFG-VALGET応答なし
+[2026-08-09 04:59:57] INFO root: --- RTCM MSGOUT 検証結果 ---
+[2026-08-09 04:59:57] INFO root: 総合結果: ⚠️ 問題あり ===============
+[2026-08-09 04:59:57] WARNING root: F9P基地局モード設定に一部問題があります ⚠️
+[2026-08-09 04:59:57] WARNING root: F9P設定に問題がありますが、続行します...
+[2026-08-09 05:00:02] INFO root: MAVLink接続: /dev/ttyAMA0 @ 1000000bps (RTS/CTS: True)
+[2026-08-09 05:00:03] INFO root: MAVLink接続完了: /dev/ttyAMA0 @ 1000000bps (system=1, component=0)
+[2026-08-09 05:00:04] INFO root: GPSデータストリーム受信開始 (10Hz)
+[2026-08-09 05:00:05] INFO root: RTCMログファイル: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260809_050005.rtcm3
+[2026-08-09 05:00:05] INFO root: RTCM受信開始: /dev/ttyACM2 @ 115200bps
+[2026-08-09 05:00:05] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:06] INFO root: 🚀 システム起動完了。RTCM注入を開始します。
+[2026-08-09 05:00:06] INFO root: RTCM注入ループ開始
+[2026-08-09 05:00:07] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:09] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:11] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:13] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:15] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:17] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:19] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:21] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:23] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:24] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-09 05:00:24] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-09 05:00:24] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-09 05:00:25] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:27] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:29] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:31] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:33] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:35] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:37] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:39] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:41] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:43] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:45] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:47] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:49] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:51] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:51] INFO root: システム停止中...
+[2026-08-09 05:00:53] WARNING root: シリアルポートオープン失敗: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'（再試行中...）
+[2026-08-09 05:00:55] INFO root: 受信ループ終了
+[2026-08-09 05:00:55] INFO root: RTCMログファイルを閉じました: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260809_050005.rtcm3
+[2026-08-09 05:00:55] INFO root: RTCM受信停止: bytes=0, frames=0, errors=25
+[2026-08-09 05:00:55] INFO root: MAVLink切断
+[2026-08-09 05:00:55] INFO root: システム停止完了

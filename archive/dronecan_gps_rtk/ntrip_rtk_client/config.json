@@ -1,0 +1,15 @@
+{
+  "mavlink": {
+    "port": "/dev/ttyAMA0",
+    "baud": 921600,
+    "rtscts": true
+  },
+  "ntrip": {
+    "server": "ntrip.ales-corp.co.jp",
+    "port": 2101,
+    "mount_point": "RTCM32M7S",
+    "username": "6y8swddj",
+    "password": "xxu2w5"
+  },
+  "gga_send_interval": 1.0
+}

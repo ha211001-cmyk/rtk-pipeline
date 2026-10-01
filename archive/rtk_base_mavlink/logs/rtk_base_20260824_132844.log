@@ -1,0 +1,79 @@
+[2026-08-24 13:28:44] INFO root: ============================================================
+[2026-08-24 13:28:44] INFO root: RTK Base Station via MAVLink 起動
+[2026-08-24 13:28:44] INFO root: ============================================================
+[2026-08-24 13:28:44] INFO root: F9Pポート自動検出: /dev/ttyACM0
+[2026-08-24 13:28:44] INFO root: 基地局座標 (動的): 60秒間単独測位
+[2026-08-24 13:28:45] INFO root: TMODE3を無効化しました（単独測位モード）
+[2026-08-24 13:28:50] INFO root: 単独測位開始: 60秒間 (/dev/ttyACM0)
+[2026-08-24 13:28:56] INFO root:   測位中... 経過: 5s / 残り: 55s | サンプル: 26 | 現在: lat=36.0756952 lon=136.2134455 alt=1.5m
+[2026-08-24 13:29:01] INFO root:   測位中... 経過: 10s / 残り: 50s | サンプル: 51 | 現在: lat=36.0757167 lon=136.2134077 alt=0.7m
+[2026-08-24 13:29:06] INFO root:   測位中... 経過: 15s / 残り: 45s | サンプル: 77 | 現在: lat=36.0757267 lon=136.2133935 alt=1.2m
+[2026-08-24 13:29:11] INFO root:   測位中... 経過: 20s / 残り: 40s | サンプル: 103 | 現在: lat=36.0757310 lon=136.2133897 alt=2.3m
+[2026-08-24 13:29:16] INFO root:   測位中... 経過: 26s / 残り: 34s | サンプル: 129 | 現在: lat=36.0757330 lon=136.2133877 alt=3.3m
+[2026-08-24 13:29:21] INFO root:   測位中... 経過: 31s / 残り: 29s | サンプル: 154 | 現在: lat=36.0757348 lon=136.2133878 alt=4.3m
+[2026-08-24 13:29:27] INFO root:   測位中... 経過: 36s / 残り: 24s | サンプル: 180 | 現在: lat=36.0757367 lon=136.2133882 alt=5.3m
+[2026-08-24 13:29:32] INFO root:   測位中... 経過: 41s / 残り: 19s | サンプル: 205 | 現在: lat=36.0757388 lon=136.2133865 alt=6.2m
+[2026-08-24 13:29:37] INFO root:   測位中... 経過: 46s / 残り: 14s | サンプル: 231 | 現在: lat=36.0757388 lon=136.2133875 alt=7.3m
+[2026-08-24 13:29:42] INFO root:   測位中... 経過: 51s / 残り: 9s | サンプル: 256 | 現在: lat=36.0757365 lon=136.2133902 alt=8.8m
+[2026-08-24 13:29:47] INFO root:   測位中... 経過: 56s / 残り: 4s | サンプル: 282 | 現在: lat=36.0757350 lon=136.2133912 alt=9.9m
+[2026-08-24 13:29:51] INFO root: 単独測位完了: lat=36.0757269 lon=136.2133998 alt=4.69m (samples=300, std_lat=1.948m, std_lon=2.304m, std_alt=3.073m)
+[2026-08-24 13:29:51] INFO root: 基地局座標 (動的): lat=36.0757269 lon=136.2133998 alt=4.69m (samples=300)
+[2026-08-24 13:29:51] INFO root: F9P基地局モード設定を開始します...
+[2026-08-24 13:29:51] INFO root: =======================================================
+[2026-08-24 13:29:51] INFO root: F9P 基地局モード設定 (MSM7 RTCM3)
+[2026-08-24 13:29:51] INFO root: =======================================================
+[2026-08-24 13:29:51] INFO root: TMODE3 FIXED: lat=36.0757269 lon=136.2133998 alt=4.7m
+[2026-08-24 13:29:54] INFO root: RTCM3設定: 33成功, 0失敗
+[2026-08-24 13:29:55] INFO root: F9Pの再起動を待機中 (5秒)...
+[2026-08-24 13:30:00] WARNING root: 設定検証をスキップします（ポート未接続: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'）
+[2026-08-24 13:30:00] INFO root: --- RTCM MSGOUT 検証結果 ---
+[2026-08-24 13:30:00] INFO root: (検証スキップ)
+[2026-08-24 13:30:00] INFO root: 総合結果: ✅ 全設定OK ===============
+[2026-08-24 13:30:00] INFO root: F9P基地局モード設定完了 ✅
+[2026-08-24 13:30:05] INFO root: MAVLink接続: /dev/ttyAMA0 @ 921600bps (RTS/CTS: True)
+[2026-08-24 13:30:06] INFO root: MAVLink接続完了: /dev/ttyAMA0 @ 921600bps (system=1, component=0)
+[2026-08-24 13:30:06] INFO root: GPSデータストリーム受信開始 (10Hz)
+[2026-08-24 13:30:07] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:30:07] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:120>100)
+[2026-08-24 13:30:07] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:30:07] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:30:07] INFO root: RTCM受信用ポート再検出: /dev/ttyACM0
+[2026-08-24 13:30:07] INFO root: RTCMログファイル: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260824_133007.rtcm3
+[2026-08-24 13:30:07] INFO root: RTCM受信開始: /dev/ttyACM0 @ 115200bps
+[2026-08-24 13:30:07] INFO root: シリアルポートオープン: /dev/ttyACM0
+[2026-08-24 13:30:08] INFO root: 🚀 システム起動完了。RTCM注入を開始します。
+[2026-08-24 13:30:08] INFO root: RTCM注入ループ開始
+[2026-08-24 13:30:38] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:30:38] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:120>100)
+[2026-08-24 13:30:38] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:30:38] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:31:09] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:31:09] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:123>100)
+[2026-08-24 13:31:09] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:31:09] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:31:40] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:31:40] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:121>100)
+[2026-08-24 13:31:40] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:31:40] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:32:11] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:32:11] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:122>100)
+[2026-08-24 13:32:11] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:32:11] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:32:42] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:32:42] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:124>100)
+[2026-08-24 13:32:42] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:32:42] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:33:13] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:33:13] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:121>100)
+[2026-08-24 13:33:13] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:33:13] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:33:44] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-24 13:33:44] INFO root: [ArduPilot] PreArm: Check mag field (xy diff:121>100)
+[2026-08-24 13:33:44] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-24 13:33:44] INFO root: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[2026-08-24 13:33:50] INFO root: システム停止中...
+[2026-08-24 13:33:52] INFO root: 受信ループ終了
+[2026-08-24 13:33:52] INFO root: RTCMログファイルを閉じました: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260824_133007.rtcm3
+[2026-08-24 13:33:52] INFO root: RTCM受信停止: bytes=1438627, frames=6714, errors=0
+[2026-08-24 13:33:52] INFO root: MAVLink切断
+[2026-08-24 13:33:52] INFO root: システム停止完了

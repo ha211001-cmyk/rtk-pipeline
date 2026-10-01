@@ -1,0 +1,16 @@
+# GCS Configuration
+# Connection type: 'udp' (default) or 'serial' (for direct Pixhawk connection)
+connection_type: serial
+
+# Serial connection settings (for Pixhawk via USB)
+serial_port: /dev/ttyACM0
+serial_baudrate: 115200
+
+# UDP settings (if connection_type is 'udp')
+udp_listen_port: 14550
+drones:
+  drone1:
+    system_id: 1
+    endpoint: "127.0.0.1:14550"
+
+# RTCM/RTK settings

@@ -1,0 +1,51 @@
+======================================================================
+ Step 1: F9P基地局 RTCMログ解析結果（最終版）
+======================================================================
+
+【初期検証（_UART1設定のみ・USBポート未設定）】
+原因: USBポート（/dev/ttyACM2）向け設定キーが欠落していたため、
+工場出荷設定（MSM4 + 1005 + 4072）が出力され続けた。
+
+ファイル: /home/taki/EVK-F9P/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_164820.rtcm3
+  サイズ: 12,080 bytes
+  0xD3同期バイト: 213
+  メッセージ数: 170 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1005 (Stationary RTK Reference Station ARP): 57
+    Type 1074 (GPS MSM4): 56
+    Type 4072 (u-blox Proprietary): 57
+  基地局座標:
+    局ID: 0
+    ECEF: X=-3725930.3000, Y=3571372.8400, Z=3734960.1900
+    LLH: 36.0751418°, 136.2133477°, 44.80m
+
+【最終検証（USB+UART1 両方に MSM7 設定後）】
+f9p_configurator_v2.py に _USB 向け設定を追加し、全 MSM7 + QZSS を有効化。
+
+ファイル: /home/taki/EVK-F9P/base_station_verify/rtcm_compare/logs/rtcm_raw_20260808_181910.rtcm3
+  サイズ: 40,187 bytes
+  0xD3同期バイト: 462
+  メッセージ数: 393 (エラー: 0)
+  メッセージタイプ分布:
+    Type 1006 (Station ARP with antenna height): 56
+    Type 1074 (GPS MSM4): 56（MSM7と重複のため無効化推奨）
+    Type 1077 (GPS MSM7): 56
+    Type 1087 (GLONASS MSM7): 57
+    Type 1097 (Galileo MSM7): 56
+    Type 1127 (BeiDou MSM7): 56
+    Type 1230 (GLONASS Bias): 56
+  基地局座標（Type 1006）:
+    局ID: 0
+    ECEF: X=-3725930.3000, Y=3571372.8400, Z=3734960.1900
+    LLH: 36.0751418°, 136.2133477°, 44.80m
+    座標変動: 0.0000 m（完全安定）✅
+
+【QZSS (1117) 追加後】
+MSM7 出力確認後、QZSS MSM7 (Type 1117) を _RTCM3_ENABLE に追加。
+GPS/GLO/GAL/QZSS/BDS の全5コンステレーション MSM7 出力に対応。
+
+==================== 最終結論 ====================
+  ✅ ZED-F9P は基地局モードで全 MSM7（1077/1087/1097/1117/1127）を出力可能
+  ✅ Type 1006（アンテナ高付き）出力可能
+  ✅ 初期の「MSM7出力非対応」結論は誤り。原因はポート別設定キーの欠落
+================================================

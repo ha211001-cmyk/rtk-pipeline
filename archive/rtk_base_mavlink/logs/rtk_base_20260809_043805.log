@@ -1,0 +1,43 @@
+[2026-08-09 04:38:05] INFO root: ============================================================
+[2026-08-09 04:38:05] INFO root: RTK Base Station via MAVLink 起動
+[2026-08-09 04:38:05] INFO root: ============================================================
+[2026-08-09 04:38:08] INFO root: F9Pポート自動検出: /dev/ttyACM2
+[2026-08-09 04:38:08] INFO root: 基地局座標 (静的): lat=36.0751418 lon=136.2133477 alt=44.80m
+[2026-08-09 04:38:08] INFO root: F9P基地局モード設定を開始します...
+[2026-08-09 04:38:08] INFO root: =======================================================
+[2026-08-09 04:38:08] INFO root: F9P 基地局モード設定 (MSM7 RTCM3)
+[2026-08-09 04:38:08] INFO root: =======================================================
+[2026-08-09 04:38:08] INFO root: TMODE3 FIXED: lat=36.0751418 lon=136.2133477 alt=44.8m
+[2026-08-09 04:38:10] INFO root: RTCM3設定: 33成功, 0失敗
+[2026-08-09 04:38:12] INFO root: F9Pの再起動を待機中 (5秒)...
+[2026-08-09 04:38:17] WARNING root: 設定検証をスキップします（ポート未接続: [Errno 2] could not open port /dev/ttyACM2: [Errno 2] No such file or directory: '/dev/ttyACM2'）
+[2026-08-09 04:38:17] INFO root: --- RTCM MSGOUT 検証結果 ---
+[2026-08-09 04:38:17] INFO root: (検証スキップ)
+[2026-08-09 04:38:17] INFO root: 総合結果: ✅ 全設定OK ===============
+[2026-08-09 04:38:17] INFO root: F9P基地局モード設定完了 ✅
+[2026-08-09 04:38:22] INFO root: MAVLink接続: /dev/ttyAMA0 @ 1000000bps (RTS/CTS: True)
+[2026-08-09 04:38:22] INFO root: MAVLink接続完了: /dev/ttyAMA0 @ 1000000bps (system=1, component=0)
+[2026-08-09 04:38:22] INFO root: GPSデータストリーム受信開始 (10Hz)
+[2026-08-09 04:38:23] INFO root: RTCMログファイル: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260809_043823.rtcm3
+[2026-08-09 04:38:23] INFO root: RTCM受信開始: /dev/ttyACM2 @ 115200bps
+[2026-08-09 04:38:23] INFO root: シリアルポートオープン: /dev/ttyACM2
+[2026-08-09 04:38:24] INFO root: 🚀 システム起動完了。RTCM注入を開始します。
+[2026-08-09 04:38:24] INFO root: RTCM注入ループ開始
+[2026-08-09 04:38:42] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-09 04:38:42] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-09 04:38:42] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-09 04:39:13] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-09 04:39:13] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-09 04:39:13] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-09 04:39:44] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-09 04:39:44] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-09 04:39:44] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-09 04:40:15] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-09 04:40:15] INFO root: [ArduPilot] PreArm: EKF attitude is bad
+[2026-08-09 04:40:15] INFO root: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-08-09 04:40:42] INFO root: システム停止中...
+[2026-08-09 04:40:44] INFO root: 受信ループ終了
+[2026-08-09 04:40:44] INFO root: RTCMログファイルを閉じました: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260809_043823.rtcm3
+[2026-08-09 04:40:44] INFO root: RTCM受信停止: bytes=743195, frames=3931, errors=0
+[2026-08-09 04:40:44] INFO root: MAVLink切断
+[2026-08-09 04:40:44] INFO root: システム停止完了

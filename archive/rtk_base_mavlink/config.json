@@ -1,0 +1,28 @@
+{
+    "f9p_base": {
+        "serial_port": "/dev/ttyACM2",
+        "auto_detect_port": true,
+        "baudrate": 115200,
+        "config_baudrate": 38400,
+        "mode": "dynamic",
+        "fixed_lat": 36.0751418,
+        "fixed_lon": 136.2133477,
+        "fixed_alt": 44.80,
+        "auto_obs_duration": 60,
+        "skip_config": false,
+        "save_to_flash": true
+    },
+    "mavlink": {
+        "port": "/dev/ttyAMA0",
+        "baud": 921600,
+        "rtscts": true
+    },
+    "rtcm_inject": {
+        "max_packet_size": 180,
+        "max_fragments": 4,
+        "target_system": 1,
+        "target_component": 1
+    },
+    "gga_send_interval": 1.0,
+    "log_level": "INFO"
+}

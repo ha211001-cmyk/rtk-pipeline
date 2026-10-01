@@ -1,0 +1,31 @@
+# =============================================================================
+# rtk-uart4-inject.service — RTK UART4 直接注入サービス（systemd テンプレート）
+# =============================================================================
+# 【重要】このファイルはテンプレートです。直接 systemd へ配置しないでください。
+#   @INSTALL_DIR@ … EVK-F9P リポジトリルート（gcs/ の親ディレクトリ）
+#   @GCS_USER@    … 実行ユーザー（通常 pi など）
+# プレースホルダは deploy/install_rtk_uart4_service.sh が自動置換して
+# /etc/systemd/system/ へインストールします。
+#
+# 役割:
+#   基地局（Mac 側 rtk_base_station_v2 など）が配信する生 TCP ストリーム
+#   （TCP:2101）を RTCM 受信し、Rover F9P の UART（/dev/ttyAMA4）へ注入する。
+#   設定は gcs/config/rtk_forwarder.yml を参照（認証情報は環境変数参照）。
+# =============================================================================
+
+[Unit]
+Description=RTK UART4 Direct Injection Service (EVK-F9P gcs)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=@GCS_USER@
+WorkingDirectory=@INSTALL_DIR@
+Environment=PYTHONUNBUFFERED=1
+ExecStartPre=/bin/sleep 10
+ExecStart=@INSTALL_DIR@/.venv/bin/python -m gcs.rtk_tools.rtk_forwarder_service --config @INSTALL_DIR@/gcs/config/rtk_forwarder.yml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

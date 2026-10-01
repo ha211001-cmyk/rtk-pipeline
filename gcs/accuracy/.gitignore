@@ -1,0 +1,7 @@
+# 相対測位精度実測（Phase 2.5）の出力（レポートはコミットしない）
+reports/
+logs/
+*.csv
+
+__pycache__/
+*.pyc

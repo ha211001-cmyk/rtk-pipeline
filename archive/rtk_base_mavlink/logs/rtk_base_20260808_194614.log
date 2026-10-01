@@ -1,0 +1,15 @@
+[2026-08-08 19:46:14] INFO root: ============================================================
+[2026-08-08 19:46:14] INFO root: RTK Base Station via MAVLink 起動
+[2026-08-08 19:46:14] INFO root: ============================================================
+[2026-08-08 19:46:14] INFO root: F9Pポート (設定値): /dev/ttyACM2
+[2026-08-08 19:46:14] INFO root: 基地局座標 (静的): lat=36.0751418 lon=136.2133477 alt=44.80m
+[2026-08-08 19:46:14] INFO root: MAVLink接続: /dev/ttyAMA0 @ 1000000bps (RTS/CTS: True)
+[2026-08-08 19:46:15] INFO root: MAVLink接続完了: /dev/ttyAMA0 @ 1000000bps (system=1, component=0)
+[2026-08-08 19:46:15] INFO root: GPSデータストリーム受信開始 (10Hz)
+[2026-08-08 19:46:16] INFO root: RTCMログファイル: /home/taki/EVK-F9P/rtk_base_mavlink/logs/rtcm_raw_20260808_194616.rtcm3
+[2026-08-08 19:46:16] INFO root: RTCM受信開始: /dev/ttyACM2 @ 115200bps
+[2026-08-08 19:46:16] INFO root: シリアルポートオープン: /dev/ttyACM2
+[2026-08-08 19:46:17] INFO root: 🚀 システム起動完了。RTCM注入を開始します。
+[2026-08-08 19:46:17] INFO root: RTCM注入ループ開始
+[2026-08-08 19:46:31] INFO root: [ArduPilot] PreArm: RC not found
+[2026-08-08 19:46:31] INFO root: [ArduPilot] PreArm: EKF attitude is bad

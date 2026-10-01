@@ -1,0 +1,16 @@
+[2026-09-28 21:55:49,995] INFO api.websocket: WS client disconnected (telemetry)
+[2026-09-28 21:55:50,072] INFO api.websocket: WS client removed. Total: 0
+[2026-09-28 21:55:55,407] INFO api.websocket: WS client connected (telemetry). Total: 1
+[2026-09-28 22:13:29,230] INFO api.operations: WS client connected (ops). Total: 1
+[2026-09-28 22:16:32,175] INFO api.operations: WS client disconnected (ops)
+[2026-09-28 22:16:32,178] INFO api.websocket: WS client disconnected (telemetry)
+[2026-09-28 22:16:32,178] INFO api.websocket: WS client removed. Total: 0
+[2026-09-28 22:16:37,960] INFO api.websocket: WS client connected (telemetry). Total: 1
+[2026-09-28 22:17:11,367] INFO api.operations: WS client connected (ops). Total: 1
+[2026-09-28 23:25:33,748] INFO api.websocket: WS client disconnected (telemetry)
+[2026-09-28 23:25:33,752] INFO api.websocket: WS client removed. Total: 0
+[2026-09-28 23:25:33,753] INFO api.operations: WS client disconnected (ops)
+[2026-09-28 23:25:33,753] ERROR api.operations: ops broadcast error: Set changed size during iteration
+[2026-09-29 15:30:58,700] INFO server: === GCS Web Server starting (lightweight) ===
+[2026-09-29 15:30:58,700] INFO server: === GCS Web Server started (0.0.0.0:8000) ===
+    Backend not connected. Use POST /api/connect to connect.

@@ -1,0 +1,29 @@
+{
+    "connection": {
+        "type": "serial",
+        "port": "/dev/ttyAMA0",
+        "baud": 921600,
+        "rtscts": true,
+        "description": "Pixhawk6C TELEM1 port (1Mbps with hardware flow control)"
+    },
+    "dronecan_gps": {
+        "module": "Holybro DroneCAN H-RTK F9P Helical",
+        "gnss_chip": "u-blox ZED-F9P",
+        "protocol": "DroneCAN 1Mbit/s",
+        "can_port": "CAN1"
+    },
+    "parameters": {
+        "CAN_P1_DRIVER": 1,
+        "CAN_D1_PROTOCOL": 1,
+        "GPS_AUTO_CONFIG": 2,
+        "GPS_PRIMARY": 0,
+        "COMPASS_USE": 0,
+        "COMPASS_USE2": 1,
+        "COMPASS_ENABLE": 1
+    },
+    "notes": {
+        "power": "CAN経由で給電（~250mA）",
+        "environment": "ベランダ（GPS衛星数制限あり）",
+        "ardupilot_version_required": "4.4.4+"
+    }
+}

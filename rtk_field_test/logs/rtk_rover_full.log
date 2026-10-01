@@ -1,0 +1,94 @@
+============================================================
+UDP受信 → MAVLink GPS_RTCM_DATA 注入（移動局側）
+============================================================
+[2026-09-27 20:52:07,816] MavlinkComm: MAVLink接続完了: /dev/ttyAMA0 @ 921600bps (system=1, component=0)
+[INFO] CLOCAL 設定済み（受信ハングアップ対策）
+[2026-09-27 20:52:08,624] MavlinkComm: GPSデータストリーム受信開始 (10Hz)
+[INFO] このラズパイのIP: 192.168.11.50
+       → MacBook側 udp_base_sender.py の --host にこのIPを指定
+============================================================
+UDP受信待機中: 0.0.0.0:50010
+連番ヘッダ解析: 無効
+Ctrl+C で終了
+============================================================
+[STATUS 20:52:14] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757067,136.2135095 | 最終RTCMから5.0秒
+[STATUS 20:52:19] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757070,136.2135092 | 最終RTCMから10.0秒
+[STATUS 20:52:24] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757075,136.2135092 | 最終RTCMから15.0秒
+[STATUS 20:52:29] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757080,136.2135091 | 最終RTCMから20.0秒
+[2026-09-27 20:52:30,344] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:52:30,345] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:122>100)
+[2026-09-27 20:52:30,345] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:52:34] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757087,136.2135095 | 最終RTCMから25.0秒
+[STATUS 20:52:39] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757093,136.2135095 | 最終RTCMから30.0秒
+[STATUS 20:52:44] injected=0 dropped=0 frames_recv=0 bytes=0 | UDP recv=0 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0757099,136.2135100 | 最終RTCMから35.0秒
+[STATUS 20:52:50] injected=97 dropped=0 frames_recv=97 bytes=12726 | UDP recv=97 lost=0 (loss 0.00%) | GPS:RTK_FLOAT sats=26 nsats=0 base=? pos=36.0756933,136.2134746 | 最終RTCMから0.0秒
+[STATUS 20:52:55] injected=248 dropped=0 frames_recv=248 bytes=32361 | UDP recv=248 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:53:00] injected=413 dropped=0 frames_recv=413 bytes=53776 | UDP recv=413 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[2026-09-27 20:53:01,345] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:53:01,346] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:115>100)
+[2026-09-27 20:53:01,346] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:53:01,347] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:53:05] injected=564 dropped=0 frames_recv=564 bytes=73186 | UDP recv=564 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=25 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:53:10] injected=720 dropped=0 frames_recv=720 bytes=93653 | UDP recv=720 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=25 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:53:16] injected=890 dropped=0 frames_recv=890 bytes=115852 | UDP recv=890 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:53:21] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756497,136.2134582 | 最終RTCMから5.0秒
+[STATUS 20:53:26] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756498,136.2134582 | 最終RTCMから10.0秒
+[STATUS 20:53:31] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756499,136.2134583 | 最終RTCMから15.0秒
+[2026-09-27 20:53:32,346] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:53:32,347] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:120>100)
+[2026-09-27 20:53:32,347] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:53:32,348] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:53:36] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756500,136.2134583 | 最終RTCMから20.0秒
+[STATUS 20:53:41] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756501,136.2134584 | 最終RTCMから25.0秒
+[STATUS 20:53:46] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756502,136.2134583 | 最終RTCMから30.0秒
+[STATUS 20:53:51] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756503,136.2134584 | 最終RTCMから35.0秒
+[STATUS 20:53:56] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756503,136.2134585 | 最終RTCMから40.0秒
+[STATUS 20:54:01] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756504,136.2134586 | 最終RTCMから45.0秒
+[2026-09-27 20:54:03,348] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:54:03,348] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:119>100)
+[2026-09-27 20:54:03,349] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:54:03,349] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:54:06] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756505,136.2134586 | 最終RTCMから50.1秒
+[STATUS 20:54:11] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=26 nsats=0 base=? pos=36.0756506,136.2134586 | 最終RTCMから55.1秒
+[STATUS 20:54:16] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0756589,136.2134813 | 最終RTCMから60.1秒
+[STATUS 20:54:21] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0756680,136.2135089 | 最終RTCMから65.1秒
+[STATUS 20:54:26] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756727,136.2135099 | 最終RTCMから70.1秒
+[STATUS 20:54:31] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756774,136.2135091 | 最終RTCMから75.1秒
+[2026-09-27 20:54:34,348] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:54:34,348] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:115>100)
+[2026-09-27 20:54:34,352] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:54:34,352] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:54:36] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=26 nsats=0 base=? pos=36.0756811,136.2135074 | 最終RTCMから80.1秒
+[STATUS 20:54:41] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756847,136.2135059 | 最終RTCMから85.1秒
+[STATUS 20:54:46] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756880,136.2135043 | 最終RTCMから90.1秒
+[STATUS 20:54:51] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756910,136.2135031 | 最終RTCMから95.1秒
+[STATUS 20:54:56] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756936,136.2135021 | 最終RTCMから100.1秒
+[STATUS 20:55:01] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756956,136.2135012 | 最終RTCMから105.1秒
+[2026-09-27 20:55:05,349] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:55:05,349] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:117>100)
+[2026-09-27 20:55:05,350] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:55:05,351] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:55:06] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756972,136.2135009 | 最終RTCMから110.1秒
+[STATUS 20:55:11] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756978,136.2135011 | 最終RTCMから115.1秒
+[STATUS 20:55:16] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756985,136.2135011 | 最終RTCMから120.1秒
+[STATUS 20:55:21] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756993,136.2135013 | 最終RTCMから125.1秒
+[STATUS 20:55:26] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756998,136.2135012 | 最終RTCMから130.1秒
+[STATUS 20:55:31] injected=910 dropped=0 frames_recv=910 bytes=118328 | UDP recv=910 lost=0 (loss 0.00%) | GPS:3D_FIX sats=27 nsats=0 base=? pos=36.0756996,136.2135010 | 最終RTCMから135.1秒
+[2026-09-27 20:55:36,351] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:55:36,352] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:112>100)
+[2026-09-27 20:55:36,352] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:55:36,353] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:55:36] injected=1003 dropped=0 frames_recv=1003 bytes=130321 | UDP recv=1003 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:55:42] injected=1164 dropped=0 frames_recv=1164 bytes=151952 | UDP recv=1164 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:55:47] injected=1312 dropped=0 frames_recv=1312 bytes=171400 | UDP recv=1312 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:55:52] injected=1477 dropped=0 frames_recv=1477 bytes=193285 | UDP recv=1477 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:55:58] injected=1642 dropped=0 frames_recv=1642 bytes=214905 | UDP recv=1642 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:56:03] injected=1810 dropped=0 frames_recv=1810 bytes=237053 | UDP recv=1810 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[2026-09-27 20:56:07,351] MavlinkComm: [ArduPilot] PreArm: EKF attitude is bad
+[2026-09-27 20:56:07,351] MavlinkComm: [ArduPilot] PreArm: Check mag field (xy diff:115>100)
+[2026-09-27 20:56:07,352] MavlinkComm: [ArduPilot] PreArm: AHRS: EKF3 core 0 unhealthy
+[2026-09-27 20:56:07,353] MavlinkComm: [ArduPilot] PreArm: Battery 1 below minimum arming voltage
+[STATUS 20:56:09] injected=1972 dropped=0 frames_recv=1972 bytes=258410 | UDP recv=1972 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:56:14] injected=2138 dropped=0 frames_recv=2138 bytes=280521 | UDP recv=2138 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:56:20] injected=2303 dropped=0 frames_recv=2303 bytes=301921 | UDP recv=2303 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒
+[STATUS 20:56:25] injected=2471 dropped=0 frames_recv=2471 bytes=324069 | UDP recv=2471 lost=0 (loss 0.00%) | GPS:RTK_FIXED sats=27 nsats=0 base=? pos=36.0756497,136.2134581 | 最終RTCMから0.0秒

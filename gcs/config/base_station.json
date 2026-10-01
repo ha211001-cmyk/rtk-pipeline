@@ -1,0 +1,10 @@
+{
+    "mode": "manual",
+    "serial_port": "/dev/cu.usbmodem112301",
+    "baudrate": 115200,
+    "fixed_lat": 36.0746516,
+    "fixed_lon": 136.2096459,
+    "fixed_alt": 46.92,
+    "save_to_flash": false,
+    "auto_obs_duration": 300
+}

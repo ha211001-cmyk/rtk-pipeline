@@ -1,0 +1,57 @@
+# ============================================================================
+# gcs/config/config.yaml — Item 7 一元設定（統合テスト用）
+# ============================================================================
+# Phase 1 統合テスト（gcs/integration/runner.py）が読み込む一元設定。
+# 座標・ポート・閾値・PASS/FAIL 判定基準をここに集約する。
+#
+# ・個人差のある値（シリアルポート等）は config.local.yaml（gitignore 対象）へ
+#   上書きしてください（deep merge される）。
+# ・キーを省略しても DEFAULT_CONFIG（loader.py）の既定値で補完されます。
+# ============================================================================
+
+# --- 基地局 F9P -------------------------------------------------------------
+base_station:
+  serial_port: null          # 省略時は自動検出（例: /dev/ttyACM2, /dev/cu.usbmodemXXXX）
+  baudrate: 115200           # RTCM 読み取り用ボーレート
+  config_baudrate: 38400     # 基地局設定（TMODE3 等）時のボーレート
+  fixed_lat: 36.0751418      # 基準座標（福井大学）
+  fixed_lon: 136.2133477
+  fixed_alt: 44.80           # 楕円体高 HAE [m]
+  save_to_flash: true        # Flash 保存（再起動後も維持）
+  setup: false               # true にするとランナー起動時に基地局を設定（Phase 0）
+
+# --- ローバー F9P -----------------------------------------------------------
+rover:
+  serial_port: null          # 省略時は自動検出
+  baudrate: 115200
+  mavlink_port: null         # Pixhawk 経由も併用する場合のみ（最小構成では不要）
+  mavlink_baud: 921600
+
+# --- ① コンフィグ自動診断の接続先 -----------------------------------------
+forward:
+  mode: serial               # "serial"（F9P 直結）または "tcp"（DroneCAN Serial Forwarding）
+  host: 127.0.0.1            # mode=tcp 時のホスト
+  port: 5001                 # mode=tcp 時のポート
+  baudrate: 115200           # mode=serial 時のボーレート
+
+# --- 観測パラメータ ---------------------------------------------------------
+monitor:
+  duration_sec: 600.0        # 観測時間 [秒]
+  sample_interval_sec: 1.0   # fix_type サンプリング間隔 [秒]
+  display_interval_sec: 5.0  # 進捗表示間隔 [秒]
+  age_alert_threshold: 10.0  # RTK age アラート閾値 [秒]
+  age_warn_threshold: 5.0    # RTK age 警告閾値 [秒]
+  crc_alert_rate_pct: 5.0    # CRC エラー率アラート閾値 [%]
+  used_alert_ratio_pct: 50.0 # msgUsed=使用済み 比率の下限 [%]
+
+# --- PASS/FAIL 判定基準 -----------------------------------------------------
+pass_criteria:
+  fixed_rate_pct_min: 80.0   # FIXED 維持率の下限 [%]
+  max_float_transitions: 5   # FLOAT 遷移回数の上限
+  ttff_sec_max: 120.0        # TTFF の上限 [秒]
+  require_phase1: true       # ① が FAIL なら全体も FAIL にするか
+
+# --- レポート出力 -----------------------------------------------------------
+report:
+  output_dir: null           # 省略時: gcs/integration/reports
+  json: true                 # JSON レポートを出力するか

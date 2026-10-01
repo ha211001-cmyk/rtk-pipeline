@@ -1,0 +1,6 @@
+# Phase 3 ランナーの出力（レポート・ログはコミットしない）
+reports/
+logs/
+
+__pycache__/
+*.pyc

@@ -1,0 +1,55 @@
+PPKログ品質評価
+========================================
+入力ファイル:
+- POS: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_pos_20260314_144809.csv
+- RAW: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_raw_20260314_144809.csv
+- NAV: C:\Users\keita\Documents\Local\EVK-F9P\ppkLogs\data\ppk_nav_20260314_144809.csv
+
+位置品質サマリ:
+- samples: 1458
+- start_utc: 2026-03-14T05:48:13.049000+00:00
+- end_utc: 2026-03-14T06:01:53.451000+00:00
+- duration_s: 820.402
+- interval_median_s: 0.2
+- lat_valid_ratio: 1.0
+- lon_valid_ratio: 1.0
+- lat_mean: 36.07084600000001
+- lon_mean: 136.59528
+- lat_span_deg: 0.0
+- lon_span_deg: 0.0
+- approx_path_span_m: 0.0
+- fix_quality_counts: {1: 1144, 2: 314}
+- num_sv_min: 3.0
+- num_sv_max: 12.0
+- num_sv_mean: 7.936899862825789
+- hdop_min: None
+- hdop_max: None
+- hdop_mean: None
+- hdop_ge_10_ratio: None
+- hdop_available_ratio: 0.0
+- hdop_placeholder_ratio: 1.0
+
+衛星品質サマリ:
+- raw_rows: 191221
+- nav_rows: 11600
+- raw_unique_satellites_total: 39
+- nav_unique_satellites_total: 39
+- raw_unique_by_gnss: {'BeiDou': 18, 'GPS': 11, 'GLONASS': 10, 'Galileo': 7, 'QZSS': 3, 'SBAS': 3}
+- nav_unique_by_gnss: {'BeiDou': 18, 'GPS': 10, 'GLONASS': 9, 'Galileo': 7, 'QZSS': 3, 'SBAS': 3}
+- raw_epoch_sv_min: 1.0
+- raw_epoch_sv_max: 38.0
+- raw_epoch_sv_mean: 24.8581525712893
+- raw_1s_sv_mean: 25.214372716199755
+- raw_1s_sv_min: 2.0
+- raw_1s_sv_max: 38.0
+- nav_epoch_sv_min: 1.0
+- nav_epoch_sv_max: 7.0
+- nav_epoch_sv_mean: 1.4780424799081515
+
+評価:
+- HDOPの有効値が少なく、受信機がHDOPを出力していない可能性が高い。
+- HDOPに99.xxのプレースホルダ値が多く、HDOP指標は信頼できない。
+- POSの平均衛星数は最低限を確保。
+- RAW観測では衛星取得数が多く、観測自体は良好。
+- 緯度経度の変動が非常に小さく、受信機はほぼ静止。
+- Fix qualityの最頻値は 1。

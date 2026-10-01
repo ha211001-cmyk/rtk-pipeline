@@ -1,0 +1,54 @@
+# GCS Configuration - Multi-Drone Example
+# 複数ドローンを同時に管理するための設定ファイル例
+
+connection_type: serial
+
+# Serial connection settings for Pixhawk6C via USB
+serial_port: /dev/ttyACM0
+serial_baudrate: 115200
+
+# UDP settings (not used in serial mode)
+udp_listen_port: 14550
+
+# Multi-Drone Configuration
+# ドローンごとに System ID を指定し、複数台を同時管理
+drones:
+  # Drone 1: Main flight
+  drone1:
+    system_id: 1
+    endpoint: "127.0.0.1:14550"
+    name: "Main Drone"
+    description: "Primary flight drone"
+  
+  # Drone 2: Secondary
+  drone2:
+    system_id: 2
+    endpoint: "127.0.0.1:14551"
+    name: "Backup Drone"
+    description: "Backup/support drone"
+  
+  # Drone 3: Survey/Mapping
+  drone3:
+    system_id: 3
+    endpoint: "127.0.0.1:14552"
+    name: "Survey Drone"
+    description: "Survey and mapping drone"
+
+# RTCM/RTK settings
+# RTCM は全ドローンに自動配信されます
+rtcm_enabled: false
+rtcm_host: 127.0.0.1
+rtcm_tcp_port: 2101
+
+# Logging settings
+logging:
+  level: INFO
+  format: "[%(asctime)s] %(levelname)s: %(message)s"
+  file: "gcs.log"
+
+# Advanced settings
+advanced:
+  heartbeat_timeout: 10  # seconds (接続断定時間)
+  message_buffer_size: 100
+  retry_attempts: 3
+  retry_delay: 1.0  # seconds

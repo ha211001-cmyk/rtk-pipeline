@@ -1,0 +1,1923 @@
+
+    <!DOCTYPE html><html lang="en-US" dir="ltr"><head><title>u-blox Portal</title><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://service.force.com/embeddedservice/ https://cdn.content.aws-dev2-uswest2.aws.sfdc.cl/ https://cdn.content.aws-prod1-useast1.aws.sfdc.cl/ https://payments.salesforce.com/ https://js.stripe.com/ https://www.paypal.com/sdk/js https://checkoutshopper-live.adyen.com/ https://checkoutshopper-test.adyen.com/ https://pal-test.adyen.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://pay.google.com import: blob: https://uip.canary.lwc.dev https://www.u-blox.com/en/ubx-includable/footer https://www.googletagmanager.com https://stats.g.doubleclick.net https://static.hotjar.com https://vars.hotjar.com https://script.hotjar.com https://code.jquery.com/jquery-1.11.2.min.js https://www.google-analytics.com https://tagmanager.google.com https://cookiepro.blob.core.windows.net/ https://geolocation.onetrust.com https://api.autopilothq.com https://www.google.com/recaptcha/api.js https://www.google.com https://www.gstatic.com https://cdn.cookielaw.org/scripttemplates/otSDKStub.js https://cdn.cookielaw.org/consent/04aba0ac-e6ab-4cce-a68c-d629744272af/OtAutoBlock.js https://cdn.cookielaw.org/scripttemplates/202209.1.0/otBannerSdk.js https://geolocation.onetrust.com/cookieconsentpub/v1/geo/location https://cdn.cookielaw.org/scripttemplates/202209.2.0/otBannerSdk.js https://cdn.cookielaw.org/consent/4ae0e160-d100-4cda-a390-1cd40aa8a15b/OtAutoBlock.js https://go.offer.u-blox.com https://analytics.google.com; object-src 'self' www.google.com; style-src 'self' 'unsafe-inline' https://service.force.com/embeddedservice/ https://fonts.googleapis.com/css2 https://fonts.googleapis.com/css https://checkoutshopper-live.adyen.com/ https://checkoutshopper-test.adyen.com/ blob: https://www.google.com https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.gstatic.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com *.pendo.io https://pi.pardot.com; img-src 'self' data: blob: https://u-blox.my.salesforce.com https://u-blox.file.force.com https://img.youtube.com https://i.ytimg.com https://i.vimeocdn.com https://login.salesforce.com/icons/ https://payments.salesforce.com/icons/ https://cdn.content.aws-prod1-useast1.aws.sfdc.cl/icons/ https://cdn.content.aws-dev2-uswest2.aws.sfdc.cl/icons/ https://*.adyen.com https://www.sandbox.paypal.com https://www.paypal.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://www.gstatic.com https://deu106.sfdc-yzvdd4.salesforce.com/icons/ https://www.google.ch https://www.google.com https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com *.pendo.io https://pi.pardot.com; media-src 'self' blob: https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.gstatic.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://www.google.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com *.pendo.io https://pi.pardot.com; frame-src 'self' https://service.force.com/embeddedservice/ https://deu106.sfdc-yzvdd4.salesforce.com https://sfdc-link-preview-staging.sfdc.sh https://sfdc-link-preview.hk.salesforce.com https://cdn.embedly.com https://www.youtube.com https://player.vimeo.com https://play.vidyard.com https://player.cloudinary.com https://fast.wistia.net https://players.brightcove.net https://s1.adis.ws https://scormanywhere.secure.force.com https://appiniummastertrial.secure.force.com https://js.stripe.com/ https://www.paypal.com https://www.sandbox.paypal.com https://checkoutshopper-live.adyen.com/ https://checkoutshopper-test.adyen.com/ https://pal-test.adyen.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://pay.google.com https://*.a.forceusercontent.com/lightningmaps/ https://*.a.forceusercontent.com https://location.force.com https://u-blox.file.force.com https://www.google.com https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.gstatic.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com *.pendo.io https://pi.pardot.com https://demo.arcade.software https://app.arcade.software; font-src 'self' data: https://fonts.gstatic.com/ https://www.google.com https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.gstatic.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com *.pendo.io https://pi.pardot.com; connect-src 'self' https://www.paypal.com https://www.sandbox.paypal.com https://u-blox.my.salesforce-scrt.com https://fonts.googleapis.com/css2 https://payments.salesforce.com/ https://cdn.content.aws-dev2-uswest2.aws.sfdc.cl/ https://checkoutshopper-live.adyen.com/ https://checkoutshopper-test.adyen.com/ https://js.stripe.com/ https://www.google.com/recaptcha/ https://*.api.salesforce.com https://o11y.sfproxy-core1.sfdc-yzvdd4.svc.sfdcfc.net/ui-telemetry https://www.google.com https://www.google-analytics.com https://www.google.fi https://vc.hotjar.io https://www.u-blox.com https://www.gstatic.com https://www.google.ru https://ssl.gstatic.com https://www.google.com.au https://www.google.hu https://www.google.co.jp https://translate.googleapis.com https://translate.google.com https://cdnjs.cloudflare.com https://vars.hotjar.com https://stats.g.doubleclick.net https://www.google.gr https://in.hotjar.com https://www.google.com.pe https://www.google.es https://www.google.co.in https://www.google.com.br https://cookiepro.blob.core.windows.net https://www.googletagmanager.com https://tagmanager.google.com https://geolocation.onetrust.com https://cdn.cookielaw.org https://go.offer.u-blox.com https://analytics.google.com *.pendo.io https://pi.pardot.com https://demo.arcade.software https://app.arcade.software"><link rel="icon" type="image/png" sizes="32x32" href="https://www.u-blox.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.u-blox.com/favicon-16x16.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.u-blox.com/favicon.ico">
+
+<!-- OneTrust Cookies Consent Notice  for portal.u-blox.com -->
+<script type="text/javascript" src="https://cdn.cookielaw.org/consent/4ae0e160-d100-4cda-a390-1cd40aa8a15b/OtAutoBlock.js"></script>
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="4ae0e160-d100-4cda-a390-1cd40aa8a15b" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PV8787H');</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10215678-2">
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-10215678-2');
+</script>
+<!--reCaptcha v3-->
+<script>
+    var currentPath = window.location.pathname;
+    if(currentPath.includes('SelfRegister') || currentPath.includes('ForgotPassword')){
+        document.addEventListener('grecaptchaExecute', function(e) {
+            grecaptcha.execute('6Ld8Gc4UAAAAABNR82HuoD_r2zThMdMQT9gpos0w', {action: e.detail.action}).then(function(token) {
+                document.dispatchEvent(new CustomEvent('grecaptchaVerified', {'detail': {response: token, action:e.detail.action}}));
+            });
+        }); 
+        
+        var head = document.getElementsByTagName('head')[0];
+        var js = document.createElement("script");
+
+        js.type = "text/javascript";
+        js.src = "https://www.google.com/recaptcha/api.js?render=6Ld8Gc4UAAAAABNR82HuoD_r2zThMdMQT9gpos0w";
+        head.appendChild(js);
+    }    
+</script>
+
+<script type='text/javascript'>
+    var currentPath = window.location.pathname;
+    if(currentPath.includes('testpage') || currentPath.includes('testpardotform')){
+    piAId = '1022843';
+    piCId = '55886';
+    piHostname = 'go.offer.u-blox.com';
+    
+    (function() {
+    	function async_load(){
+    		var s = document.createElement('script'); s.type = 'text/javascript';
+    		s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+    		var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    	}
+    	if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    	else { window.addEventListener('load', async_load, false); }
+    })();
+    }
+    </script><meta name="viewport" content="initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, minimal-ui"/>
+<style>
+        .auraMsgMask, #auraErrorMask, body .auraLoadingBox {
+            display: none;
+        }
+
+        .spaError {
+            padding: 10px;
+        }
+
+        .spaErrorLink {
+            padding: 10px 0;
+            display: block
+        }
+
+        </style><style>:root{--skyvvasolutions-paletteIndigo10:rgb(32, 6, 71);--skyvvasolutions-popoverWalkthroughHeaderImage:;--skyvvasolutions-zIndexDialog:6000;--skyvvasolutions-colorPickerSelectorWidth:14rem;--skyvvasolutions-nubbinSizeDefault:1rem;--skyvvasolutions-paletteCloudBlue40:rgb(5, 98, 138);--skyvvasolutions-colorBackgroundContextBarInverseItemHover:rgba(255, 255, 255, 0.2);--skyvvasolutions-dropZoneSlotHeight:0.25rem;--skyvvasolutions-colorTextTabLabelSelected:rgb(1, 118, 211);--skyvvasolutions-colorStrokeBrandActive:rgb(3, 45, 96);--skyvvasolutions-paletteIndigo15:rgb(31, 9, 116);--skyvvasolutions-cardBodyPadding:0 1rem;--skyvvasolutions-varSpacingHorizontalSmall:0.75rem;--skyvvasolutions-tableColorBackgroundHeaderResizableHandle:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundPathActiveHover:rgb(3, 45, 96);--skyvvasolutions-brandPrimaryTransparent:rgba(21, 137, 238, 0.1);--skyvvasolutions-brandPrimaryTransparent40:rgba(21, 137, 238, 0.4);--skyvvasolutions-colorBorderButtonDefault:rgb(201, 201, 201);--skyvvasolutions-paletteIndigo20:rgb(50, 29, 113);--skyvvasolutions-popoverColorText:rgb(201, 201, 201);--skyvvasolutions-paletteCloudBlue30:rgb(8, 73, 104);--skyvvasolutions-colorTextButtonDefaultActive:rgb(1, 118, 211);--skyvvasolutions-colorPickerSliderHeight:1.5rem;--skyvvasolutions-colorTextIconInverse:rgb(255, 255, 255);--skyvvasolutions-heightFooter:3.75rem;--skyvvasolutions-splitViewColorBorder:rgb(201, 201, 201);--skyvvasolutions-colorBorderRowSelectedHover:rgb(27, 150, 255);--skyvvasolutions-fontSizeTextXxSmall:.625rem;--skyvvasolutions-lineHeightHeading:1.25;--skyvvasolutions-cardHeaderMargin:0 0 0.75rem;--skyvvasolutions-paletteIndigo30:rgb(47, 44, 183);--skyvvasolutions-mqMediumLandscape:only screen and (min-width: 48em) and (min-aspect-ratio: 4/3);--skyvvasolutions-brandBandImageHeightMedium:12.5rem;--skyvvasolutions-illustrationColorSecondary:rgb(207, 233, 254);--skyvvasolutions-zIndexDefault:1;--skyvvasolutions-colorBorderSelectionActive:rgb(243, 243, 243);--skyvvasolutions-paletteCloudBlue20:rgb(2, 50, 72);--skyvvasolutions-utilityBarColorBackgroundNotificationFocus:rgb(201, 201, 201);--skyvvasolutions-colorTextIconDefaultDisabled:rgb(201, 201, 201);--skyvvasolutions-colorTextBrand:rgb(27, 150, 255);--skyvvasolutions-durationToastMedium:9.6s;--skyvvasolutions-colorBackgroundButtonIconActive:rgb(243, 243, 243);--skyvvasolutions-brandHeaderContrastWeak:rgb(145, 145, 145);--skyvvasolutions-colorBackgroundNotificationNew:rgb(243, 243, 243);--skyvvasolutions-brandHeaderContrastInverseActive:rgb(238, 238, 238);--skyvvasolutions-colorBackgroundInputCheckboxSelected:rgb(27, 150, 255);--skyvvasolutions-progressColorBorder:rgb(255, 255, 255);--skyvvasolutions-spacingXxxSmall:0.125rem;--skyvvasolutions-paletteIndigo40:rgb(58, 73, 218);--skyvvasolutions-colorBackgroundProgressRingContent:rgb(255, 255, 255);--skyvvasolutions-lineHeightButtonSmall:1.75rem;--skyvvasolutions-salesforceSansBoldItalicWoff:url(/_slds/fonts/v2.3.0/SalesforceSans-BoldItalic.woff);--skyvvasolutions-brandBackgroundDarkTransparent:rgba(221, 219, 218, 0);--skyvvasolutions-colorPickerThumbWidth:0.375rem;--skyvvasolutions-paletteCloudBlue10:rgb(0, 26, 40);--skyvvasolutions-brandHeaderIconActive:rgb(129, 129, 129);--skyvvasolutions-widthStageLeftCollapsed:4rem;--skyvvasolutions-paletteCloudBlue15:rgb(10, 38, 54);--skyvvasolutions-colorBorderOffline:rgb(68, 68, 68);--skyvvasolutions-colorBackgroundUtilityBarHover:rgb(243, 243, 243);--skyvvasolutions-sliderHandleColorBackgroundHover:rgb(1, 118, 211);--skyvvasolutions-colorTextIconInverseHint:rgba(255, 255, 255, 0.5);--skyvvasolutions-sizeMedium:20rem;--skyvvasolutions-brandPrimaryTransparent10:rgba(21, 137, 238, 0.1);--skyvvasolutions-colorBorderIconInverseHintHover:rgba(255, 255, 255, 0.75);--skyvvasolutions-colorTextDefault:rgb(3, 45, 96);--skyvvasolutions-paletteIndigo50:rgb(88, 103, 232);--skyvvasolutions-progressBarHeight:0.125rem;--skyvvasolutions-colorBackgroundWarning:rgb(254, 147, 57);--skyvvasolutions-colorBackgroundBrandPrimaryActive:rgb(3, 45, 96);--skyvvasolutions-paletteBlue90:rgb(216, 230, 254);--skyvvasolutions-brandHeaderContrastCool:rgb(1, 68, 134);--skyvvasolutions-paletteCloudBlue80:rgb(144, 208, 254);--skyvvasolutions-paletteBlue95:rgb(238, 244, 255);--skyvvasolutions-colorBorderSelectionHover:rgb(27, 150, 255);--skyvvasolutions-zIndexPopup:5000;--skyvvasolutions-borderRadiusLarge:0.5rem;--skyvvasolutions-colorTextIconInverseHintHover:rgba(255, 255, 255, 0.75);--skyvvasolutions-popoverBrandBorderWidth:0.25rem;--skyvvasolutions-fontSizeHeadingXLarge:1.75rem;--skyvvasolutions-typingIconDotColorBackgroundGrayDark:rgb(201, 201, 201);--skyvvasolutions-paletteIndigo65:rgb(142, 155, 239);--skyvvasolutions-varSpacingLarge:1.5rem;--skyvvasolutions-pageHeaderSpacingMargin:0;--skyvvasolutions-fontSizeTextXLarge:1.25rem;--skyvvasolutions-paletteIndigo60:rgb(127, 140, 237);--skyvvasolutions-paletteCloudBlue70:rgb(26, 185, 255);--skyvvasolutions-welcomeMatColorActionShadow:rgba(0, 0, 0, 0.05);--skyvvasolutions-colorTextBrowser:rgb(255, 255, 255);--skyvvasolutions-welcomeMatSpacingInfo:7.75rem;--skyvvasolutions-mqLarge:only screen and (min-width: 64.0625em);--skyvvasolutions-paletteIndigo70:rgb(158, 169, 241);--skyvvasolutions-squareTappableSmall:2rem;--skyvvasolutions-colorTextActionLabel:rgb(116, 116, 116);--skyvvasolutions-paletteCloudBlue60:rgb(13, 157, 218);--skyvvasolutions-paletteBlue70:rgb(120, 176, 253);--skyvvasolutions-colorBorderTabActive:rgb(255, 255, 255);--skyvvasolutions-paletteCloudBlue65:rgb(8, 171, 237);--skyvvasolutions-globalnavigationItemHeightAccentFocus:4px;--skyvvasolutions-colorBorderDestructiveHover:rgb(186, 5, 23);--skyvvasolutions-buttonLineHeightTouch:2.65rem;--skyvvasolutions-colorTextCustomer:rgb(254, 147, 57);--skyvvasolutions-squareIconUtilitySmall:1rem;--skyvvasolutions-colorBackgroundModalButtonActive:rgba(0, 0, 0, 0.16);--skyvvasolutions-colorTextBrandPrimary:rgb(255, 255, 255);--skyvvasolutions-squareIconXSmallBoundary:1.25rem;--skyvvasolutions-widthToggle:3rem;--skyvvasolutions-paletteIndigo80:rgb(190, 199, 246);--skyvvasolutions-welcomeMatMinHeight:25rem;--skyvvasolutions-zIndexDocked:4;--skyvvasolutions-squareIconMediumBoundaryAlt:2.25rem;--skyvvasolutions-colorBorderSelection:rgb(1, 118, 211);--skyvvasolutions-paletteBlue80:rgb(170, 203, 255);--skyvvasolutions-paletteCloudBlue50:rgb(16, 124, 173);--skyvvasolutions-brandHeaderContrastActive:rgb(80, 80, 80);--skyvvasolutions-formLabelFontSize:0.75rem;--skyvvasolutions-colorTextActionLabelActive:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundBackdropTint:rgb(243, 243, 243);--skyvvasolutions-durationSlowly:0.4s;--skyvvasolutions-colorBackgroundRowHover:rgb(243, 243, 243);--skyvvasolutions-popoverWalkthroughAltNubbinColorBackground:rgb(1, 118, 211);--skyvvasolutions-spinnerSizeSmall:1.25rem;--skyvvasolutions-sliderTrackColorBackgroundFill:rgb(27, 150, 255);--skyvvasolutions-welcomeMatWidth:52.0625rem;--skyvvasolutions-paletteIndigo95:rgb(241, 243, 251);--skyvvasolutions-paletteIndigo90:rgb(224, 229, 248);--skyvvasolutions-filesZIndexHover:5;--skyvvasolutions-colorTextPill:rgb(1, 118, 211);--skyvvasolutions-varSpacingSmall:0.75rem;--skyvvasolutions-heightDockedBar:2.5rem;--skyvvasolutions-paletteBlue50:rgb(1, 118, 211);--skyvvasolutions-colorTextTabLabelHover:rgb(1, 68, 134);--skyvvasolutions-fontSizeHeadingXSmall:0.75rem;--skyvvasolutions-colorStrokeDisabled:rgb(243, 243, 243);--skyvvasolutions-widthPathBorderCurrent:0.125rem;--skyvvasolutions-colorBackgroundButtonDefaultHover:rgb(243, 243, 243);--skyvvasolutions-varSpacingVerticalXxSmall:0.25rem;--skyvvasolutions-colorTextButtonDefaultHover:rgb(1, 118, 211);--skyvvasolutions-durationPromptly:0.2s;--skyvvasolutions-colorBorderPathCurrent:rgb(1, 68, 134);--skyvvasolutions-colorBackgroundButtonDefaultActive:rgb(243, 243, 243);--skyvvasolutions-colorTextStageLeft:rgb(243, 243, 243);--skyvvasolutions-colorBorderHint:rgb(3, 45, 96);--skyvvasolutions-colorTextPrimary:rgb(3, 45, 96);--skyvvasolutions-brandBandColorBackgroundSecondaryTransparent:rgba(0, 0, 0, 0);--skyvvasolutions-paletteBlue60:rgb(27, 150, 255);--skyvvasolutions-cardColorBackground:rgb(255, 255, 255);--skyvvasolutions-brandHeaderIcon:rgb(145, 145, 145);--skyvvasolutions-paletteBlue65:rgb(87, 163, 253);--skyvvasolutions-spacingLarge:1.5rem;--skyvvasolutions-pageHeaderColorBorder:rgba(0, 0, 0, 0);--skyvvasolutions-cardFooterMargin:0.75rem;--skyvvasolutions-fontSizeTextSmall:0.8125rem;--skyvvasolutions-colorTextLinkInverseActive:rgba(255, 255, 255, 0.5);--skyvvasolutions-durationToastShort:4.8s;--skyvvasolutions-lineHeightButton:1.875rem;--skyvvasolutions-panelDockedLeftShadow:1px 0 3px rgba(0,0,0,0.25);--skyvvasolutions-panelDockedRightShadow:-1px 0 3px 0 rgba(0,0,0,0.25);--skyvvasolutions-colorTextLinkPrimaryHover:rgb(1, 118, 211);--skyvvasolutions-shadowButton:0 1px 1px 0 rgba(0, 0, 0, 0.05);--skyvvasolutions-welcomeMatMaxHeight:37.5rem;--skyvvasolutions-colorBorderToggleChecked:rgb(255, 255, 255);--skyvvasolutions-shadowHeader:0 2px 4px rgba(0, 0, 0, 0.07);--skyvvasolutions-sizeXxLarge:60rem;--skyvvasolutions-colorBackgroundDockedPanelHeader:rgb(255, 255, 255);--skyvvasolutions-paletteBlue30:rgb(1, 68, 134);--skyvvasolutions-lineHeightSalespath:1.5rem;--skyvvasolutions-shadowDrag:0 2px 4px 0 rgba(0, 0, 0, 0.40);--skyvvasolutions-colorBackgroundPathExpanded:rgb(255, 255, 255);--skyvvasolutions-colorBackground:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundInput:rgb(255, 255, 255);--skyvvasolutions-sizeSmall:15rem;--skyvvasolutions-userDefaultAvatar:url(/_slds/images/profile_avatar_200.png?cache=7bdcafae);--skyvvasolutions-colorTextButtonInverse:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundInputCheckboxDisabled:rgb(201, 201, 201);--skyvvasolutions-tableColorTextHeader:rgb(68, 68, 68);--skyvvasolutions-paletteBlue40:rgb(11, 92, 171);--skyvvasolutions-cardColorBorder:rgb(201, 201, 201);--skyvvasolutions-squareIconUtilityMedium:1.25rem;--skyvvasolutions-colorBackgroundButtonSuccessHover:rgb(46, 132, 74);--skyvvasolutions-colorBorderButtonBrandDisabled:rgba(0, 0, 0, 0);--skyvvasolutions-fontSizeHeadingXxSmall:0.625rem;--skyvvasolutions-colorBackgroundButtonInverseActive:rgba(0, 0, 0, 0.24);--skyvvasolutions-illustrationEmptyStateEvents:url(/_slds/images/illustrations/empty-state-events.svg?cache=985b247a);--skyvvasolutions-colorBackgroundToggle:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundStencil:rgb(243, 243, 243);--skyvvasolutions-welcomeMatCheckSize:0.625rem;--skyvvasolutions-colorTextButtonBrandHover:rgb(255, 255, 255);--skyvvasolutions-buttonColorBackgroundSecondary:rgba(255, 255, 255, 0.8);--skyvvasolutions-paletteBlue10:rgb(0, 22, 57);--skyvvasolutions-varSpacingVerticalLarge:1.5rem;--skyvvasolutions-colorBorderReminder:rgb(243, 243, 243);--skyvvasolutions-colorBrandDark:rgb(1, 118, 211);--skyvvasolutions-paletteBlue15:rgb(3, 35, 77);--skyvvasolutions-colorBorderBrandPrimaryFocus:rgb(1, 118, 211);--skyvvasolutions-salesforceSansItalicWoff:url(/_slds/fonts/v2.3.0/SalesforceSans-Italic.woff);--skyvvasolutions-colorBorderBrandPrimaryActive:rgb(3, 45, 96);--skyvvasolutions-datepickerColorTextDayAdjacentMonth:rgb(116, 116, 116);--skyvvasolutions-colorBorderErrorAlt:rgb(254, 143, 125);--skyvvasolutions-shadowReminder:0 2px 3px 0 rgba(0, 0, 0, 0.20);--skyvvasolutions-brandTextLinkActive:rgb(1, 68, 134);--skyvvasolutions-pageHeaderColorBackground:rgb(243, 243, 243);--skyvvasolutions-salesforceSansBoldWoff2:url(/_slds/fonts/v2.3.0/SalesforceSans-Bold.woff2);--skyvvasolutions-fontSizeHeadingLarge:1.5rem;--skyvvasolutions-colorBackgroundStencilAlt:rgb(243, 243, 243);--skyvvasolutions-paletteBlue20:rgb(3, 45, 96);--skyvvasolutions-elevationInverseShadow3Below:0 -3px 3px 0 rgba(0, 0, 0, 0.16) inset;--skyvvasolutions-varSpacingHorizontalXxSmall:0.25rem;--skyvvasolutions-colorBorderSeparatorAlt:rgb(201, 201, 201);--skyvvasolutions-colorPickerRangeHeight:5rem;--skyvvasolutions-colorBackgroundButtonIcon:rgba(0, 0, 0, 0);--skyvvasolutions-paletteTeal15:rgb(7, 40, 37);--skyvvasolutions-buttonIconColorBorderPrimary:rgb(255, 255, 255);--skyvvasolutions-brandAccessibleActive:rgb(1, 68, 134);--skyvvasolutions-paletteYellow80:rgb(252, 192, 3);--skyvvasolutions-zIndexSpinner:9050;--skyvvasolutions-colorBackgroundContextTabBarItem:rgb(255, 255, 255);--skyvvasolutions-fontWeightBold:700;--skyvvasolutions-paletteTeal10:rgb(7, 27, 18);--skyvvasolutions-colorBackgroundContextBarItemActive:rgb(255, 255, 255);--skyvvasolutions-shadowFocusInset:0 0 2px 2px #1b96ff inset;--skyvvasolutions-colorBackgroundAltInverse:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundPathIncompleteHover:rgb(201, 201, 201);--skyvvasolutions-squareIconMediumContent:1rem;--skyvvasolutions-colorBackgroundContextBar:rgb(255, 255, 255);--skyvvasolutions-colorTextInverseHover:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundInputActive:rgb(255, 255, 255);--skyvvasolutions-brandContrast:rgb(26, 27, 30);--skyvvasolutions-colorTextSecondary:rgb(116, 116, 116);--skyvvasolutions-fillHeaderButtonHover:rgb(1, 68, 134);--skyvvasolutions-fontFamilyText:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';--skyvvasolutions-welcomeMatCompleteIconSize:1.25rem;--skyvvasolutions-varSpacingXxLarge:3rem;--skyvvasolutions-paletteYellow95:rgb(251, 243, 224);--skyvvasolutions-paletteYellow90:rgb(249, 227, 182);--skyvvasolutions-brandBackgroundPrimary:rgb(250, 250, 249);--skyvvasolutions-paletteTeal20:rgb(2, 52, 52);--skyvvasolutions-progressRingWidth:0.1875rem;--skyvvasolutions-paletteYellow65:rgb(215, 147, 4);--skyvvasolutions-paletteYellow60:rgb(202, 133, 1);--skyvvasolutions-colorBorderInputCheckboxSelectedCheckmark:rgb(255, 255, 255);--skyvvasolutions-colorBorderCanvasElementSelectionHover:rgb(1, 68, 134);--skyvvasolutions-borderRadiusSmall:0.125rem;--skyvvasolutions-progressBarColorBackground:rgb(201, 201, 201);--skyvvasolutions-durationInstantly:0s;--skyvvasolutions-colorBackgroundToastSuccess:rgb(46, 132, 74);--skyvvasolutions-tabsFontWeight:400;--skyvvasolutions-colorBackgroundPost:rgb(243, 243, 243);--skyvvasolutions-colorTextPlaceholderInverse:rgb(243, 243, 243);--skyvvasolutions-colorTextInputIcon:rgb(174, 174, 174);--skyvvasolutions-sliderHandleShadow:rgba(0, 0, 0, 0.16) 0 2px 3px;--skyvvasolutions-paletteYellow70:rgb(228, 162, 1);--skyvvasolutions-fontWeightLight:300;--skyvvasolutions-colorTextError:rgb(234, 0, 30);--skyvvasolutions-varSpacingXxSmall:0.25rem;--skyvvasolutions-colorBorderInput:rgb(201, 201, 201);--skyvvasolutions-brandAccessible:rgb(1, 118, 211);--skyvvasolutions-pageColorBackgroundPrimary:rgb(255, 255, 255);--skyvvasolutions-cardShadow:none;--skyvvasolutions-lineClamp:3;--skyvvasolutions-welcomeMatWidthProgressBar:12.5rem;--skyvvasolutions-progressColorBackgroundShade:rgb(243, 243, 243);--skyvvasolutions-globalActionFillHover:rgb(1, 68, 134);--skyvvasolutions-illustrationEmptyStateAssistant:url(/_slds/images/illustrations/empty-state-assistant.svg?cache=127a789e);--skyvvasolutions-varSpacingHorizontalXSmall:0.5rem;--skyvvasolutions-colorPickerInputCustomHexFontSize:0.75rem;--skyvvasolutions-varSpacingMedium:1rem;--skyvvasolutions-colorBackgroundShadeDark:rgb(201, 201, 201);--skyvvasolutions-colorPickerSwatchesWidth:13.3rem;--skyvvasolutions-squareIconLargeBoundaryAlt:5rem;--skyvvasolutions-colorBorderInputDisabled:rgb(201, 201, 201);--skyvvasolutions-paletteYellow40:rgb(140, 75, 2);--skyvvasolutions-cardWrapperSpacing:1rem;--skyvvasolutions-colorBackgroundNotificationBadgeActive:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundHighlight:rgb(250, 255, 189);--skyvvasolutions-colorBackgroundRowActive:rgb(243, 243, 243);--skyvvasolutions-componentSpacingMargin:0;--skyvvasolutions-colorBorderButtonFocusInverse:rgb(243, 243, 243);--skyvvasolutions-shadowButtonFocus:0 0 3px #0176d3;--skyvvasolutions-varSpacingVerticalXLarge:2rem;--skyvvasolutions-tableColorBackgroundHeaderHover:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundDockedPanel:rgb(255, 255, 255);--skyvvasolutions-colorTextTertiary:rgb(116, 116, 116);--skyvvasolutions-varSpacingVerticalXxLarge:3rem;--skyvvasolutions-paletteYellow50:rgb(168, 100, 3);--skyvvasolutions-brandContrastActive:rgb(13, 14, 18);--skyvvasolutions-squareIconLargeContent:2rem;--skyvvasolutions-colorPickerSliderThumbColorBackground:rgb(243, 243, 243);--skyvvasolutions-inputStaticFontSize:0.8125rem;--skyvvasolutions-borderWidthThin:1px;--skyvvasolutions-fontWeightRegular:400;--skyvvasolutions-colorBackgroundButtonSuccess:rgb(69, 198, 90);--skyvvasolutions-splitViewColorBackgroundRowHover:rgb(255, 255, 255);--skyvvasolutions-paletteYellow20:rgb(79, 33, 0);--skyvvasolutions-bannerUserDefaultImage:;--skyvvasolutions-elevation8:8;--skyvvasolutions-brandDark:rgb(1, 118, 211);--skyvvasolutions-colorBackgroundPathCurrentHover:rgb(255, 255, 255);--skyvvasolutions-elevation0:0;--skyvvasolutions-elevation2:2;--skyvvasolutions-pageHeaderJoinedColorBorder:rgb(201, 201, 201);--skyvvasolutions-elevation4:4;--skyvvasolutions-durationPaused:3.2s;--skyvvasolutions-colorBrand:rgb(27, 150, 255);--skyvvasolutions-colorBackgroundPathComplete:#4bca81;--skyvvasolutions-progressColorBorderHover:rgb(1, 118, 211);--skyvvasolutions-spacingXxSmall:0.25rem;--skyvvasolutions-tableCellSpacing:0.5rem;--skyvvasolutions-colorBorderContextBarThemeDefault:rgb(13, 157, 218);--skyvvasolutions-colorBackgroundAnchor:rgb(243, 243, 243);--skyvvasolutions-paletteYellow30:rgb(111, 52, 0);--skyvvasolutions-shadowButtonFocusInverse:0 0 3px #f3f3f3;--skyvvasolutions-welcomeMatFontSizeInfoTitle:2.625rem;--skyvvasolutions-colorBorderLinkFocusInverse:rgb(243, 243, 243);--skyvvasolutions-borderRadiusCircle:50%;--skyvvasolutions-buttonColorBorderSecondary:rgba(255, 255, 255, 0.8);--skyvvasolutions-colorTextSuccessInverse:rgb(69, 198, 90);--skyvvasolutions-varSpacingXLarge:2rem;--skyvvasolutions-sizeXLarge:40rem;--skyvvasolutions-varSpacingHorizontalXxxSmall:0.125rem;--skyvvasolutions-elevation3Inset:-3;--skyvvasolutions-lineHeightTab:2.5rem;--skyvvasolutions-colorBackgroundDestructiveActive:#870500;--skyvvasolutions-colorTextLinkPrimaryActive:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundPageHeader:rgb(255, 255, 255);--skyvvasolutions-colorBackgroundPill:rgb(255, 255, 255);--skyvvasolutions-fillBrandHover:rgb(1, 68, 134);--skyvvasolutions-colorBorderContextBarItem:rgba(0, 0, 0, 0.2);--skyvvasolutions-borderStrokeWidthThin:1px;--skyvvasolutions-progressColorBorderShade:rgb(243, 243, 243);--skyvvasolutions-heightHeader:2.75rem;--skyvvasolutions-shadowInlineEdit:0 2px 4px 4px rgba(0, 0, 0, 0.16);--skyvvasolutions-colorBackgroundNotificationBadgeHover:rgb(1, 68, 134);--skyvvasolutions-borderRadiusPill:15rem;--skyvvasolutions-colorTextButtonInverseDisabled:rgba(255, 255, 255, 0.5);--skyvvasolutions-sizeXxxSmall:3rem;--skyvvasolutions-colorBackgroundSuccessDarker:rgb(25, 78, 49);--skyvvasolutions-colorBackgroundToggleHover:rgb(147, 147, 147);--skyvvasolutions-paletteYellow15:rgb(46, 34, 4);--skyvvasolutions-paletteYellow10:rgb(40, 18, 2);--skyvvasolutions-cardSpacingSmall:0.75rem;--skyvvasolutions-illustrationEmptyStateTasks:url(/_slds/images/illustrations/empty-state-tasks.svg?cache=dc5e5e5b);--skyvvasolutions-brandBandScrimHeight:3.125rem;--skyvvasolutions-popoverWalkthroughColorBackground:rgb(0, 22, 57);--skyvvasolutions-colorBorderErrorDark:rgb(254, 143, 125);--skyvvasolutions-heightTappableSmall:2rem;--skyvvasolutions-colorBackgroundButtonBrandDisabled:rgb(243, 243, 243);--skyvvasolutions-colorBorderPrimary:rgb(201, 201, 201);--skyvvasolutions-colorGray1:rgb(255, 255, 255);--skyvvasolutions-fontSizeXLarge:1.25rem;--skyvvasolutions-varSquareIconMediumBoundary:2rem;--skyvvasolutions-colorGray5:rgb(221, 219, 218);--skyvvasolutions-colorGray4:rgb(236, 235, 234);--skyvvasolutions-colorGray3:rgb(243, 242, 242);--skyvvasolutions-colorGray2:rgb(250, 250, 249);--skyvvasolutions-opacity8:0.8;--skyvvasolutions-salesforceSansBoldItalicWoff2:url(/_slds/fonts/v2.3.0/SalesforceSans-BoldItalic.woff2);--skyvvasolutions-opacity5:0.5;--skyvvasolutions-squareIconGlobalIdentityIcon:1.25rem;--skyvvasolutions-colorBackgroundBrowser:rgb(116, 116, 116);--skyvvasolutions-colorTextIconInverseActive:rgb(255, 255, 255);--skyvvasolutions-shadowDocked:0 -2px 2px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-colorBackgroundInputError:rgb(253, 221, 227);--skyvvasolutions-colorGray9:rgb(112, 110, 107);--skyvvasolutions-colorGray8:rgb(150, 148, 146);--skyvvasolutions-colorGray7:rgb(176, 173, 171);--skyvvasolutions-colorGray6:rgb(201, 199, 197);--skyvvasolutions-colorTextLinkInverse:rgb(255, 255, 255);--skyvvasolutions-squareIconSmallBoundary:1.5rem;--skyvvasolutions-varSpacingHorizontalXLarge:2rem;--skyvvasolutions-colorBackgroundDark:rgb(243, 243, 243);--skyvvasolutions-colorTextWarningAlt:rgb(140, 75, 2);--skyvvasolutions-elevationInverseShadow2:0 -2px 2px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-elevationInverseShadow0:none;--skyvvasolutions-colorStrokeBrand:rgb(1, 118, 211);--skyvvasolutions-colorBackgroundToggleActive:rgb(1, 68, 134);--skyvvasolutions-colorBorderContextBarDivider:rgba(255, 255, 255, 0.2);--skyvvasolutions-zIndexToast:10000;--skyvvasolutions-colorBackgroundContextBarActionHighlight:rgba(255, 255, 255, 0.2);--skyvvasolutions-colorBackgroundBrandPrimaryFocus:rgb(1, 68, 134);--skyvvasolutions-buttonColorBackgroundBrandPrimary:rgb(1, 118, 211);--skyvvasolutions-brandHeaderContrastWarm:rgb(186, 5, 23);--skyvvasolutions-buttonColorTextPrimary:rgb(255, 255, 255);--skyvvasolutions-colorBrandDarker:rgb(1, 68, 134);--skyvvasolutions-colorBorderPathCurrentHover:rgb(3, 45, 96);--skyvvasolutions-colorTextButtonDefaultDisabled:rgb(201, 201, 201);--skyvvasolutions-colorBackgroundPathLost:rgb(234, 0, 30);--skyvvasolutions-einsteinHeaderBackground:url(/_slds/images/einstein-headers/einstein-header-background.svg?cache=ff7fa2ff);--skyvvasolutions-brandTextLink:rgb(1, 118, 211);--skyvvasolutions-sliderTrackColorBackground:rgb(243, 243, 243);--skyvvasolutions-colorContrastPrimary:rgb(243, 243, 243);--skyvvasolutions-groupDefaultAvatar:url(/_slds/images/group_avatar_200.png?cache=a0044dae);--skyvvasolutions-templateProfileGutters:0;--skyvvasolutions-sizeXxSmall:6rem;--skyvvasolutions-colorBackgroundPayload:rgb(243, 243, 243);--skyvvasolutions-paletteCloudBlue90:rgb(207, 233, 254);--skyvvasolutions-colorBackgroundPathActive:rgb(1, 68, 134);--skyvvasolutions-colorTextDestructive:rgb(234, 0, 30);--skyvvasolutions-squareIconLargeBoundary:3rem;--skyvvasolutions-colorBorderWarning:rgb(254, 147, 57);--skyvvasolutions-shadowSoftPrimaryHover:none;--skyvvasolutions-paletteCloudBlue95:rgb(234, 245, 254);--skyvvasolutions-spacingSmall:0.75rem;--skyvvasolutions-colorBackgroundErrorDark:rgb(186, 5, 23);--skyvvasolutions-brandHeaderContrastWeakDisabled:rgba(166, 166, 166, 0.25);--skyvvasolutions-squareIconMediumContentAlt:0.875rem;--skyvvasolutions-colorBackgroundButtonInverse:rgba(0, 0, 0, 0);--skyvvasolutions-brandHeader:rgb(255, 255, 255);--skyvvasolutions-lineHeightText:1.5;--skyvvasolutions-widthStageLeftExpanded:15rem;--skyvvasolutions-colorBackgroundError:rgb(254, 92, 76);--skyvvasolutions-colorTextButtonBrandActive:rgb(255, 255, 255);--skyvvasolutions-fontFamily:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';--skyvvasolutions-mqMedium:only screen and (min-width: 48em);--skyvvasolutions-brandDarkActive:rgb(37, 48, 69);--skyvvasolutions-colorBackgroundPathStepActionActive:rgb(0, 22, 57);--skyvvasolutions-neutrafaceDisplayWoff2:url(/_slds/fonts/NeutrafaceDisplay.woff2?cache=2.9.0);--skyvvasolutions-spacingMedium:1rem;--skyvvasolutions-colorTextModal:rgb(255, 255, 255);--skyvvasolutions-spinnerSizeLarge:2.75rem;--skyvvasolutions-carouselIndicatorColorBackgroundHover:rgb(243, 243, 243);--skyvvasolutions-shadowActionOverflowFooter:0 -2px 4px #f3f3f3;--skyvvasolutions-popoverWalkthroughHeaderColorBackground:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundPathWon:rgb(46, 132, 74);--skyvvasolutions-lineHeightToggle:1.3rem;--skyvvasolutions-neutrafaceDisplayWoff:url(/_slds/fonts/NeutrafaceDisplay.woff?cache=2.9.0);--skyvvasolutions-cardFooterPadding:0 1rem 0.75rem;--skyvvasolutions-sliderHandleColorBackground:rgb(27, 150, 255);--skyvvasolutions-colorBackgroundErrorAlt:rgb(254, 143, 125);--skyvvasolutions-colorBackgroundIndicatorDot:rgb(3, 45, 96);--skyvvasolutions-chatMessageColorBackgroundInbound:rgb(243, 243, 243);--skyvvasolutions-elevationShadow0:none;--skyvvasolutions-heightPill:1.625rem;--skyvvasolutions-elevationShadow4:0 4px 4px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-elevationShadow2:0 2px 2px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-elevationShadow8:0 8px 8px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-varFontSize8:1.5rem;--skyvvasolutions-colorBackgroundButtonDefaultDisabled:rgb(255, 255, 255);--skyvvasolutions-varFontSize7:1.25rem;--skyvvasolutions-elevationInverseShadow8:0 -8px 8px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-varFontSize9:1.75rem;--skyvvasolutions-brandBandColorBackgroundPrimary:rgba(0, 0, 0, 0);--skyvvasolutions-colorTextButtonBrand:rgb(255, 255, 255);--skyvvasolutions-elevationInverseShadow4:0 -4px 4px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-colorBackgroundToggleActiveHover:rgb(1, 68, 134);--skyvvasolutions-welcomeMatBackgroundImageInfo:url(/_slds/images/welcome-mat/bg-info@2x.png?cache=ddb4e82f);--skyvvasolutions-varFontSize2:0.75rem;--skyvvasolutions-varFontSize1:0.625rem;--skyvvasolutions-varFontSize4:0.875rem;--skyvvasolutions-pageHeaderSpacingRow:0.75rem 1rem;--skyvvasolutions-varFontSize3:0.8125rem;--skyvvasolutions-varFontSize6:1.125rem;--skyvvasolutions-varFontSize5:1rem;--skyvvasolutions-varSpacingVerticalMedium:1rem;--skyvvasolutions-pageHeaderSpacingPadding:1rem;--skyvvasolutions-colorTextModalButton:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundPrimary:rgb(255, 255, 255);--skyvvasolutions-colorTextInputFocusInverse:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundScrollbarTrack:rgb(201, 201, 201);--skyvvasolutions-paletteNeutral70:rgb(174, 174, 174);--skyvvasolutions-brandPrimaryActive:rgb(1, 118, 211);--skyvvasolutions-popoverWalkthroughAltImage:;--skyvvasolutions-nubbinTriangleOffset:-0.1875rem;--skyvvasolutions-salesforceSansLightWoff:url(/_slds/fonts/v2.3.0/SalesforceSans-Light.woff);--skyvvasolutions-colorBorderSuccessDark:rgb(46, 132, 74);--skyvvasolutions-mqHighRes:only screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2),screen and (min-resolution: 192dpi),screen and (min-resolution: 2dppx);--skyvvasolutions-brandBandColorBackgroundPrimaryTransparent:rgba(0, 0, 0, 0);--skyvvasolutions-colorBackgroundContextBarInverseItemActive:rgba(255, 255, 255, 0.4);--skyvvasolutions-colorTextButtonDefaultHint:rgb(174, 174, 174);--skyvvasolutions-salesforceSansItalicWoff2:url(/_slds/fonts/v2.3.0/SalesforceSans-Italic.woff2);--skyvvasolutions-paletteGreen60:rgb(59, 167, 85);--skyvvasolutions-heightContextBar:2.5rem;--skyvvasolutions-colorBackgroundOrgSwitcherArrow:rgb(0, 22, 57);--skyvvasolutions-paletteGreen65:rgb(65, 182, 88);--skyvvasolutions-brandHeaderContrastInverse:rgb(255, 255, 255);--skyvvasolutions-notificationColorBackgroundInverse:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundButtonIconDisabled:rgb(255, 255, 255);--skyvvasolutions-paletteNeutral60:rgb(147, 147, 147);--skyvvasolutions-colorBorderContextBarThemeDefaultAlt:rgb(243, 243, 243);--skyvvasolutions-fillBrand:rgb(1, 118, 211);--skyvvasolutions-colorBackgroundInputCheckbox:rgb(255, 255, 255);--skyvvasolutions-colorBorder:rgb(201, 201, 201);--skyvvasolutions-squareIconSmall:1rem;--skyvvasolutions-varSpacingHorizontalMedium:1rem;--skyvvasolutions-illustrationColorPrimary:rgb(144, 208, 254);--skyvvasolutions-varSpacingVerticalXSmall:0.5rem;--skyvvasolutions-colorTextPlaceholder:rgb(116, 116, 116);--skyvvasolutions-einsteinHeaderBackgroundColor:rgb(144, 208, 254);--skyvvasolutions-paletteGreen70:rgb(69, 198, 90);--skyvvasolutions-brandHeaderContrast:rgb(94, 94, 94);--skyvvasolutions-inputStaticColor:rgb(24, 24, 24);--skyvvasolutions-paletteNeutral90:rgb(229, 229, 229);--skyvvasolutions-spacingXxLarge:3rem;--skyvvasolutions-paletteGreen90:rgb(205, 239, 196);--skyvvasolutions-shadowDropDown:0 2px 3px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-paletteNeutral95:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundModal:rgb(255, 255, 255);--skyvvasolutions-elevationShadow3Below:0 3px 3px 0 rgba(0, 0, 0, 0.16) inset;--skyvvasolutions-paletteRed80:rgb(254, 184, 171);--skyvvasolutions-sliderTrackWidth:100%;--skyvvasolutions-elevation32:32;--skyvvasolutions-globalHeaderColorBackground:rgb(255, 255, 255);--skyvvasolutions-spacingXLarge:2rem;--skyvvasolutions-paletteGreen80:rgb(145, 219, 139);--skyvvasolutions-colorBorderInputActive:rgb(27, 150, 255);--skyvvasolutions-varSpacingXSmall:0.5rem;--skyvvasolutions-paletteNeutral80:rgb(201, 201, 201);--skyvvasolutions-colorBackgroundModalButton:rgba(0, 0, 0, 0.07);--skyvvasolutions-colorBorderPathDivider:rgb(255, 255, 255);--skyvvasolutions-colorTextIconDefault:rgb(116, 116, 116);--skyvvasolutions-zIndexDeepdive:-99999;--skyvvasolutions-elevation16:16;--skyvvasolutions-paletteRed90:rgb(254, 222, 216);--skyvvasolutions-globalnavigationItemHeightAccentActive:3px;--skyvvasolutions-templateGutters:0;--skyvvasolutions-paletteRed95:rgb(254, 241, 238);--skyvvasolutions-buttonColorBorderBrandPrimary:rgb(1, 118, 211);--skyvvasolutions-buttonIconBoundaryTouch:2.75rem;--skyvvasolutions-brandBackgroundPrimaryTransparent:rgba(176, 196, 223, 0);--skyvvasolutions-fillHeaderButtonFocus:rgb(1, 118, 211);--skyvvasolutions-colorBorderError:rgb(234, 0, 30);--skyvvasolutions-colorTextLinkHover:rgb(1, 68, 134);--skyvvasolutions-paletteGreen95:rgb(235, 247, 230);--skyvvasolutions-einsteinHeaderFigure:url(/_slds/images/einstein-headers/einstein-figure.svg?cache=ec975fb1);--skyvvasolutions-colorBorderRowSelected:rgb(1, 118, 211);--skyvvasolutions-colorStrokeBrandHover:rgb(1, 118, 211);--skyvvasolutions-paletteNeutral30:rgb(68, 68, 68);--skyvvasolutions-varSpacingVerticalXxxSmall:0.125rem;--skyvvasolutions-paletteHotOrange10:rgb(40, 18, 2);--skyvvasolutions-colorTextButtonBrandDisabled:rgb(255, 255, 255);--skyvvasolutions-squareIconXSmallContent:0.5rem;--skyvvasolutions-varFontSize10:2rem;--skyvvasolutions-paletteRed60:rgb(254, 92, 76);--skyvvasolutions-varFontSize11:2.625rem;--skyvvasolutions-paletteRed65:rgb(254, 119, 101);--skyvvasolutions-buttonBorderRadius:.25rem;--skyvvasolutions-squareTappableXSmall:1.5rem;--skyvvasolutions-colorBackgroundGuidance:rgb(255, 255, 255);--skyvvasolutions-colorTextContextBarInverse:rgb(255, 255, 255);--skyvvasolutions-paletteNeutral20:rgb(46, 46, 46);--skyvvasolutions-fontFamilyHeading:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';--skyvvasolutions-paletteRed70:rgb(254, 143, 125);--skyvvasolutions-brandHeaderContrastCoolActive:rgb(1, 68, 134);--skyvvasolutions-borderWidthThick:2px;--skyvvasolutions-pageHeaderShadow:none;--skyvvasolutions-spinnerSizeXxSmall:0.5rem;--skyvvasolutions-tableColorBackgroundHeader:rgb(255, 255, 255);--skyvvasolutions-pageHeaderColorBackgroundAlt:rgb(255, 255, 255);--skyvvasolutions-colorBorderBrandPrimaryHover:rgb(1, 118, 211);--skyvvasolutions-colorTextTabLabelActive:rgb(3, 45, 96);--skyvvasolutions-paletteNeutral50:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundTempModalTint:rgba(126, 140, 153, 0.8);--skyvvasolutions-fontSizeMedium:1rem;--skyvvasolutions-colorBorderButtonBrand:rgb(1, 118, 211);--skyvvasolutions-paletteHotOrange30:rgb(126, 38, 0);--skyvvasolutions-paletteRed40:rgb(186, 5, 23);--skyvvasolutions-brandBandImageHeightSmall:6rem;--skyvvasolutions-colorTextInverseWeak:rgb(174, 174, 174);--skyvvasolutions-colorTextInverse:rgb(255, 255, 255);--skyvvasolutions-shadowLinkFocusInverse:0 0 3px #f3f3f3;--skyvvasolutions-squareIconXxSmallBoundary:1rem;--skyvvasolutions-lineHeightReset:1;--skyvvasolutions-verticalNavigationColorBackgroundShadeRowActive:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundTempModal:rgba(126, 140, 153, 0.8);--skyvvasolutions-colorBackgroundToggleDisabled:rgb(174, 174, 174);--skyvvasolutions-colorGray13:rgb(8, 7, 7);--skyvvasolutions-colorGray10:rgb(81, 79, 77);--skyvvasolutions-paletteNeutral40:rgb(92, 92, 92);--skyvvasolutions-colorBorderInverse:#061c3f;--skyvvasolutions-carouselIndicatorColorBackgroundActive:rgb(1, 118, 211);--skyvvasolutions-colorBackgroundBackdrop:rgba(255, 255, 255, 0.75);--skyvvasolutions-colorGray12:rgb(43, 40, 38);--skyvvasolutions-colorGray11:rgb(62, 62, 60);--skyvvasolutions-colorTextContextBarActionTrigger:rgba(255, 255, 255, 0.4);--skyvvasolutions-paletteHotOrange20:rgb(74, 36, 19);--skyvvasolutions-colorBackgroundNotification:rgb(255, 255, 255);--skyvvasolutions-colorBackgroundPathStepActionCurrent:rgb(1, 68, 134);--skyvvasolutions-badgeColorBackgroundInverse:rgb(116, 116, 116);--skyvvasolutions-colorBorderSeparatorInverse:rgb(3, 45, 96);--skyvvasolutions-paletteRed50:rgb(234, 0, 30);--skyvvasolutions-colorBackgroundSpinnerDot:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundButtonBrandActive:rgb(3, 45, 96);--skyvvasolutions-paletteHotOrange15:rgb(66, 22, 4);--skyvvasolutions-sliderHandleColorBackgroundFocus:rgb(1, 118, 211);--skyvvasolutions-spinnerSizeMedium:2rem;--skyvvasolutions-brandPrimary:rgb(27, 150, 255);--skyvvasolutions-paletteHotOrange50:rgb(216, 58, 0);--skyvvasolutions-colorTextLinkPrimaryFocus:rgb(1, 118, 211);--skyvvasolutions-colorTextInputDisabled:rgb(116, 116, 116);--skyvvasolutions-brandLogoImage:url(/_slds/images/logo-noname.svg?cache=380754d9);--skyvvasolutions-brandLight:rgb(244, 246, 254);--skyvvasolutions-paletteRed20:rgb(100, 1, 3);--skyvvasolutions-fillHeaderButton:rgb(174, 174, 174);--skyvvasolutions-varLineHeightText:1.5;--skyvvasolutions-colorBackgroundPathCurrent:rgb(255, 255, 255);--skyvvasolutions-colorBackgroundOffline:rgb(68, 68, 68);--skyvvasolutions-colorBorderTabSelected:rgb(1, 118, 211);--skyvvasolutions-colorTextWarning:rgb(254, 147, 57);--skyvvasolutions-salesforceSansRegularWoff:url(/_slds/fonts/v2.3.0/SalesforceSans-Regular.woff);--skyvvasolutions-paletteHotOrange40:rgb(170, 48, 1);--skyvvasolutions-cardSpacingLarge:1.5rem;--skyvvasolutions-paletteRed30:rgb(142, 3, 15);--skyvvasolutions-fontSizeMediumA:1.125rem;--skyvvasolutions-borderRadiusMedium:0.25rem;--skyvvasolutions-colorPickerSliderThumbBorderColor:rgb(68, 68, 68);--skyvvasolutions-shadowSoftPrimary:none;--skyvvasolutions-zIndexDropdown:7000;--skyvvasolutions-paletteHotOrange70:rgb(255, 144, 110);--skyvvasolutions-verticalNavigationColorBackgroundShadeRowHover:rgb(243, 243, 243);--skyvvasolutions-squareIconMediumBoundary:2rem;--skyvvasolutions-colorBorderInpuDisabled:#a8b7c7;--skyvvasolutions-colorBackgroundButtonDefaultFocus:rgb(243, 243, 243);--skyvvasolutions-heightTappable:2.75rem;--skyvvasolutions-colorBackgroundToastError:rgb(234, 0, 30);--skyvvasolutions-brandBandDefaultImage:;--skyvvasolutions-durationQuickly:0.1s;--skyvvasolutions-colorBackgroundSelection:rgb(216, 230, 254);--skyvvasolutions-paletteHotOrange60:rgb(255, 93, 45);--skyvvasolutions-colorBackgroundActionbarIconUtility:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundNotificationBadgeFocus:rgb(1, 68, 134);--skyvvasolutions-paletteHotOrange65:rgb(255, 120, 79);--skyvvasolutions-cardFooterTextAlign:right;--skyvvasolutions-colorBorderBrandDark:rgb(1, 68, 134);--skyvvasolutions-brandBackgroundDark:rgb(232, 232, 232);--skyvvasolutions-avatarGroupColorBackgroundLightest:rgb(255, 255, 255);--skyvvasolutions-colorTextContextBar:rgb(68, 68, 68);--skyvvasolutions-inputStaticFontWeight:400;--skyvvasolutions-paletteRed10:rgb(48, 12, 1);--skyvvasolutions-colorTextLinkDisabled:rgb(3, 45, 96);--skyvvasolutions-colorTextPathCurrent:rgb(1, 68, 134);--skyvvasolutions-paletteRed15:rgb(74, 12, 4);--skyvvasolutions-zIndexOverlay:8000;--skyvvasolutions-buttonColorBorderPrimary:rgb(243, 243, 243);--skyvvasolutions-paletteHotOrange90:rgb(255, 222, 213);--skyvvasolutions-shadowImage:0 1px 1px rgba(0, 0, 0, 0.16);--skyvvasolutions-paletteHotOrange95:rgb(254, 241, 237);--skyvvasolutions-cardHeaderPadding:0.75rem 1rem 0;--skyvvasolutions-colorBorderSeparatorAlt2:rgb(201, 201, 201);--skyvvasolutions-fillBrandActive:rgb(3, 45, 96);--skyvvasolutions-fontSizeTextMedium:1rem;--skyvvasolutions-spacingXSmall:0.5rem;--skyvvasolutions-chatMessageColorBackgroundOutboundAgent:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundButtonIconHover:rgb(243, 243, 243);--skyvvasolutions-sliderHandleColorBackgroundActive:rgb(1, 118, 211);--skyvvasolutions-colorBorderSuccess:rgb(145, 219, 139);--skyvvasolutions-colorTextIconInverseHover:rgb(255, 255, 255);--skyvvasolutions-componentSpacingPadding:1rem;--skyvvasolutions-colorBorderDestructiveActive:rgb(142, 3, 15);--skyvvasolutions-colorBackgroundButtonInverseDisabled:rgba(0, 0, 0, 0);--skyvvasolutions-colorTextTabLabelFocus:rgb(1, 68, 134);--skyvvasolutions-paletteHotOrange80:rgb(254, 185, 165);--skyvvasolutions-colorBackgroundNotificationBadge:rgb(234, 0, 30);--skyvvasolutions-zIndexReminder:8500;--skyvvasolutions-colorBackgroundImageOverlay:rgba(0, 0, 0, 0.4);--skyvvasolutions-colorBackgroundReminderHover:rgb(255, 255, 255);--skyvvasolutions-colorTextPathCurrentHover:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundCustomer:rgb(254, 147, 57);--skyvvasolutions-colorBackgroundButtonDefault:rgb(255, 255, 255);--skyvvasolutions-colorBackgroundInverseLight:rgb(3, 45, 96);--skyvvasolutions-salesforceSansBoldWoff:url(/_slds/fonts/v2.3.0/SalesforceSans-Bold.woff);--skyvvasolutions-progressColorBorderActive:rgb(27, 150, 255);--skyvvasolutions-fontSizeLarge:1.25rem;--skyvvasolutions-brandHeaderContrastWeakActive:rgb(129, 129, 129);--skyvvasolutions-brandHeaderContrastWarmActive:rgb(186, 5, 23);--skyvvasolutions-squareToggleSlider:1.25rem;--skyvvasolutions-progressBarColorBackgroundFillSuccess:rgb(46, 132, 74);--skyvvasolutions-colorBackgroundButtonBrand:rgb(1, 118, 211);--skyvvasolutions-colorBackgroundWarningDark:rgb(254, 147, 57);--skyvvasolutions-colorTextIconUtility:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundScrollbar:rgb(243, 243, 243);--skyvvasolutions-chatMessageColorBackgroundStatus:rgb(255, 255, 255);--skyvvasolutions-colorBackgroundTempModalTintAlt:rgba(255, 255, 255, 0.75);--skyvvasolutions-pageHeaderBorderRadius:0;--skyvvasolutions-palettePink95:rgb(254, 240, 243);--skyvvasolutions-welcomeMatColorIconComplete:rgb(201, 201, 201);--skyvvasolutions-palettePink90:rgb(253, 221, 227);--skyvvasolutions-paletteViolet50:rgb(186, 1, 255);--skyvvasolutions-paletteTeal30:rgb(2, 77, 76);--skyvvasolutions-colorTextIconInverseDisabled:rgba(255, 255, 255, 0.15);--skyvvasolutions-bannerGroupDefaultImage:;--skyvvasolutions-colorBorderBrand:rgb(27, 150, 255);--skyvvasolutions-colorBackgroundInfo:rgb(116, 116, 116);--skyvvasolutions-heightToggle:1.5rem;--skyvvasolutions-badgeColorBackgroundLightest:rgb(255, 255, 255);--skyvvasolutions-brandBandColorBackgroundSecondary:rgba(0, 0, 0, 0);--skyvvasolutions-shadowSoftPrimaryActive:none;--skyvvasolutions-colorTextIconDefaultHint:rgb(174, 174, 174);--skyvvasolutions-colorBackgroundChromeMobile:rgb(1, 118, 211);--skyvvasolutions-colorPickerSwatchSize:1.25rem;--skyvvasolutions-colorBackgroundPathIncomplete:rgb(243, 243, 243);--skyvvasolutions-paletteTeal40:rgb(5, 103, 100);--skyvvasolutions-colorTextToggleDisabled:rgb(201, 201, 201);--skyvvasolutions-paletteViolet40:rgb(150, 2, 199);--skyvvasolutions-colorTextLinkInverseHover:rgba(255, 255, 255, 0.75);--skyvvasolutions-palettePink80:rgb(253, 182, 197);--skyvvasolutions-zIndexModal:9000;--skyvvasolutions-pageHeaderIconSize:2.25rem;--skyvvasolutions-colorTextDestructiveHover:rgb(186, 5, 23);--skyvvasolutions-colorBorderCanvasElementSelection:rgb(26, 185, 255);--skyvvasolutions-colorBackgroundSuccess:rgb(69, 198, 90);--skyvvasolutions-carouselIndicatorColorBackground:rgb(255, 255, 255);--skyvvasolutions-sliderTrackHeight:4px;--skyvvasolutions-squareIconSmallContent:0.75rem;--skyvvasolutions-colorBackgroundInputDisabled:rgb(243, 243, 243);--skyvvasolutions-paletteTeal50:rgb(11, 130, 124);--skyvvasolutions-palettePink70:rgb(254, 138, 167);--skyvvasolutions-paletteViolet30:rgb(115, 3, 148);--skyvvasolutions-mqSmall:only screen and (max-width: 47.9375em);--skyvvasolutions-brandBandImageHeightLarge:18.75rem;--skyvvasolutions-carouselIndicatorWidth:1rem;--skyvvasolutions-colorTextLinkActive:rgb(3, 45, 96);--skyvvasolutions-squareIconXxSmallContent:.875rem;--skyvvasolutions-fontSizeXSmall:0.625rem;--skyvvasolutions-palettePink65:rgb(254, 114, 152);--skyvvasolutions-sliderColorBackgroundDisabled:rgb(243, 243, 243);--skyvvasolutions-colorContrastSecondary:rgb(255, 255, 255);--skyvvasolutions-welcomeMatColorBackgroundProgressBar:rgb(255, 255, 255);--skyvvasolutions-globalActionIconSize:1.5rem;--skyvvasolutions-paletteViolet20:rgb(72, 26, 84);--skyvvasolutions-fontSizeHeadingSmall:0.875rem;--skyvvasolutions-colorPickerRangeIndicatorSize:0.75rem;--skyvvasolutions-paletteOrange15:rgb(55, 30, 3);--skyvvasolutions-sliderHandleSize:1rem;--skyvvasolutions-tableBorderRadius:0;--skyvvasolutions-paletteTeal60:rgb(6, 165, 154);--skyvvasolutions-userDefaultAvatarSmall:url(/_slds/images/profile_avatar_96.png?cache=3c01f25f);--skyvvasolutions-buttonColorBackgroundPrimary:rgb(255, 255, 255);--skyvvasolutions-colorPickerInputCustomHexWidth:4.2rem;--skyvvasolutions-paletteOrange10:rgb(32, 22, 0);--skyvvasolutions-palettePink60:rgb(255, 83, 138);--skyvvasolutions-paletteTeal65:rgb(3, 180, 167);--skyvvasolutions-colorBackgroundRowSelected:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundContextBarBrandAccent:rgb(13, 157, 218);--skyvvasolutions-fontFamilyMonospace:Consolas, Menlo, Monaco, Courier, monospace;--skyvvasolutions-cardFooterColorBorder:rgba(0, 0, 0, 0);--skyvvasolutions-palettePurple80:rgb(215, 191, 242);--skyvvasolutions-varSpacingHorizontalLarge:1.5rem;--skyvvasolutions-colorTextRequired:rgb(234, 0, 30);--skyvvasolutions-elevationShadow16:0 16px 16px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-paletteViolet10:rgb(46, 0, 57);--skyvvasolutions-shadowHardPrimary:none;--skyvvasolutions-paletteOrange20:rgb(62, 43, 2);--skyvvasolutions-paletteViolet15:rgb(61, 1, 87);--skyvvasolutions-radioButtonGroupLineHeightTouch:2.69rem;--skyvvasolutions-colorBackgroundBrandPrimary:rgb(1, 118, 211);--skyvvasolutions-paletteTeal70:rgb(1, 195, 179);--skyvvasolutions-colorBackgroundUtilityBarActive:rgb(27, 150, 255);--skyvvasolutions-zIndexSticky:100;--skyvvasolutions-colorBackgroundContextBarShadow:linear-gradient(to bottom, rgba(0, 0, 0, 0.25) 0, rgba(0, 0, 0, 0) 100%);--skyvvasolutions-paletteTeal80:rgb(4, 225, 203);--skyvvasolutions-palettePurple90:rgb(236, 225, 249);--skyvvasolutions-squareIconUtilityLarge:1.5rem;--skyvvasolutions-fontSize10:2rem;--skyvvasolutions-groupDefaultAvatarMedium:url(/_slds/images/group_avatar_160.png?cache=b8fe8e83);--skyvvasolutions-elevationShadow32:0 32px 32px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-paletteOrange30:rgb(95, 62, 2);--skyvvasolutions-colorBorderButtonInverseDisabled:rgba(255, 255, 255, 0.15);--skyvvasolutions-fontSize11:2.625rem;--skyvvasolutions-einsteinHeaderTextShadow:#cfe9fe;--skyvvasolutions-palettePurple95:rgb(246, 242, 251);--skyvvasolutions-squareTappableXxSmall:1.25rem;--skyvvasolutions-colorBackgroundDestructiveHover:rgb(142, 3, 15);--skyvvasolutions-fontSize9:1.75rem;--skyvvasolutions-colorBackgroundLight:rgb(255, 255, 255);--skyvvasolutions-fontSize8:1.5rem;--skyvvasolutions-paletteTeal90:rgb(172, 243, 228);--skyvvasolutions-shadowActive:0 0 2px #0176d3;--skyvvasolutions-fontSize1:0.625rem;--skyvvasolutions-paletteNeutral100:rgb(255, 255, 255);--skyvvasolutions-colorTextLink:rgb(1, 118, 211);--skyvvasolutions-pageHeaderTitleFontSize:1.125rem;--skyvvasolutions-fontSize3:0.8125rem;--skyvvasolutions-fontSize2:0.75rem;--skyvvasolutions-colorTextLinkInverseDisabled:rgba(255, 255, 255, 0.15);--skyvvasolutions-fontSize5:1rem;--skyvvasolutions-fontSize4:0.875rem;--skyvvasolutions-fontSize7:1.25rem;--skyvvasolutions-fontSize6:1.125rem;--skyvvasolutions-spacingNone:0;--skyvvasolutions-paletteOrange40:rgb(130, 81, 1);--skyvvasolutions-inputReadonlyFontWeight:400;--skyvvasolutions-palettePurple60:rgb(173, 123, 238);--skyvvasolutions-paletteTeal95:rgb(222, 249, 243);--skyvvasolutions-colorStrokeHeaderButton:rgb(174, 174, 174);--skyvvasolutions-typingIconDotColorBackgroundGray:rgb(201, 201, 201);--skyvvasolutions-palettePurple65:rgb(183, 141, 239);--skyvvasolutions-pageHeaderTitleFontWeight:400;--skyvvasolutions-colorBackgroundButtonIconFocus:rgb(243, 243, 243);--skyvvasolutions-groupDefaultAvatarSmall:url(/_slds/images/group_avatar_96.png?cache=d0659d12);--skyvvasolutions-colorBackgroundModalBrand:rgb(1, 68, 134);--skyvvasolutions-colorTextInverseActive:rgb(26, 185, 255);--skyvvasolutions-colorBackgroundHighlightSearch:rgb(255, 240, 63);--skyvvasolutions-paletteOrange50:rgb(169, 100, 4);--skyvvasolutions-colorBackgroundSuccessDark:rgb(46, 132, 74);--skyvvasolutions-shadowOverlay:0 -2px 4px rgba(0, 0, 0, 0.07);--skyvvasolutions-sizeXSmall:12rem;--skyvvasolutions-colorBackgroundDestructive:#c23934;--skyvvasolutions-typingIconDotSize:.5rem;--skyvvasolutions-palettePurple70:rgb(194, 158, 241);--skyvvasolutions-colorBorderInfo:rgb(116, 116, 116);--skyvvasolutions-colorTextTabLabel:rgb(3, 45, 96);--skyvvasolutions-palettePink15:rgb(75, 6, 32);--skyvvasolutions-popoverWalkthroughColorBackgroundAlt:rgb(1, 118, 211);--skyvvasolutions-durationImmediately:0.05s;--skyvvasolutions-palettePink10:rgb(55, 1, 20);--skyvvasolutions-elevationInverseShadow16:0 -16px 16px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-salesforceSansLightWoff2:url(/_slds/fonts/v2.3.0/SalesforceSans-Light.woff2);--skyvvasolutions-splitViewWidth:25rem;--skyvvasolutions-colorBorderIconInverseHint:rgba(255, 255, 255, 0.5);--skyvvasolutions-brandDisabled:rgb(201, 199, 197);--skyvvasolutions-paletteOrange60:rgb(221, 122, 1);--skyvvasolutions-palettePurple40:rgb(117, 38, 227);--skyvvasolutions-paletteOrange65:rgb(243, 131, 3);--skyvvasolutions-progressColorBackground:rgb(255, 255, 255);--skyvvasolutions-colorBorderContextBarThemeDefaultActive:rgb(243, 243, 243);--skyvvasolutions-avatarGroupColorBackgroundInverse:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundAlt2:rgb(243, 243, 243);--skyvvasolutions-cardFontWeight:400;--skyvvasolutions-colorPickerSwatchShadow:inset 0 0 1px rgba(0,0,0,0.4);--skyvvasolutions-paletteOrange70:rgb(254, 147, 57);--skyvvasolutions-colorTextIconBrand:rgb(1, 118, 211);--skyvvasolutions-colorTextButtonDefault:rgb(1, 118, 211);--skyvvasolutions-palettePurple50:rgb(144, 80, 233);--skyvvasolutions-pathButtonWidthFixed:13rem;--skyvvasolutions-sizeLarge:25rem;--skyvvasolutions-userDefaultAvatarMedium:url(/_slds/images/profile_avatar_160.png?cache=bfba2c9a);--skyvvasolutions-colorBorderDestructive:rgb(234, 0, 30);--skyvvasolutions-colorTextWeak:rgb(116, 116, 116);--skyvvasolutions-fontSizeHeadingMedium:1.125rem;--skyvvasolutions-mqSingleColumnRecordLayout:(max-width: 599px);--skyvvasolutions-colorBackgroundInputSearch:rgba(0, 0, 0, 0.16);--skyvvasolutions-welcomeMatBackgroundColorInfo:rgb(207, 233, 254);--skyvvasolutions-colorBorderBrandPrimary:rgb(27, 150, 255);--skyvvasolutions-colorBackgroundInverse:rgb(0, 22, 57);--skyvvasolutions-maxWidthActionOverflowMenu:512px;--skyvvasolutions-paletteNeutral10:rgb(24, 24, 24);--skyvvasolutions-carouselColorBackground:rgb(255, 255, 255);--skyvvasolutions-colorTextLabel:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundButtonSuccessActive:rgb(46, 132, 74);--skyvvasolutions-squareIconLarge:3.125rem;--skyvvasolutions-spinnerSizeXSmall:1rem;--skyvvasolutions-paletteOrange80:rgb(255, 186, 144);--skyvvasolutions-cardSpacingMargin:1rem;--skyvvasolutions-colorTextBrowserActive:rgba(0, 0, 0, 0.4);--skyvvasolutions-colorBackgroundButtonBrandHover:rgb(1, 68, 134);--skyvvasolutions-chatMessageColorBackgroundOutbound:rgb(1, 68, 134);--skyvvasolutions-colorTextIconDefaultActive:rgb(3, 45, 96);--skyvvasolutions-palettePurple20:rgb(64, 16, 117);--skyvvasolutions-colorTextIconDefaultHover:rgb(1, 118, 211);--skyvvasolutions-colorTextLinkPrimary:rgb(1, 118, 211);--skyvvasolutions-fontSizeTextXSmall:0.75rem;--skyvvasolutions-colorBackgroundToast:rgb(116, 116, 116);--skyvvasolutions-fontSizeXxLarge:1.75rem;--skyvvasolutions-heightSalesPath:2rem;--skyvvasolutions-colorTextIconDefaultHintBorderless:rgb(243, 243, 243);--skyvvasolutions-paletteOrange95:rgb(255, 241, 234);--skyvvasolutions-colorForegroundPrimary:rgb(255, 255, 255);--skyvvasolutions-paletteOrange90:rgb(254, 223, 208);--skyvvasolutions-colorBackgroundRowNew:rgb(205, 239, 196);--skyvvasolutions-fontSizeTextLarge:1.125rem;--skyvvasolutions-paletteGreen15:rgb(12, 41, 18);--skyvvasolutions-colorBackgroundShade:rgb(243, 243, 243);--skyvvasolutions-paletteGreen10:rgb(7, 27, 18);--skyvvasolutions-palettePurple30:rgb(90, 27, 169);--skyvvasolutions-varSpacingXxxSmall:0.125rem;--skyvvasolutions-brandLightActive:rgb(227, 229, 237);--skyvvasolutions-welcomeMatTextColorInfo:rgb(3, 45, 96);--skyvvasolutions-colorBackgroundIconWaffle:rgb(116, 116, 116);--skyvvasolutions-colorBackgroundContextBarItemHover:rgb(255, 255, 255);--skyvvasolutions-fontSizeXLargeA:1.57rem;--skyvvasolutions-colorBackgroundPathCompleteHover:rgba(4,132,75,.95);--skyvvasolutions-palettePink50:rgb(227, 6, 106);--skyvvasolutions-paletteViolet90:rgb(242, 222, 254);--skyvvasolutions-paletteGreen20:rgb(28, 51, 38);--skyvvasolutions-paletteViolet95:rgb(249, 240, 255);--skyvvasolutions-colorBorderContextBarThemeDefaultHover:rgb(50, 29, 113);--skyvvasolutions-squareIconMedium:2.375rem;--skyvvasolutions-textTransform:none;--skyvvasolutions-colorBackgroundBrandPrimaryHover:rgb(1, 68, 134);--skyvvasolutions-colorTextSuccess:rgb(46, 132, 74);--skyvvasolutions-carouselIndicatorColorBackgroundFocus:rgb(1, 68, 134);--skyvvasolutions-colorBackgroundChromeDesktop:rgb(255, 255, 255);--skyvvasolutions-borderStrokeWidthThick:2px;--skyvvasolutions-colorBackgroundReminder:rgb(243, 243, 243);--skyvvasolutions-palettePurple15:rgb(48, 11, 96);--skyvvasolutions-colorTextToast:rgb(243, 243, 243);--skyvvasolutions-paletteViolet80:rgb(229, 185, 254);--skyvvasolutions-colorBackgroundAlt:rgb(255, 255, 255);--skyvvasolutions-palettePink40:rgb(182, 5, 84);--skyvvasolutions-paletteGreen30:rgb(25, 78, 49);--skyvvasolutions-palettePurple10:rgb(36, 6, 67);--skyvvasolutions-elevationInverseShadow32:0 -32px 32px 0 rgba(0, 0, 0, 0.16);--skyvvasolutions-colorBorderCustomer:rgb(254, 147, 57);--skyvvasolutions-tableColorBackgroundStripes:rgb(243, 243, 243);--skyvvasolutions-varSpacingVerticalSmall:0.75rem;--skyvvasolutions-palettePink30:rgb(138, 3, 62);--skyvvasolutions-paletteViolet70:rgb(216, 146, 254);--skyvvasolutions-colorBorderContextBarInverseItem:rgba(255, 255, 255, 0.2);--skyvvasolutions-utilityBarColorBackgroundNotificationBadge:rgb(254, 92, 76);--skyvvasolutions-colorTextTabLabelDisabled:rgb(243, 243, 243);--skyvvasolutions-heightInput:1.875rem;--skyvvasolutions-squareTappable:2.75rem;--skyvvasolutions-fontSizeSmall:0.75rem;--skyvvasolutions-paletteGreen40:rgb(57, 101, 71);--skyvvasolutions-tableColorBackgroundHeaderFocus:rgb(255, 255, 255);--skyvvasolutions-salesforceSansRegularWoff2:url(/_slds/fonts/v2.3.0/SalesforceSans-Regular.woff2);--skyvvasolutions-varSpacingHorizontalXxLarge:3rem;--skyvvasolutions-paletteViolet65:rgb(209, 125, 254);--skyvvasolutions-progressBarColorBackgroundFill:rgb(26, 185, 255);--skyvvasolutions-colorBorderSeparator:rgb(243, 243, 243);--skyvvasolutions-paletteGreen50:rgb(46, 132, 74);--skyvvasolutions-brandHeaderIconDisabled:rgba(145, 145, 145, 0.25);--skyvvasolutions-palettePink20:rgb(97, 2, 42);--skyvvasolutions-splitViewColorBackground:rgb(243, 243, 243);--skyvvasolutions-colorBackgroundSecondary:rgb(243, 243, 243);--skyvvasolutions-colorTextLinkFocus:rgb(1, 68, 134);--skyvvasolutions-paletteViolet60:rgb(203, 101, 255);}</style><link data-href="/s/sfsites/l/%7B%22mode%22%3A%22PROD%22%2C%22dfs%22%3A%2221%22%2C%22app%22%3A%22siteforce%3AcommunityApp%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fsiteforce%3AcommunityApp%22%3A%221656_VnWO0GitG2zJ1ELHg8lMdg%22%7D%2C%22styleContext%22%3A%7B%22c%22%3A%22other%22%2C%22x%22%3A%5B%223%22%2C%22SLDS%22%2C%22a11yResizeReflow%22%2C%22isDesktop%22%5D%2C%22tokens%22%3A%5B%22markup%3A%2F%2Fsiteforce%3AserializedTokens%22%2C%22markup%3A%2F%2Fforce%3AsldsTokens%22%2C%22markup%3A%2F%2Fsiteforce%3AcommunityTokens%22%2C%22markup%3A%2F%2Fforce%3AformFactorLarge%22%2C%22markup%3A%2F%2Fsiteforce%3AcommunityFormFactorLarge%22%2C%22markup%3A%2F%2Fsiteforce%3AauraDynamicTokens%22%2C%22markup%3A%2F%2Fsiteforce%3AsldsFontOverride%22%5D%2C%22tuid%22%3A%22ASBpDNhGmNM28kIU0yks0Q%22%2C%22cuid%22%3A148151503%7D%2C%22pathPrefix%22%3A%22%22%7D/app.css?3=&aura.attributes=%7B%22ac%22%3A%22%22%2C%22authenticated%22%3A%22false%22%2C%22brandingSetId%22%3A%22b35fcf1d-7c85-4358-a87e-304368b4a385%22%2C%22formFactor%22%3A%22LARGE%22%2C%22isHybrid%22%3A%22false%22%2C%22language%22%3A%22en_US%22%2C%22pageId%22%3A%226f9774c7-4a93-47e8-9703-8d1d2104bb58%22%2C%22publishedChangelistNum%22%3A%22175%22%2C%22schema%22%3A%22Published%22%2C%22themeLayoutType%22%3A%22Inner%22%2C%22uds%22%3A%22true%22%2C%22viewType%22%3A%22Published%22%7D" class="auraCss" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" id="siteforce_fontStyleSheet" href="/s/sfsites/runtimedownload/fonts.css?lastMod=1651019986000&brandSet=b35fcf1d-7c85-4358-a87e-304368b4a385" type="text/css"/>
+<style id="themeCSS"></style><style id="customCSS">/*Hide the System Information section from layout. */
+records-record-layout-section:last-child {
+    display: none !important;
+}
+
+/* u-blox regular font added for all web */
+@font-face{
+    font-family:'u-blox';
+    src:url(/s/sfsites/c/resource/ubloxWRgEot);
+    src:url(/s/sfsites/c/resource/ubloxWRgEot?#iefix) format("embedded-opentype"),
+        url(/s/sfsites/c/resource/ubloxWRgWoff2) format("woff2"),
+        url(/s/sfsites/c/resource/ubloxWRgWoff) format("woff"),
+        url(/s/sfsites/c/resource/ubloxARgTtf) format("truetype");
+}
+.custom-gpt-button {
+        border: 1px solid #ff6e59;
+        padding: 10px;
+        color: #ff6e59;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+    	font-weight: bold;
+        cursor: pointer;
+        display: block; 
+        box-sizing: border-box; 
+        text-decoration: none;
+    }
+
+    .custom-gpt-button:hover {
+        background-color: #ffecec;
+        text-decoration: none !important;
+    }
+	.custom-gpt-button:visited, 
+    .custom-gpt-button:active, 
+    .custom-gpt-button:focus {
+        text-decoration: none !important; 
+        outline: none; 
+        color: #ff6e59 !important;
+    }
+.custom-contact-us-button .slds-button{
+    width:100% !important;
+    border-color: rgb(255, 110, 89);
+}
+/* u-blox bold font added */
+@font-face{
+    font-family:'u-blox';
+    src:url(/s/sfsites/c/resource/ubloxWBdEot);
+    src:url(/s/sfsites/c/resource/ubloxWBdEot?#iefix) format("embedded-opentype"),
+        url(/s/sfsites/c/resource/ubloxWBdWoff2) format("woff2"),
+        url(/s/sfsites/c/resource/ubloxWBdWoff) format("woff"),
+    	url(/s/sfsites/c/resource/ubloxABdTtf) format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+
+.margin-btn-case button
+{
+    margin-bottom:-8px !important;
+}
+/*Ticket:BM_SF-3331 | Chnage the font family*/
+.sso-name[c-ssoLink_ssoLink] {
+    font-family:'u-blox' !important;
+    text-decoration: none !important;
+}
+.cSignuplayout .slds-button.loginButton {
+	margin: 10px 0 6px 0 !important;
+}
+/*Ticket:BM_SF-3078 | Hide the email field in the profile setting page.*/
+.forceCommunityUserSettings .userSettingTabs .accountSection .sectionbox:nth-child(2)
+  {
+	display:none !important;
+  }
+
+/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+	top: 85px;
+    position: relative;
+	font-size: 18px;
+}
+.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+	top: -70px;
+    font-size: 60px;
+	position: relative;
+}
+/* */
+/* Ticket: BM_SF-2915 | Change the bottom margin of the buttons */
+.askCommunityBtn, .contactSupportButton{
+	margin-bottom: -10px !important;
+}
+.comm-page-custom-reglandingpage footer {
+	display: none !important;
+}
+.grecaptcha-badge {
+    z-index: 1;
+}
+/* language selector css */
+.center.wrapper.forceCommunityLanguagePicker
+{
+    position: fixed;
+  	top: 0;
+  	left: 0;
+}
+/* common hearding style - making it bold */
+  h1, h2, h3, h4, h5, h6 {
+      font-weight:bold
+  }
+/* common style for body */
+  body {
+      font-size: 14px;
+      overflow: initial !important;
+  }
+/* common style for button */
+  button {
+      font-weight:bold;
+         border-radius: 0;
+  }
+/* common style for focus */
+  :focus {
+      outline:none;
+  }
+/* For rounding all the input boxes  */
+  input#continue {
+      border-radius: 0;
+  }
+/* style for search button for home page */
+  .forceCommunitySearchBox .search-button {
+      background-image: url("/resource/1648719164000/searchWhiteSpace");
+      background-repeat: no-repeat;
+      background-position: center center;
+      color: rgba(255,255,255,0);
+      font-size: 0;
+      width: 46px !important;
+      cursor: pointer !important;
+  }
+/* style for search button for search,ask button for home page,
+common style for tab button & slds-button  */
+  button.slds-button.slds-button_brand.askCommunityBtn,
+  button.slds-button.slds-button_brand.communityBtn,
+  .slds-button-group .slds-button:only-child,
+  .uiTabset--task .tabs__nav
+  {
+      border-radius: 0;
+      font-size: 14px;
+  }
+  .slds-button_icon-border-filled,
+  .slds-button--icon-border-filled,
+  .slds-button_icon-border,
+  .slds-button--icon-border
+  {
+      border: 0;
+  }
+/* common style for uiInput--select */
+  .uiInput--select.select:not([multiple]),
+  .uiInput--select .select:not([multiple]),
+  .uiInput--select .uiPopupTrigger a {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/select-arrows-grey.svg) no-repeat;
+      background-position: center right 4px;
+      -webkit-background-size: 2rem 2rem;
+      background-size: 1.3rem 1.3rem;
+      border-radius: 0px;
+      -moz-border-radius: 0px;
+      -webkit-border-radius: 0px;
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a;
+      background-color: inherit;
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a;
+      font-family: inherit;
+      width: 100%;
+      padding: 1rem 3rem 1rem 1.2rem;
+      -webkit-transition: all .25s ease;
+      -o-transition: all .25s ease;
+      transition: all .25s ease;
+      display: block;
+      line-height: 1.42857143;
+      height: 44px;
+  }
+
+/*Ticket:BM_SF-3030 | Hide the Home tab.*/
+  .forceCommunityThemeNav .comm-navigation__home-link, .profile-menuItem.home.uiMenuItem
+  {
+      display:none !important;
+  }
+	
+/* common style for settings page */
+  .forceCommunityUserSettings *
+  {
+      font-size: 14px;
+  }
+/* style for settings page email input */
+  .forceCommunityUserSettings .settingsEmail {
+      border-radius: 0px !important;
+      -moz-border-radius: 0px !important;
+      -webkit-border-radius: 0px !important;
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a !important;
+      display: block !important;
+      padding: 6px 12px !important;
+      line-height: 1.42857143 !important;
+  }
+
+/* style for profile menu button in header*/
+  .forceNoRowActions .menuTrigger
+  {
+      border: 0 !important;
+  }
+/*style for questions metadata text */
+  .slds-text-body_small, .slds-text-body--small {
+      font-size: 14px;
+      color: #ff6e59;
+      text-decoration: none;
+  }
+/* style for login button in header*/
+  .forceCommunityThemeProfileMenu.profile-loginButton{
+           background: url("/resource/1648644298000/loginIcon") center center no-repeat;
+          height:24px !important;
+  }
+/* headline title style for topic listing page*/
+  .headlineTitleText
+  {
+      float: left;
+      font-size: 42px;
+      font-weight: bold;
+  }
+/* page header style for search results, case page etc */
+  h1.slds-page-header__title {
+      color: #000000;
+      font-size: 30px;
+  }
+/* gerneral stle for slds middle column(slds-align-middle) */
+  .slds-align-middle{
+      font-size: 14px;
+  }
+/* gerneric form style for input form label */
+  .uiInput--default .form-element__label,
+  .slds-form-element__label{
+      color: black;
+  }
+/* gerneric form style for input form label */
+  .slds-form-element__label
+  {
+      font-size: 14px
+  }
+/* style for label of featured topics on home page */
+  .comm-page-home .forceTopicFeaturedTopics .topicLabel{
+      font-size: 1.5125rem !important;
+      opacity: 0.7;
+      width:100% !important;
+  }
+/* style for question detail-page */
+  .forceChatterFeedback--default .cuf-commentLi {
+      border-bottom: 1px solid #b5b6b7;
+  }
+/* style for question detail-page */
+  .forceChatterFeedItem .comment--threadedCommunity {
+      background: #f5f5f1 !important;
+  }
+/*style for search input on home page*/
+  .forceCommunitySearchBox .search-field {
+      font-size: 18px !important;
+      background-color: #f7f7f7 !important;
+      -webkit-transition: all .25s ease;
+      -o-transition: all .25s ease;
+      transition: all .25s ease;
+      
+  }
+/*style for search results*/
+  .comm-page-global-search .forceChatterCompactFeedItem .drillInTarget {padding-left:1rem;}
+/*style for search results - 1st line added to accomodate migration */
+  .comm-page-global-search .force-record-layout2  th.initialSortAsc[title="Display URL"],
+  .comm-page-global-search .forceRecordLayout  th.initialSortAsc[title="Display URL"]
+	{display:none;}
+
+  .comm-leaderboard ul .slds-size_1-of-8 {width:0 !important;}
+  .comm-leaderboard ul .slds-size_5-of-8 {width:80% !important;}
+  .comm-leaderboard ul .comm-leaderboard__points-column {width:20% !important;}
+
+/* style for question detail-page */
+  .forceChatterCompactFeedItem .drillInTarget a {
+      font-size:24px !important;
+      font-weight:bold;
+      color : #000;
+      margin: 10px 0;
+  }
+/* style for question detail-page */
+  .forceChatterCompactFeedItem .drillInTarget :hover,
+  .forceChatterCompactFeedItem .drillInTarget :focus
+   {
+    color : #ff6e59;
+    text-decoration:none;
+  }
+
+  .forceChatterCompactFeedItemBody .title {
+    font-size:24px !important;
+}
+
+  .forceChatterCompactFeed .metadata .postedBy,
+  .forceChatterCompactFeed .metadata .topicName,
+  .forceChatterCompactFeed .metadata .dotSymobol,
+  .forceChatterCompactFeed .metadata .postedBy,
+  .forceChatterCompactFeed .metadata .timestamp
+  {
+      
+      font-size: 16px !important;
+  }
+  .forceChatterCompactFeed .metrics {
+      margin-top: 20px;
+      
+  }
+  .forceChatterCompactFeed .metrics .metric {
+  
+      border-right: solid 1px #151315;
+      padding-right: 10px;
+      padding-left: 0;
+      font-size: 16px;
+      color: black;
+  }
+  .forceChatterCompactFeed .metadata .topicName{
+      color: #87827C !important;
+      padding: 0 10px 0 0px;
+  }
+  lightning-icon.metricIcon.slds-button__icon.slds-icon-utility-comments.slds-icon_container.forceIcon,
+  .comments.metric.forceChatterCompactFeedMetric
+  {
+      color: #ff6e59;
+  }
+  .forceChatterCompactFeedMetric .forceIcon {
+      color: rgb(0, 0, 0);
+  }
+  .forceChatterCompactFeedMetric.metric:last-child {
+      margin-right: 0;
+      border: none;
+  }
+  .forceCommunityThemeProfileMenu.jepsonInnerHeader.profile-loginButton {
+  
+      background-color: transparent !important;
+      border: 1px solid #ffffff !important;
+      box-shadow: none !important;
+      width: 34px;
+  }
+  .forceChatterCompactFeedItem {
+      position: relative;
+      padding: 30px 0px;
+      border-top: 1px solid;
+      border-bottom: 0 !important;
+      border-color: #87827C;
+  }
+.forceChatterCompactFeedItem:first-child {}
+
+  .forceCommunityFeedItemDetail .cuf-feedElement .cuf-questionTitle {
+  
+      color: #000000;
+      font-size: 30px !important;
+      font-weight: 700;
+  }
+  .forceChatterFeedBodyText.cuf-feedBodyText {
+      font-size: 16px;
+  }
+  .forceChatterSimpleFeedItemTopics .topic-commaSeparatedList .topicName {
+      padding: 0 10px 0 12px;
+      color: #87827C;
+      display: block;
+  }
+  .forceChatterSimpleFeedItemTopics--pill ul.topic-commaSeparatedList li a{
+      border: none !important;
+      border-radius: 0 !important;
+      font-size:14px
+  }
+  /* Ticket: BM_SF-2828 | Changing to remove the left padding*/
+  .siteforceSldsTwoCol84Layout.siteforceContentArea .cuf-feedElementFullView .forceChatterScroller .resizeCaptureFrameWrapper .cuf-singleFeedItemWrapper .cuf-feedElement.cuf-feedItem .forceChatterSimpleFeedItemTopics--pill.forceChatterSimpleFeedItemTopics .actionSection.cuf-simpleFeedItemTopics .topic-topicContainer.forceTopicSimpleTopicAssignments .topic-commaSeparatedList li,
+  .siteforceSldsTwoCol84Layout.siteforceContentArea .cuf-feedElementFullView .forceChatterScroller .resizeCaptureFrameWrapper .cuf-singleFeedItemWrapper .cuf-feedElement.cuf-feedItem .forceChatterSimpleFeedItemTopics--pill.forceChatterSimpleFeedItemTopics .actionSection.cuf-simpleFeedItemTopics .topic-topicContainer.forceTopicSimpleTopicAssignments .topic-commaSeparatedList a,
+  .siteforceSldsTwoCol84Layout.siteforceContentArea .cuf-feedElementFullView .forceChatterScroller .resizeCaptureFrameWrapper .cuf-singleFeedItemWrapper .cuf-feedElement.cuf-feedItem .forceChatterSimpleFeedItemTopics--pill.forceChatterSimpleFeedItemTopics .actionSection.cuf-simpleFeedItemTopics .topic-topicContainer.forceTopicSimpleTopicAssignments .topic-commaSeparatedList span {
+	  padding-left: 0px;
+  }
+
+  /* Ticket: BM_SF-2829 | Remove the right padding so that button will show in the right side in the Comment Page. */
+  .commentActorAndInput .cuf-commentInput .qe-feedCommentInput.cuf-feedCommentInput .form-block-section .bottomBar {
+	  padding-right: 0px;
+  }
+  .commentActorAndInput .cuf-commentInput .qe-feedCommentInput.cuf-feedCommentInput .form-block-section .bottomBar .cuf-commentSubmit:disabled{
+	  color: #777777
+  }
+  /* */
+  
+  /* Ticket: BM_SF-2833| Change the font size of the items from inherti to 14px. */
+  .forceCommunityThemeProfileMenu .profile-menuItem.uiMenuItem>a {
+	font-size: 14px !important;
+  }
+  
+  .forceChatterSimpleFeedItemTopics--pill ul.topic-commaSeparatedList li a{
+      border: none !important;
+      border-radius: 0 !important;
+      font-size:14px
+  }
+  .slds-post__footer{
+      font-size: 14px
+  }
+  .slds-text-title {
+      font-size: 14px;
+  }
+  .slds-feed__item-comments {
+      border: 0px;
+      border-left: solid 10px #F5F5F1;
+      box-shadow: 0px -2px 0px 0px #87827C;
+      -moz-box-shadow: 0px -2px 0px 0px #87827C;
+      -webkit-box-shadow: 0px -2px 0px 0px #87827C;
+      margin-top: -2px;
+      background-color: #F5F5F1 !important;
+  }
+  slds-text-body_small, .slds-text-body--small,
+  .forceCommunityTrendingTopics .forceTopicTopicList .topicItemLink,
+  .forceCommunityUserSettings .settingsLabel,
+  .forceChatterStyle .cuf-preamble,
+  .selfServiceBaseSimpleItem .item-title
+  {
+      font-size: 14px !important;
+  }
+  .selfServiceBaseSimpleItem .item-title {
+      color: #ff6e59;
+  }
+  .slds-col--padded.slds-size--12-of-12.slds-medium-size--4-of-12.slds-large-size--4-of-12.comm-layout-column {
+      border: none;
+      border-color: #EDEDED;
+      overflow: hidden;
+      padding: 10px 0 15px 2rem;
+      /*border-top: 4px solid black;*/
+  }
+  .slds-grid--vertical {
+      border: none;
+      border-color: #EDEDED;
+     /*  overflow: hidden;
+     border-top: 4px solid black;*/
+      background-color: #ffffff;
+      padding: 10px 0 15px 2rem;
+      margin-bottom: 5.4rem;
+  }
+  .slds-grid--vertical.slds-wrap.slds-has-block-links {
+      border: none;
+  }
+  .siteforceThemeLayoutStarter *,
+  .forceCommunityUserProfileStats,
+  .forceCommunityUserRecordHome .userHeaderDetail
+  {
+      border-radius: 0 !important;
+  
+  }
+  .forceChatterCompactFeed .metrics {
+      display: inline-flex;
+      width: 100%;
+  }
+  .slds-feed__item-comments .slds-comment {
+      padding: 20px 10px;
+  }
+/*  style for input boxes. used in profile & contact page*/
+  .slds-input-has-icon_left-right .slds-input,
+  .slds-input-has-icon_left-right .slds-input_bare,
+  .slds-input-has-icon_left-right .slds-input--bare,
+  .slds-input-has-icon--left-right .slds-input,
+  .slds-input-has-icon--left-right .slds-input_bare,
+  .slds-input-has-icon--left-right .slds-input--ba
+  {
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a;
+      display: block;
+      line-height: 1.42857143;
+  }
+  /* Adjusting rich text-editor borders */
+  .slds-rich-text-editor__toolbar.slds-shrink-none {
+      border: 1px solid #9a9a9a;
+      border-top: 0;
+	  border-left: 0;
+      border-right: 0;
+  }
+/* rich text editor style & input boxes. used in profile & contact page*/
+  [role=combobox] input[readonly],
+  .slds-button_icon-more,
+  .slds-button--icon-more,
+  .uiInput--input .input,
+  .uiInput--input.input,
+  .uiInput--textarea .textarea,
+  .uiInput--textarea.textarea,
+  .forcePublisherQuickActionCollapser .dummyButtonCallToAction,
+  .slds-rich-text-editor__toolbar,
+  .slds-rich-text-editor__textarea:last-child .slds-rich-text-area__content,
+  .forceCommunityUserSettings .settingsEmail
+  {
+      border-radius: 0px;
+      -moz-border-radius: 0px;
+      -webkit-border-radius: 0px;
+      /* display: block;*/
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a;
+      padding: 6px 12px;
+      line-height: 1.42857143;
+  }
+  .inputWrapper.slds-grid.slds-grid_vertical-align-center.slds-p-right_x-small{
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a !important;
+      padding: 6px 12px  !important;
+      line-height: 1.42857143  !important;
+  }
+  .uiPanel.open {
+      border-radius: 0;
+  }
+/* For hiding tab bar
+on Profile page, case page */
+  .forceCommunityResultsList.uiTabset .uiTabBar .uiTabItem,
+  .tabs__item {
+      width: 50%;
+    /*  display:none */
+  }
+  .tabs__item.uiTabItem>a {
+      border: 1px solid rgba(190,190,190,.6);
+      color: rgb(0, 0, 0);
+  }
+  .uiTabset--default .tabs__item.active>a {
+      border-left: 1px solid;
+  }
+  .uiTabset--default .tabs__item + .tabs__item 
+  {
+      margin-left: 0;
+  
+  }
+  .forceAsyncCarouselIndicator .nav-container {
+      background-color: #fff;
+  }
+  .slds-card-wrapper{
+      padding:0
+  }
+  .forceCommunityContactSupportForm h1.slds-page-header__title,
+  .forceCommunityUserSettings h1.texttitle
+  {
+      text-align: left;
+      margin-bottom: 18px;
+      text-align: left;
+      margin-left: 0%;
+      margin-top: 24px;
+     
+      font-size: 42px !important;
+      font-weight: bold !important;
+  }
+  .slds-truncate.slds-align-middle.slds-text-align_center.slds-p-top--small {
+  
+      text-align: left;
+  }
+  
+  .ubx-black-footer {
+      margin: 0;
+      padding: 30px 0;
+      background-color: #2a2a2a;
+      font-size: 12px;
+      line-height: 1rem;
+      color: #fff;
+  }
+  .grid {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      }
+  .block--uos-language-switcher {
+      text-align: right;
+  }
+  .ubx-black-footer ul {
+      list-style-type: none;
+      padding: 0;
+  }
+  .block--menu-menu-footer-beaker .expanded>a {
+      cursor: pointer;
+      display: block;
+      color: #bebebe;
+      border-top: 1px solid rgba(255,255,255,.2);
+      padding: 15px 0;
+  }
+  .block--menu-menu-footer-beaker .expanded>a {
+      cursor: pointer;
+      display: block;
+      color: #bebebe;
+      border-top: 1px solid rgba(255,255,255,.2);
+      padding: 15px 0;
+  }
+  .ubx-black-footer a {
+      border-bottom: none;
+      color: #fff;
+      padding-bottom: 0;
+      -webkit-transition: color .25s ease;
+      -o-transition: color .25s ease;
+      transition: color .25s ease;
+  }
+  .block--menu-menu-footer-beaker .menu .expanded ul.menu li {
+      border-top: 1px solid rgba(255,255,255,.2);
+      font-size: 12px;
+  }
+  
+  .block--menu-menu-footer-beaker .menu .expanded ul.menu li a {
+      display: block;
+      padding: 15px 0 15px 20px;
+  }
+  .block--menu-menu-footer-beaker .menu .expanded ul.menu {
+      display: none;
+  }
+  .block--menu-menu-footer-beaker .menu .expanded ul.menu.expanded {
+      display: block;
+  }
+  .ubx-black-footer a {
+      border-bottom: none;
+      color: #fff;
+      padding-bottom: 0;
+      -webkit-transition: color .25s ease;
+      -o-transition: color .25s ease;
+      transition: color .25s ease;
+  }
+  
+  .block--uos-language-switcher a {
+      background: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/globe-grey.svg) top right no-repeat;
+      -webkit-background-size: 1.1rem 1.1rem;
+      background-size: 1.1rem;
+      line-height: 1.1rem;
+      display: block;
+      padding-right: 22px;
+  }
+  .ubx-white-footer:after,
+  .ubx-black-footer:after,
+  .block--menu-menu-social-media-menu-footer:after
+  {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  .ubx-white-footer {
+      padding: 15px 0 25px;
+      font-size: 12px;
+      line-height: 1rem;
+      color: #bebebe;
+  }
+  #block-menu-menu-footer-meta {
+      margin: 0 0 30px;
+      color: #5a5a5a;
+  }
+  #block-menu-menu-footer-meta:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  #block-menu-menu-footer-meta .footer-date, #block-menu-menu-footer-meta .leaf {
+      display: block;
+      padding: 15px 0;
+      border-bottom: 1px solid #bebebe;
+  }
+  .ubx-white-footer a {
+      color: #5a5a5a;
+      border-bottom: 1px solid rgba(255,255,255,0);
+      padding-bottom: .05em;
+      -webkit-transition: border .25s ease;
+      -o-transition: border .25s ease;
+      transition: border .25s ease;
+  }
+  .block--menu-menu-social-media-menu-footer .menu {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      padding: 0;
+      list-style-type: none;
+  }
+  .block--menu-menu-social-media-menu-footer .leaf {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      min-width: 50px;
+      text-align: center;
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a {
+      border: none;
+      color: currentColor;
+      padding-bottom: 0;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      opacity: .65;
+      vertical-align: top;
+      background-repeat: no-repeat;
+      background-position: center center;
+      -webkit-background-size: 100% auto;
+      background-size: 100% auto;
+      font-size: 0;
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.twitter {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-twitter.svg);
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.linkedin {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-linkedin.svg);
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.youtube {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-youtube.svg);
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.facebook {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-facebook.svg);
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.github {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-github.svg);
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a.google-plus {
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/fontawesome-google_plus_sign.svg);
+  }
+  
+  .block--menu-menu-footer-beaker .expanded>a:after {
+      content: '';
+      float: right;
+      display: block;
+      margin: -7px 0 0;
+      height: 30px;
+      width: 20px;
+      background: url(https://www.u-blox.com/sites/all/themes/beaker/images/icons/chevron-right-white.svg) center center no-repeat;
+      -webkit-background-size: 100% auto;
+      background-size: 100% auto;
+      opacity: .5;
+  }
+  .uiTabset--default .tabs__item>a, .uiTabset--default .uiTabOverflowMenuItem a{
+          padding: 11px 1rem 9px;
+  }
+  .uiTabset--default .tabs__item > a span, .uiTabset--default .uiTabOverflowMenuItem a span {
+      vertical-align: text-top;
+          text-transform: none;
+  }
+  li.tabs__item.active.uiTabItem {
+      border-color: currentColor;
+      border-left-width: 1px;
+      color: #ff6e59;
+      border: 1px solid currentColor;
+      margin-top:0;
+  }
+  li.tabs__item.uiTabItem{
+      margin-top:1px;
+  }
+  .uiTabset--default .tabs__nav{
+      border-bottom:none
+  }
+  .uiTabset--default .tabs__item>a:focus{
+      box-shadow:none;
+  }
+  .uiTabset--default .tabs__item>a:hover{
+      box-shadow:none;
+      border-color:rgba(190,190,190);
+  }
+  li.tabs__item.active.uiTabItem > a:hover {
+      border-color: #ff6e59;
+  }
+  
+      .forceCommunitySearchBox input::placeholder {
+          font-size: 18px;
+      }
+      .slds-table th, .slds-table td {
+          white-space:normal;
+      }
+      .slds-button_brand,
+      .slds-button_neutral, .slds-button--neutral
+      {
+           padding: 0.4rem 1.8rem 0.4rem;
+          border-radius:0;
+      }
+      
+      .forceCommunityAskCommunity.askCommunityBtn,
+      .selfServiceContactSupport.communityBtn,
+      .forceChatterChatterFollow .button
+      {
+          padding: 0.4rem 1.8rem 0.4rem !important;
+          margin: auto;
+          width: 100 !important;
+          display: block;
+          text-align: center;
+      }
+      .salesforceIdentityLoginForm2 .uiButton{
+          border-radius: 0px !important;
+      }
+  .slds-input__icon-group.slds-input__icon-group_right {
+      display: none;
+      }
+/* "Ticket: 2703" Showing the arrow in the font style and font size box element of the 'Case Creation page'. */
+.slds-combobox__form-element.slds-input-has-icon.slds-input-has-icon_right > .slds-input__icon-group.slds-input__icon-group_right {
+      display: inline !important;
+      }
+
+/* "Ticket: 2699" Group page filter input */
+.forceListViewManagerSecondaryDisplayManager .slds-panel__body .slds-filters .slds-input {
+    margin-bottom: 10px;
+}
+/* style for filter dropdown used on listing pages*/
+  .slds-combobox__form-element input,
+  .slds-button_icon-more
+  {
+          /* "Ticket: 2672" Commenting this line because this picture is no longer exist. We are using the Static Resources. 
+          background: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/chevron-down.svg) no-repeat scroll;
+         */
+          background-position: right bottom 2px;
+          text-align: left;
+          padding: auto;
+          background-size: 1.35rem; 
+          font-size: 14px;
+          
+      }
+      [role=combobox] input[readonly]:focus, [role=combobox] input[readonly].slds-has-focus {
+          border-color: rgba(0, 0, 0, 0.7);
+          box-shadow: 0 0 3px #ffffff;
+      }
+      .forceSearchResultsRegion.slds-grid.slds-grid--vertical {
+          padding: 0;
+          border: 0;
+      }
+      
+      .slds-button_icon-more{
+          width: 50px;
+      }
+      .slds-button_icon-more .slds-m-left_xx-small {
+          display: none;
+      }
+      .slds-avatar--small img {
+  
+      -webkit-filter: hue-rotate(594deg);
+      filter: hue-rotate(594deg);
+      
+      }
+  
+      .slds-grid--vertical
+      .comm-layout-column .ui-widget .selfServiceContactSupport.communityBtn,
+      .slds-grid--vertical
+      .comm-layout-column .ui-widget .forceChatterChatterFollow .button {
+              margin: auto !important;
+  
+      }
+  .slds-grid--vertical
+  .comm-layout-column .ui-widget .forceCommunityAskCommunity.askCommunityBtn{
+      margin-top:3px !important
+  }
+    .slds-table_cell-buffer {
+      border-bottom: none;
+  }
+  .forceCommunityThemeProfileMenu.jepsonInnerHeader.commThemeCmp .profile-menuItem.uiMenuItem a {
+      border-color: #bebebe !important;
+  }
+  .slds-p-right_x-small, .slds-p-right--x-small {
+      padding-right: 0;
+  }
+  .selfServiceTopicTrendingArticles42 ul {
+      border: 1px solid #e6e6e6;
+  }
+  .forceCommunityUserProfileStats .slds-p-left--x-small.slds-p-bottom--x-small {
+      background: none;
+      color: black;
+      width: 100%;
+  }
+  span.statNumber {
+      color: #ff6e59;
+  }
+  .uiMenuList--default.uiMenuList {
+      border-radius: 0;
+  }
+  .updatePhotoPanel .fileTextSizeDesc.slds-p-bottom--x-small, .updatePhotoPanel .slds-form-element.slds-p-bottom--x-small {
+      background-color: white;
+      color: black;
+  }
+  #forgotPassForm .button {
+      border-radius: 0;
+      color: white;
+  }
+  .oneActionsRibbon li.slds-button--neutral>a:hover,
+   .oneActionsRibbon li.slds-button--neutral>button:hover,
+   .oneActionsRibbon li.slds-button--neutral>a:focus,
+   .oneActionsRibbon li.slds-button--neutral>button:focus {
+      background-color: #ff6e59;
+      color: white;
+        border: none;
+  }
+  .slds-button_neutral:hover, .slds-button_neutral:focus, .slds-button--neutral:hover, .slds-button--neutral:focus {
+     /* background-color: #ff6e59;
+      border: none;
+      color: white;*/
+  }
+  .oneActionsRibbon.forceActionsContainer .slds-truncate {
+      background-color: #ff6e59;
+      color: white;
+      border: none;
+  }
+  .oneActionsRibbon li.slds-button--neutral:active {
+      background-color: #ff6e59;
+  }
+     .forceCommunityThemeNav.jepsonInnerHeader .mainNavItem .subMenu .uiMenuItem a {
+      border-bottom-color:rgb(190, 190, 190) !important;
+      }
+  
+      .forceCommunityThemeNav .mainNavItem .nestedSubMenu a:hover, .forceCommunityThemeNav .mainNavItem .uiMenuItem:last-child a:hover {
+      border-bottom: 1px solid;
+      }
+      .forceCommunityThemeNav.jepsonInnerHeader.commThemeCmp .mainNavItem .subMenu .uiMenuItem a:hover,
+      .forceCommunityThemeNav.jepsonInnerHeader.commThemeCmp .mainNavItem .subMenu .uiMenuItem a:focus
+      {
+             background-color : #F3F2F2 !important;
+          /*border-bottom-color: rgba(0, 0, 0, 0.7) !important;*/
+      }
+      .forceCommunityThemeProfileMenu.jepsonInnerHeader.commThemeCmp .profile-menuItem.uiMenuItem a:hover,
+      .forceCommunityThemeProfileMenu.jepsonInnerHeader.commThemeCmp .profile-menuItem.uiMenuItem a:focus
+      {
+         /* border-bottom-color: rgba(0, 0, 0, 0.7) !important;*/
+      }
+       
+   .forceCommunityThemeProfileMenu .profile-menuItem.uiMenuItem:not(:last-child) a {
+      border-bottom: 1px solid #7e4d4d;
+      }
+   .forceCommunityThemeProfileMenu.jepsonHomeHeader .profile-menuItem.uiMenuItem a{
+          border-color: #ececec !important;
+      }
+  
+  .slds-no-space.dummyButtonCallToAction.uiButton:hover {
+      border: 1px solid #9a9a9a;
+      color: #9a9a9a;
+  }
+  .forceCommunityFeedPublisher .oneActionsComposer .uiTabBar .tabs__nav {
+      border-bottom:none !important;
+  }
+   .selfServiceTopicTrendingArticles42 .slds-grid--vertical a:focus{
+          box-shadow:none;
+      }
+  .slds-button_brand[disabled], .slds-button_brand:disabled:hover {
+      background-color: rgb(201, 199, 197);
+  }
+  .forceCommunityRelatedTopics .forceTopicTopicList .topicItemLink:focus {
+    box-shadow:none;
+    
+}
+.forceCommunityRelatedTopics .forceTopicTopicList .topicItemLink {
+    font-size:14px !important;  
+}
+  .ubx-black-footer a:hover, .ubx-black-footer a:focus {
+      color: #ff6e59;
+      text-decoration: none;
+  }
+  .block--menu-menu-social-media-menu-footer .leaf a:hover, .block--menu-menu-social-media-menu-footer .leaf a:focus {
+      opacity: 1.0;
+  }
+  .slds-rich-text-editor__toolbar{
+      border:none
+  }
+  
+  .slds-rich-text-editor.slds-has-focus {
+      border-color: rgb(154, 154, 154);
+      box-shadow: 0 0 3px #9a9a9a;
+  }
+  .forceTopicPublisherTopicsWidget .forceChatterPillContainer .uiInputTextForAutocomplete {
+      border: none;
+  }
+  .forceChatterTopicSuggestionAutoComplete .uiInput input:focus {
+      box-shadow: none;
+  }
+  .salesforceIdentityLoginBody2 a:hover {
+      color: #ff6e59 !important;
+  }
+  .salesforceIdentityLoginForm2 .inputBox {
+      width: 90% !important;
+  }
+  .salesforceIdentityLoginForm2 .inverseTextColor {
+      font-size: 13px;
+  }
+  span.unsNotificationsPanel.noNotifications:focus {
+      outline-color: rgba(0, 0, 0, 0.16) !important;
+  }
+  .slds-scope .slds-input:active, .slds-scope .slds-input:focus {
+      outline: 0;
+      border-color: rgba(0, 0, 0, 0.7);
+      background-color: #fff;
+      box-shadow: none;
+  }
+  .primary, .primary:hover, .primary:focus {
+      background-color: #ff6e59;
+  }
+  .comm-page-home .forceTopicFeaturedTopics .topicLabel{
+       padding: 157px 0 14px 0;
+       color: black !important;
+      /*display:none;*/
+  }
+  .comm-page-home .forceTopicFeaturedTopics .topicContent {
+      background: none;
+      background-color: rgba(255, 110, 89, 0.01) !important;
+  }
+  
+  .comm-page-home .forceTopicFeaturedTopics .topicContent:hover,
+  .comm-page-home .forceTopicFeaturedTopics .topicLink:focus .topicContent {
+          background: none;
+      background-color: rgba(255, 110, 89, 0.1) !important;
+      outline: 0;
+  }
+  .oneActionsRibbon li.slds-button--neutral>a{
+      color: rgb(249 100 79);
+  }
+  .block--uos-language-switcher{
+      display:none;
+  }
+  
+  #block-menu-menu-footer-beaker > ul:first-of-type >li > a:hover,
+  #block-menu-menu-footer-beaker > ul:first-of-type >li > a:focus{
+      color:#bebebe;
+  }
+  .salesforceIdentityLoginBody2 .cCenterPanel{
+      background: rgba(29, 29, 29, 0.45);
+      padding: 25px;
+      width: 100%;
+      color: white;
+  }
+  .salesforceIdentityLoginBody2 .cCenterPanel .uiOutputRichText {
+      color: white;
+  }
+  .forceCommunityChangePassword .userInput{
+      border-radius:0;
+  }
+  .uiTooltipAdvanced .tooltip-body {
+      background-color: #ff6e59 !important;
+  }
+  .uiTooltipAdvanced .south .pointer {
+      border-bottom: 13px solid #ff6e59 !important;
+  }
+/* general slds-button styles*/
+  .slds-button:focus{
+      outline: 0;
+      box-shadow: none;
+	/* "Ticket: 2700" On button click, button color changed to white so that button is not visible on click. */
+	/* color: white; */
+  }
+.slds-button_neutral:active, .slds-button--neutral:active {
+      outline: 0;
+      box-shadow: none;
+     /* color: white !important; */
+  }
+  .forceChatterRecommendationBig .cuf-bodyActionGroup .forceChatterActionLinkGroup button.cuf-platformAction .label{padding:0.4px}
+  .slds-modal__footer .slds-button+.slds-button {
+      margin-left: .5rem;
+      padding: 0.4rem 1.8rem 0.4rem;
+      border-radius: 0;
+  }
+  .siteforcePanelsContainer .modal-header .title {
+      color: white;
+  }
+  a.slds-button:focus,
+  .forceNoRowActions .menuTrigger:focus {
+      outline: 0;
+      box-shadow: 0 0 3px #ff6e59;
+  }
+  .slds-no-space.dummyButtonCallToAction.uiButton:hover{
+          /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+		  border: 1px solid #9a9a9a;
+  }
+  .uiInput--input.input:focus, .uiInput--input .input:focus, .uiInput--input.input:active, .uiInput--input .input:active,
+  .uiInput--textarea .textarea:focus, .uiInput--textarea.textarea:focus, .uiInput--textarea .textarea:active, .uiInput--textarea.textarea:active
+  {
+      border-color: rgba(0, 0, 0, 0.7);
+      box-shadow: none;
+  }
+  .indicator.dot-mode.forceAsyncCarouselIndicator ul li.item .selected .dot-indicator {
+      background-color: rgb(255, 110, 89)!important;
+      box-shadow: none;
+  }
+  .forceCommunityRelatedTopics .forceTopicTopicList .topicItemLink:focus{
+      box-shadow: none !important
+  }
+  .slds-button-group .slds-button+.slds-button, .slds-button-group .slds-button+.slds-button_last .slds-button, .slds-button-group .slds-button+.slds-button--last .slds-button, .slds-button-group-list li+li .slds-button {
+      margin-left: 0px;
+  }
+  .comm-page-global-search .forceOutputURL a.uiOutputURL {
+      -webkit-filter: brightness(0.7);
+      filter: brightness(0.7);
+      filter: saturate;
+      width: 30px;
+      line-height: 5;
+      font-size: 6px;
+      color: transparent;
+      display: block;
+      background-image: url(https://www.u-blox.com/sites/all/themes/custom/beaker/images/icons/globe-grey.svg);
+      background-repeat: no-repeat;
+      background-size: 65%;
+  }
+  a.compactFeedElement.drillInTarget:hover {
+      color: #ff6e59;
+  }
+  
+  a.compactFeedElement.drillInTarget:focus {
+      text-decoration: none;
+  }
+  .forceChatterCompactFeed .metadata .topicName {
+      color: #87827C !important;
+      padding: 0 10px 0 0px;
+  }
+  .savecancelbuttoncontainer.hidecancelsavebutton.paddingcancelsave {
+      display: none;
+  }
+  .userSettingTabs .uiTabBar .tabs__nav .tabs__item.active {
+      display: none !important;
+  }
+  .siteforceSldsTwoCol84SidebarFeaturedLayout .comm-layout-column .ui-widget .slds-card {
+      border: none;
+  }
+  /* to be reworked */
+  .comm-layout-column .ui-widget .slds-card__header {
+      
+  }
+  .slds-medium-size--4-of-12.slds-large-size--4-of-12.comm-layout-column .slds-table_cell-buffer tr>td:first-child{
+      padding-left:0
+      }
+  .forceChatterRecommendationSmall .cuf-recommendationSummary{
+      color:#333
+      }
+  .forceCommunityUserSettings .tabs__content.active .row.slds-m-top--medium {
+      border-bottom: none !important;
+      margin: 0 4px;
+  }
+  
+  .osetting {padding: 0 .75rem;}
+  .osettings h2 {font-size:2em !important;}
+  .osettings .title {font-size: 1rem;padding:20px 0 5px 0; border-top: 1px double #d4d4d4 !important;}
+  .osettings p {margin-bottom:20px;font-size:14px;}
+  
+  .reg_text {color:#2a2a2a;font-size:1.2em}
+  
+  .forceCommunityThemeHeaderCompact .themeUtil .slds-button:focus, 
+  .forceCommunityThemeProfileMenu .profile-menuTrigger:focus,
+  .forceNoRowActions .menuTrigger:focus {
+      box-shadow: none !important;
+  }
+  .slds-table_cell-buffer tr:first-child td,
+   .slds-table_bordered,
+   .slds-table--bordered
+   {
+      border-top: none;
+  }
+  .slds-breadcrumb{
+      display:none
+  }
+  .optanon-alert-box-wrapper *, #optanon,
+  #optanon *,
+  #optanon div,
+  #optanon span,
+  #optanon ul, #optanon li,
+  #optanon a,
+  #optanon p,
+  .optanon-alert-box-wrapper * {
+      font-family: 'u-blox'!important;
+  }
+  .emptyResult.slds-illustration.slds-illustration_large.forceChatterEmptyFeed span img {
+      display: none;
+  }
+  .forceCommunityChangePassword .settingsData{
+      width: 80% !important;
+  }
+  .forceCommunityChangePassword .settingslabel{
+      text-align:left !important;
+      margin-left: 8.33333333%;
+  }
+  .forceCommunityChangePassword .errorMessage {
+      margin-left: 8.3333% !important;
+      }
+  .userStats .slds-p-bottom--x-small {cursor:default;} 
+  .forceCommunityUserRecordHome .userHomeTabSet.fourTabs.uiTabset .user-home-tab.tabs__item.uiTabItem{
+               padding-left: 0 !important;
+               padding-right: 0 !important;
+          }
+  li.slds-button.slds-button--neutral.slds-truncate {
+      margin-left: 8px;
+      border: 1px solid rgb(255, 110, 89);
+  }
+/*  text input style.. used in profile, contact page & settings*/
+  .uiInput--input.input:focus,
+  .uiInput--input .input:active,
+  .uiInput--textarea .textarea:focus,
+  .uiInput--textarea.textarea:active,
+  .uiInput--select.select:focus,
+  .uiInput--select .select:active,
+  .uiInput--select .uiPopupTrigger a:focus,
+  .uiInput--select .uiPopupTrigger a:active,
+  .forceChatterParticipantsInput.outer.focussed
+  {
+      border-color: #9a9a9a;
+      box-shadow: none;
+  }
+  .slds-has-error .slds-select
+  .slds-has-error .slds-select:focus,
+  .slds-has-error .slds-select:active,
+  .slds-rich-text-editor.slds-has-focus,
+  .slds-rich-text-editor
+  {
+	  /*Ticket:BM_SF-2822 | Changing the border from 2px to 1px.*/
+      border: 1px solid #9a9a9a;
+      box-shadow: none;
+      border-radius: 0;
+  }
+  /*Ticket:BM_SF-2822 | Changing added to remove the bottom border of the details input box in the Ask question section.*/
+  .forceChatterMessageBodyInputRichTextEditor .slds-rich-text-editor__toolbar.slds-shrink-none.slds-rich-text-editor__toolbar_bottom
+  {
+	  border-bottom: 0px;
+  }
+  /*Ticket:BM_SF-2822 | Changing the border of the picklist.*/
+  .slds-form-element__control.slds-grow .slds-select_container .slds-select {
+	border-radius: 0px;
+	border: 1px solid #9a9a9a;
+  }
+  /*Ticket:BM_SF-2822 | Changing the border of the Add Topic input box.*/
+  .cuf-publisherTopics.input-field .topicWidget.forceTopicPublisherTopicsWidget .cuf-addTopicsContainer.cuf-addTopics.forceChatterPillContainer .orderedList{
+	border-radius: 0px;
+	border:1px solid #9a9a9a !important;
+  }
+  /*Ticket:BM_SF-2822 | Changing the color of the label 'Post To' from the Ask question page.*/
+  .cuf-navigationTopics .topic-selector-wrapper .slds-form-element.is-required .slds-form-element__label{
+	  color: #00000099 !important;
+  }
+  /*Ticket:BM_SF-2823 | Changing the color of the (Top Question) combobox border in the home page.*/
+  .slds-form-element__control .slds-combobox_container .slds-combobox__input.slds-input_faux.slds-combobox__input-value{
+	border:1px solid #9a9a9a !important;
+  }
+  /*Ticket:BM_SF-2826 | Hide the (Discussion and Article) tabs from the topic details */
+  .siteforceContentArea .listTab.uiTabset--base.uiTabset--default.uiTabset.forceCommunityResultsList .uiTabBar .tabs__nav{
+	display: none;
+  }
+  /*Ticket:BM_SF-2832 | Add the bottom border in the feed items posts of the profile page.*/
+  .userProfileTabs .resizeCaptureFrameWrapper .skip-feed-wrapper .slds-feed__item{
+	border-top: 1px solid #9a9a9a;
+  }
+  .forceCommunityUserProfileTabs .userProfileTabs .forceChatterFeedInner .feedActions{
+	padding-bottom: 20px !important;
+  }
+  /* */
+  /*Ticket:BM_SF-2956 | Add the Padding to Leaderboard and the buttons in the Home page.*/
+  .body .siteforceContentArea .forceCommunityReputationLeaderboard42{
+	  padding: 15px 0 10px 0;
+  }
+  /* */
+  /*Ticket:BM_SF-2824 | Remove the Gap between Topic Suggestion and Topic Field by changing the position from absolute to initial.*/
+  .cuf-publisherTopics.input-field .topicWidget.forceTopicPublisherTopicsWidget .cuf-addTopicsContainer.cuf-addTopics.forceChatterPillContainer .uiInput.uiAutocomplete.uiInput--default.uiInput--lookup .lookup__menu {
+	position: initial !important;
+  }
+  .slds-listbox_vertical .slds-listbox__option:focus, .slds-listbox_vertical .slds-listbox__option:hover, .slds-listbox_vertical .slds-listbox__option.slds-has-focus, .slds-listbox--vertical .slds-listbox__option:focus, .slds-listbox--vertical .slds-listbox__option:hover,
+  .slds-listbox--vertical .slds-listbox__option.slds-has-focus,
+  .slds-dropdown__item > a:hover, .slds-dropdown__item > a:focus {
+      background-color: #f3f2f2;
+  }
+  .forceCommunitySearch .forceSearchResultsGridView.gridInScroller{
+      width: 100%;
+      padding: 0px;
+  }
+  .forceCommunitySearch .forceSearchSearchResultsGridHeader {
+      padding-top: 10px !important;
+      border-bottom: none;
+  
+  }
+  .forceCommunityUserPreviewStencilNapili .topSection {
+       background-color: #fff !important; 
+  }
+  .forceCommunityUserPreviewStencilNapili .slds-grid--vertical {
+      border: none !important;
+       margin-bottom:0
+  }
+  .slds-avatar_circle,.forceSocialPhoto .circular, .slds-avatar, .slds-avatar--circle, .unsNotificationsListRow .notification-icon {
+      border-radius: 0 !important;
+  }
+  .item-title-link:focus{
+      box-shadow:none !important;
+  }
+  .forceChatterRecommendationSmall .cuf-entityRecommendationActionLink{
+          padding-right: .75rem;
+  }
+  .forceChatterRecommendationSmall .cuf-entityRecommendationActionGroupDiv .cuf-rejectButton {
+      margin-left: .01rem !important; 
+  }
+  .item-title.uiOutputText:hover {
+      text-decoration: underline;
+  }
+  .slds-table:not(.slds-no-row-hover) tbody tr:hover>td, .slds-table:not(.slds-no-row-hover) tbody tr:hover>th, .slds-table:not(.slds-no-row-hover) tbody tr:focus>td, .slds-table:not(.slds-no-row-hover) tbody tr:focus>th {
+      background-color: transparent !important;
+      box-shadow: none !important;
+  }
+  .slds-m-vertical_small, .slds-m-vertical--small{
+      margin-bottom:1.2rem
+  }
+  .slds-card{
+      border:none
+  }
+  .unsNotificationsListRow.notification-unread:hover,
+  .unsNotificationsListRow.notification-read:hover {
+      background-color: #F3F2F2 !important;
+  }
+  .recentlyViewedItems td {
+      padding-left: 0px !important;
+  }
+  .listRecordInfo {
+      margin-left: .75rem;
+  }
+  .slds-card_boundary {
+      border: 1px solid #d4d4d4;
+  }
+  .forceRelatedListCardDesktop .baseCard__header-title-container{
+      padding-left:20px
+  }
+  .forceSearchResultsGridView.grid thead th, .forceSearchResultsGridView.grid tbody td{
+      width: 100%
+  }
+  .forcePageError.desktop .genericNotification{
+      font-weight:bold
+  }
+  .forcePageError .genericNotification {
+      background: #ffbbba !important;;
+      color: #1a1a1a !important;
+     border-radius: 0 !important;
+  
+  }
+/* style for search results - 1st line added to accomodate migration*/
+.slds-grid--vertical.forceCommunityUserPreviewStencilNapili.force-record-layout2,  
+.slds-grid--vertical.forceCommunityUserPreviewStencilNapili.forceRecordLayout {
+      margin-bottom: 0;
+  }
+  .forceCommunityUserProfileHeader img.circularPhotoDisable {
+      filter: saturate(0%) brightness(120%) contrast(100%) grayscale(100%);
+      -webkit-filter: saturate(0%) brightness(120%) contrast(100%) grayscale(100%);
+  }
+  .forceHoverPanel .uiButton.closeBtn:focus {
+      box-shadow: none;
+  }
+  .forceDetailPanelMobile .forcePageBlockSectionView .forcePageBlockItem:only-child .forceOutputURL a.uiOutputURL {
+      width: 100%;
+      font-size: 100%;
+      background: none;
+      color: #ff6f59;
+      line-height: normal;
+  }
+  .noResults img {filter:grayscale(1);}
+
+
+/* hide the attachment tab in case page to hide files-tab use :first-child - un-hide now */
+.forceRelatedListContainer .forceRelatedListSingleContainer:nth-child(2) {
+	display:block
+}
+.forceRelatedListContainer .forceRelatedListSingleContainer:first-child {
+	display:block
+}
+.forceRelatedListContainer .forceRelatedListSingleContainer:last-child {
+	margin-top:0 !important;
+}
+
+  .forceCommunityUserProfileStats .slds-p-left--x-small {padding-left:6px !important;}
+  .forceChatterSelectMentionOption .cuf-actorDescription {
+    display: none !important;
+}
+
+.forceChatterCompactFeed .metrics .metric:not(:last-child) {padding-right:1.5rem;margin-right:1rem;}
+.forceChatterCompactFeed .metrics .metric:last-child {border-right:0 !important;}
+
+.compactFeed .feeds-sorter .slds-form-element__label {display:none;}
+.forceCommunityUserRecordHome .forceRelatedListContainer {/*display:none;*/}
+
+.forceCommunityFeedItemDetail .forceChatterStyle--default .cuf-feedElement.cuf-feedElement {padding:0;padding-bottom:1rem;}
+
+lightning-icon.slds-button__icon.slds-global-header__icon.slds-icon-utility-notification.slds-icon_container.forceIcon {
+    visibility: hidden;
+}
+.unsNotificationsCounter .headerButtonBody {
+    background: url(/s/sfsites/c/resource/notification_new) no-repeat;
+    background-size: contain;
+}
+/* for hiding Are you employee text */
+.employeeLoginLink.salesforceIdentityEmployeeLoginLink2 {
+    display: none;
+}
+/* for expanding case page layout*/
+.forceCommunityRecordHomeTabs .recordHomePrimaryContent {
+    width: 100% !important;
+}
+/* for hidding case info box in the first comment on case page */
+.forceChatterFeedAuxBody .cuf-auxBodyEmailMessage{
+	display: none !important;
+}
+/* style for color-picker on contact page */
+.slds-color-picker__summary-button {
+    vertical-align: top;
+    line-height: 1;
+    margin-right: 0.25rem;
+    padding: 0.3rem 0.5rem;
+    background: rgb(255, 255, 255);
+    display: inline-flex;
+    border: none;
+}
+/* rich text editor style.. used in profile & contact page*/
+.slds-rich-text-editor__textarea:last-child .slds-rich-text-area__content {
+    border: none;
+}
+
+
+/* Case support form */
+.forceCommunityContactSupportForm .slds-gutters_small .slds-col {padding: 0;}
+.forceCommunityContactSupportForm .slds-form_stacked .slds-form-element {padding: 0;}
+.forceCommunityContactSupportForm .slds-p-horizontal_medium {padding: 0;}
+.forceCommunityContactSupportForm .case-description {height: 150px;}
+.forceCommunityContactSupportForm #submitButton {
+    padding: 0;
+}
+/* Case support form - html text component */
+.customer_support_form h1 {font-size: 42px !important; margin-bottom: 10px;}
+.customer_support_form p {font-size:1.1em;}
+.forceCommunityContactSupportForm .slds-truncate {display:none}
+
+/* "Ticket: 2703" Showing the font style and font size values in the Create Case page. */
+button.slds-combobox__input.slds-input_faux.slds-combobox__input-value > span.slds-truncate {display:inline !important}
+.slds-media.slds-listbox__option.slds-media_center.slds-media_small.slds-listbox__option_plain .slds-truncate {display:inline-block !important}
+/**/
+
+/* Ticket : BM_SF-2830 | Change the border color of the Contact support form on hover.*/
+.contactSupportButton:hover {
+	/* border-color: #9A9A9A !important; */
+	/* Change the Secondary Button color.*/ 
+	background-color: #ffecec !important;
+    border: 1px solid #ff4a30 !important;
+    color: #ff4a30;
+}
+.forceCommunityContactSupportForm .contactSupportButton {
+	background-color: #ff6e59 !important;
+    color: white !important;
+    border: 1px solid #ff6e59 !important;
+	margin-bottom: 0px !important;
+}
+.forceCommunityContactSupportForm .contactSupportButton:hover {
+	background-color: #ff4126 !important;
+    color: white !important;
+    border: 1px solid #ff4126 !important;
+}
+/* */
+/* Change the Secondary Button Color*/
+.contactSupportButton {
+	background-color: transparent !important;
+    color: #ff6e59 !important;
+    border: 1px solid #ff6e59 !important;
+}
+
+.askCommunityBtn:hover {
+	border-color: #ff4126 !important;
+}
+
+.follow.cuf-follow:hover {
+	border-color: #ff4126 !important;
+}
+
+/**/
+/* Ticket : BM_SF-2831 | Remove the extra padding from the button in the profile page only.*/
+.profileDetailView .userDetailHeader .forceActionsContainer .slds-button.slds-button--neutral {
+	padding: 0px;
+}
+.profileDetailView .userDetailHeader .forceActionsContainer .slds-button.slds-button--neutral:hover {
+	border: 1px solid #FF6E59;
+}
+.profileDetailView .userDetailHeader .forceActionsContainer .slds-button.slds-button--neutral.uiButton {
+	padding: 0px 14px 0px 14px;
+}
+.profileDetailView .userDetailHeader .forceActionsContainer .slds-button.slds-button--neutral.uiButton:hover {
+	border: 1px solid #D4D4D4;
+}
+.forceCommunityRelatedList .forceListViewManagerHeader .forceActionsContainer .slds-button.slds-button--neutral{
+	padding: 0px;
+}
+.forceCommunityRelatedList .forceListViewManagerHeader .forceActionsContainer .slds-button.slds-button--neutral:hover{
+	border: 1px solid #FF6E59;
+}
+/**/
+
+/* 404 error page */
+.error_page {font-size: 1.35em;margin-bottom:30px;}
+.error_page h1 {margin-bottom: 20px;font-size: 40px !important;}
+
+/* remove hscroll from ask question popup -home pg */
+.forceChatterQuestionPost .forceCommunityCaseDeflection {
+    overflow: auto !important;
+}
+/* adjust editor border in chatter-box for create post border */
+.forceChatterMessageBodyInputRichTextEditor .slds-rich-text-editor__toolbar {
+    border-top: 1px solid #9a9a9a;
+}
+/* remove vertical scroll at start for editor in create case */
+.slds-rich-text-editor__textarea.slds-grid.ql-container {
+    height: auto;
+}
+.slds-rich-text-editor__textarea:last-child .slds-rich-text-area__content{
+	    max-height: 320px;
+}
+
+/* for adjusting popup scroll - ask question */
+.cuf-autocompleteClass.lookup__menu.uiAbstractList.uiAutocompleteList {
+    bottom: 125px;
+    max-height: 100px;
+    width: 100%;
+}
+.forceChatterAutocomplete .cuf-autocompleteClass .listContent ul {
+    height: 92px;
+}
+.forceChatterMessageBodyInput .cuf-ac {
+    top: 0;
+    display: inline;
+    background-color: transparent !important;
+    bottom: 0px;
+    margin-top: -34px;
+}
+/* for displaying the attachment on comment body */
+.forceChatterFeedAuxBody .cuf-auxBody {
+    display: block;
+}
+
+/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+	.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+		position: relative;
+		font-size: 18px;
+	}
+	.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+		font-size: 60px;
+		position: relative;
+	}
+/* */
+
+@media only screen and (min-width: 1024px) {
+    .error_page {padding: 0 120px;}
+}
+@media screen and (max-width: 767px) {
+    .error_page iframe {width: 100%;}
+}
+
+
+
+  @media only screen and (min-width: 48em)
+  {
+      .osetting {padding: 0 ;}
+      
+      .forceCommunityThemeNav.jepsonHomeHeader.commThemeCmp .mainNavItem .subMenu .uiMenuItem a:hover, .forceCommunityThemeNav.jepsonHomeHeader.commThemeCmp .mainNavItem .subMenu .uiMenuItem a:focus {
+          /*border-bottom-color: rgba(0, 0, 0, 0) !important;*/
+      }
+      .forceCommunityThemeProfileMenu.jepsonHomeHeader.commThemeCmp .profile-menuItem.uiMenuItem a:hover, .forceCommunityThemeProfileMenu.jepsonHomeHeader.commThemeCmp .profile-menuItem.uiMenuItem a:focus {
+     /* border-bottom-color: rgba(0, 0, 0, 0) !important;*/
+      }
+     .forceCommunityThemeNav.jepsonInnerHeader .mainNavItem .linkBtn.comm-navigation__top-level-item-link--active {
+          border-bottom: 2px solid rgb(255, 110, 89) !important;
+    
+          }
+     .forceCommunityThemeProfileMenu.jepsonHomeHeader .profile-menuItem.uiMenuItem a {
+          border-color: rgb(190, 190, 190) !important;
+      }
+      
+     
+  }
+  
+  @media only screen and (max-width: 47.9375em)
+          {
+          .slds-col--padded.slds-size--12-of-12.slds-medium-size--4-of-12.slds-large-size--4-of-12.comm-layout-column {padding: 0 0.75rem !important;}
+              
+          .forceCommunityHomeTabs.uiTabset--default .tabs__item+.tabs__item {
+              padding-left: 0px !important;
+          }
+              .forceCommunityHomeTabs.homeTab.twoTabs .uiTabItem:last-child{
+                  left:0 !important;
+              }
+                 .siteforceThemeLayoutStarter>.body.isPageWidthFixed-true{
+                padding-left: 15px; 
+               padding-right: 15px; 
+              }
+          .forceCommunityChangePassword .settingslabel{
+                  margin-left: 0;
+              }
+              .forceCommunityChangePassword .errorMessage {
+                  margin-left: 0;
+                  }
+         .oneActionsRibbon.forceActionsContainer .slds-truncate {
+              background-color: initial;
+              color: inherit;
+          }
+  
+               td span.uiOutputTextArea,
+              th.initialSortAsc.sortable {
+                  display: none;
+              }
+         .forceSearchResultsGridView.grid thead th, .forceSearchResultsGridView.grid tbody td {
+              width: auto;
+          }
+                .siteforceThemeLayoutStarter>.body.isPageWidthFixed-true{
+                    padding-left: 15px; 
+                    padding-right: 15px; 	
+                  }
+      }
+  @media only screen and (min-aspect-ratio: 4/3) and (min-width: 48em), only screen and (min-width: 64.0625em)
+  {
+  .siteforceNapiliFooter .cta-btn {
+      width: 200px !important;
+      margin: 10px !important;
+      }
+   
+  }
+  @media screen and (min-width: 551px) and (max-width: 767px) {
+   /*styles for small screens in here*/
+      .forceTopicFeaturedTopicItem.topicItem{
+              width: 33.33333333333333% !important;
+              height: 250px !important;
+      }
+  }
+  @media (max-width: 470px) {
+	/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+			top: 120px;
+		}
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+			top: -150px;
+			line-height: 70px;
+		}
+	/* */
+  }
+  @media (min-width: 471px) and (max-width: 638px) {
+	/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+			top: 120px;
+		}
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+			top: -120px;
+			line-height: 70px;
+		}
+	/* */
+  }
+  @media (min-width: 639px) and (max-width: 767px) {
+	/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+			top: 60px;
+		}
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+			top: -120px;
+			line-height: 70px;
+		}
+	/* */
+  }
+  @media (min-width: 768px) and (max-width: 940px) {
+	/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+			min-width: 580px;
+			top: 60px;
+		}
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+			min-width: 610px;
+			top: -120px;
+			line-height: 70px;
+		}
+	/* */
+  }
+  @media (max-width: 1024px) {
+         .siteforceThemeLayoutStarter>.body.isPageWidthFixed-true{
+        padding-left: 15px; 
+        padding-right: 15px; 	
+      }
+  }
+  @media (min-width: 1024px) {
+      .siteforceThemeLayoutStarter>.body.isPageWidthFixed-true{
+        padding: 0; 	
+      }
+	/* Ticket : BM_SF-2768 | Change the position of the h1 and h2 and applied the custom css.*/
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h1{
+			top: 85px;
+		}
+		.forceCommunityThemeHeroBase.forceCommunityThemeHeroStarter .contentContainer .content h2{
+			top: -70px;
+		}
+	/* */
+  }
+  @media (min-width: 768px){
+      .forceTopicFeaturedTopicItem.topicItem{
+      width: 25% !important;
+      height: 250px !important;
+	}
+    
+      .block--menu-menu-footer-beaker>.menu {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+      }
+      .ubx-black-footer {
+      font-size: 12px; 
+      line-height: 1rem; 
+      }
+      .grid {
+      padding-left: 30px;
+      padding-right: 30px;
+      }
+      .l-region--footer-first {
+      margin-left: -10px;
+      margin-right: -10px;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      }
+      .block--menu-menu-footer-beaker {
+      float: left;
+      width: 83.33333%;
+      min-width: 83%;
+      }
+      .block--menu-menu-footer-beaker>.menu>.expanded {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 0 10px;
+      }
+      .block--menu-menu-footer-beaker .expanded>a {
+      cursor: default;
+      border: none;
+      padding: 0 0 15px;
+      }
+      .block--menu-menu-footer-beaker .menu .expanded ul.menu li {
+      border-top: none;
+  }
+      .block--menu-menu-footer-beaker .menu .expanded ul.menu li a {
+      padding: 0 0 5px;
+      }
+      .ubx-white-footer {
+      font-size: 12px;
+      line-height: 1rem;
+      padding: 15px 0;
+      }
+      .l-region--footer-second {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      }
+      #block-menu-menu-footer-meta {
+      margin: 0;
+      }
+      #block-menu-menu-footer-meta .menu {
+      display: inline;
+      }
+      #block-menu-menu-footer-meta .menu {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      }
+      #block-menu-menu-footer-meta .footer-date, #block-menu-menu-footer-meta .leaf {
+      display: inline-block;
+      padding: 0;
+      border: 0;
+  }
+      #block-menu-menu-footer-meta .footer-date:after, #block-menu-menu-footer-meta .leaf:after {
+      content: "|";
+      width: 30px;
+      text-align: center;
+      display: inline-block;
+      }
+      .block--menu-menu-social-media-menu-footer .menu {
+      display: block;
+      margin: 0;
+      text-align: right;
+      }
+      .block--menu-menu-social-media-menu-footer .leaf {
+      display: inline-block;
+      min-width: 0;
+      width: 50px;
+      text-align: right;
+      }
+      .block--menu-menu-social-media-menu-footer .leaf:first-child {
+      width: 20px;
+  }
+      .ubx-white-footer .grid {
+  
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+  
+  }
+      .block--menu-menu-footer-beaker .expanded>a:after {
+          background: none;
+      }
+      .slds-button_brand.cuf-showMore,
+      .slds-p-bottom--x-small {
+      /* background-color: #ff6e59;*/
+      border: 0 none;
+      -webkit-border-radius: 0;
+      border-radius: 0;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 700;
+      /* font-size: 1.4rem; */
+      line-height: 1;
+      padding: 16px 6px;
+      -webkit-transition: background-color .25s ease;
+      -o-transition: background-color .25s ease;
+      transition: background-color .25s ease;
+      text-decoration: none;
+      word-break: normal;
+      }
+  
+      .comm-leaderboard ul li .slds-icon_small{
+          -webkit-filter: hue-rotate(527deg);
+          filter: hue-rotate(527deg);
+      }
+      .comm-leaderboard ul li:last-child .slds-icon_small{
+          -webkit-filter: grayscale(100%) hue-rotate(587deg);
+          filter: grayscale(100%) hue-rotate(587deg);
+      }
+      .forceCommunityContactSupportForm button.slds-button.slds-button_brand {
+          padding: 0.4rem 1.8rem 0.4rem;
+          /*line-height: 0;
+           text-align: right; 
+          float: right;*/
+      }
+      .block--menu-menu-footer-beaker .menu .expanded ul.menu {
+      display: block;
+      }
+      #block-menu-menu-footer-meta .footer-date:last-child:after, #block-menu-menu-footer-meta .leaf:last-child:after {
+      content: none;
+      }
+      .slds-col_padded, .slds-col--padded {
+          padding-right: 0;
+          padding-left: 0;
+      }
+     
+       .forceChatterChatterNotification .triggerLink{
+          padding: 0.5rem 0 0 0 !important;
+      }
+  }</style><style>.siteforceContentArea .comm-layout-column .ui-widget:not(:last-child),.siteforceContentArea .cb-section_column .ui-widget:not(:last-child){margin-bottom:var(--lwc-uiWidgetMarginBottom,1.5rem)}.siteforceContentArea .comm-layout-column:not(:empty){padding-top:var(--lwc-layoutVerticalPadding,0.75rem);padding-bottom:var(--lwc-layoutVerticalPadding,0.75rem)}:root{--dxp-g-root:var(--lwc-dxpGRoot,#FFFFFF);--dxp-g-root-1:var(--lwc-dxpGRoot1,rgb(235, 235, 235));--dxp-g-root-2:var(--lwc-dxpGRoot2,rgb(194, 194, 194));--dxp-g-root-3:var(--lwc-dxpGRoot3,rgb(133, 133, 133));--dxp-g-root-contrast:var(--lwc-dxpGRootContrast,rgba(0, 0, 0, 0.8));--dxp-g-root-contrast-1:var(--lwc-dxpGRootContrast1,rgba(0, 0, 0, 0.8));--dxp-g-root-contrast-2:var(--lwc-dxpGRootContrast2,rgba(0, 0, 0, 0.8));--dxp-g-root-contrast-3:var(--lwc-dxpGRootContrast3,rgba(0, 0, 0, 0.8));--dxp-g-neutral:var(--lwc-dxpGNeutral,#ecebea);--dxp-g-neutral-1:var(--lwc-dxpGNeutral1,rgb(217, 215, 213));--dxp-g-neutral-2:var(--lwc-dxpGNeutral2,rgb(178, 174, 170));--dxp-g-neutral-3:var(--lwc-dxpGNeutral3,rgb(118, 113, 107));--dxp-g-neutral-contrast:var(--lwc-dxpGNeutralContrast,#000);--dxp-g-neutral-contrast-1:var(--lwc-dxpGNeutralContrast1,#000);--dxp-g-neutral-contrast-2:var(--lwc-dxpGNeutralContrast2,#000);--dxp-g-neutral-contrast-3:var(--lwc-dxpGNeutralContrast3,#fff);--dxp-g-brand:var(--lwc-dxpGBrand,rgb(255, 110, 89));--dxp-g-brand-1:var(--lwc-dxpGBrand1,rgb(255, 74, 48));--dxp-g-brand-2:var(--lwc-dxpGBrand2,rgb(222, 28, 0));--dxp-g-brand-3:var(--lwc-dxpGBrand3,rgb(99, 13, 0));--dxp-g-brand-contrast:var(--lwc-dxpGBrandContrast,rgb(255, 255, 255));--dxp-g-brand-contrast-1:var(--lwc-dxpGBrandContrast1,rgb(235, 235, 235));--dxp-g-brand-contrast-2:var(--lwc-dxpGBrandContrast2,rgb(194, 194, 194));--dxp-g-brand-contrast-3:var(--lwc-dxpGBrandContrast3,rgb(133, 133, 133));--dxp-g-success:#4bca81;--dxp-g-success-1:#36b66c;--dxp-g-success-2:#237747;--dxp-g-success-3:#07190f;--dxp-g-success-contrast:#000;--dxp-g-success-contrast-1:#000;--dxp-g-success-contrast-2:#fff;--dxp-g-success-contrast-3:#fff;--dxp-g-destructive:#c23934;--dxp-g-destructive-1:#a2302b;--dxp-g-destructive-2:#611d1a;--dxp-g-destructive-3:#010000;--dxp-g-destructive-contrast:#fff;--dxp-g-destructive-contrast-1:#fff;--dxp-g-destructive-contrast-2:#fff;--dxp-g-destructive-contrast-3:#fff;--dxp-g-warning:#ffb75d;--dxp-g-warning-1:#ffa534;--dxp-g-warning-2:#e27d00;--dxp-g-warning-3:#673900;--dxp-g-warning-contrast:#000;--dxp-g-warning-contrast-1:#000;--dxp-g-warning-contrast-2:#000;--dxp-g-warning-contrast-3:#fff;--dxp-g-info:#16325c;--dxp-g-info-1:#0e203b;--dxp-g-info-2:#000000;--dxp-g-info-3:#000000;--dxp-g-info-contrast:#fff;--dxp-g-info-contrast-1:#fff;--dxp-g-info-contrast-2:#fff;--dxp-g-info-contrast-3:#fff;--dxp-g-offline:#444;--dxp-g-offline-1:#303030;--dxp-g-offline-2:#070707;--dxp-g-offline-3:#000000;--dxp-g-offline-contrast:#fff;--dxp-g-offline-contrast-1:#fff;--dxp-g-offline-contrast-2:#fff;--dxp-g-offline-contrast-3:#fff;--dxp-g-spacing-none:0!important;--dxp-g-spacing-xxxsmall:.125rem;--dxp-g-spacing-xxsmall:.25rem;--dxp-g-spacing-xsmall:.5rem;--dxp-g-spacing-small:.75rem;--dxp-g-spacing-medium:1rem;--dxp-g-spacing-large:1.5rem;--dxp-g-spacing-xlarge:2rem;--dxp-g-spacing-xxlarge:3rem;--dxp-g-root-font-family:var(--lwc-fontFamily,u-blox);--dxp-g-heading-font-family:var(--lwc-fontFamilyHeader,u-blox);--dxp-g-font-size-1:.625rem;--dxp-g-font-size-2:.75rem;--dxp-g-font-size-3:.8125rem;--dxp-g-font-size-4:.875rem;--dxp-g-font-size-5:1rem;--dxp-g-font-size-6:1.125rem;--dxp-g-font-size-7:1.25rem;--dxp-g-font-size-8:1.5rem;--dxp-g-font-size-9:1.75rem;--dxp-g-font-size-10:2rem;--dxp-g-font-size-11:2.625rem;--dxp-s-html-font-size:16px;--dxp-s-text-heading-extra-large-font-family:var(--lwc-fontFamilyHeader,u-blox);--dxp-s-text-heading-extra-large-font-size:2.5rem;--dxp-s-text-heading-extra-large-font-style:normal;--dxp-s-text-heading-extra-large-font-weight:300;--dxp-s-text-heading-extra-large-text-decoration:none;--dxp-s-text-heading-extra-large-text-transform:var(--lwc-textTransform,none);--dxp-s-text-heading-extra-large-line-height:1.25;--dxp-s-text-heading-extra-large-letter-spacing:0;--dxp-s-text-heading-large-font-family:var(--lwc-fontFamilyHeader,u-blox);--dxp-s-text-heading-large-font-size:1.75rem;--dxp-s-text-heading-large-font-style:normal;--dxp-s-text-heading-large-font-weight:300;--dxp-s-text-heading-large-text-decoration:none;--dxp-s-text-heading-large-text-transform:var(--lwc-textTransform,none);--dxp-s-text-heading-large-line-height:1.25;--dxp-s-text-heading-large-letter-spacing:0;--dxp-s-text-heading-medium-font-family:var(--lwc-fontFamilyHeader,u-blox);--dxp-s-text-heading-medium-font-size:1.25rem;--dxp-s-text-heading-medium-font-style:normal;--dxp-s-text-heading-medium-font-weight:300;--dxp-s-text-heading-medium-text-decoration:none;--dxp-s-text-heading-medium-text-transform:var(--lwc-textTransform,none);--dxp-s-text-heading-medium-line-height:1.25;--dxp-s-text-heading-medium-letter-spacing:0;--dxp-s-text-heading-small-font-family:var(--lwc-fontFamilyHeader,u-blox);--dxp-s-text-heading-small-font-size:1.125rem;--dxp-s-text-heading-small-font-style:normal;--dxp-s-text-heading-small-font-weight:300;--dxp-s-text-heading-small-text-decoration:none;--dxp-s-text-heading-small-text-transform:var(--lwc-textTransform,none);--dxp-s-text-heading-small-line-height:1.25;--dxp-s-text-heading-small-letter-spacing:0;--dxp-s-body-font-family:var(--lwc-fontFamily,u-blox);--dxp-s-body-font-size:1rem;--dxp-s-body-font-style:normal;--dxp-s-body-font-weight:400;--dxp-s-body-text-decoration:none;--dxp-s-body-text-transform:none;--dxp-s-body-line-height:1.5;--dxp-s-body-letter-spacing:0;--dxp-s-body-small-font-family:var(--lwc-fontFamily,u-blox);--dxp-s-body-small-font-size:.75rem;--dxp-s-body-small-font-style:normal;--dxp-s-body-small-font-weight:400;--dxp-s-body-small-text-decoration:none;--dxp-s-body-small-text-transform:none;--dxp-s-body-small-line-height:1.25;--dxp-s-body-small-letter-spacing:0;--dxp-s-button-font-family:var(--lwc-fontFamily,u-blox);--dxp-s-button-font-size:1rem;--dxp-s-button-font-style:normal;--dxp-s-button-font-weight:400;--dxp-s-button-text-transform:var(--lwc-textTransform,none);--dxp-s-button-line-height:2;--dxp-s-button-letter-spacing:0;--dxp-s-link-text-decoration:none;--dxp-s-link-text-decoration-focus:underline;--dxp-s-link-text-decoration-hover:underline;--dxp-s-site-logo-path:var(--lwc-brandLogoImage,/file-asset/logo11?v=1&height=300&width=300);--dxp-s-site-logo-url:var(--lwc-brandLogoImage,url(/file-asset/logo11?v=1&height=300&width=300));--dxp-s-section-columns-max-width:1800px;--dxp-s-header-content-max-width:1rem;--dxp-s-footer-content-max-width:1rem;--dxp-s-section-content-spacing-block-start:1rem;--dxp-s-section-content-spacing-block-end:1rem;--dxp-s-column-spacer-size:1rem;--dxp-s-component-wrapper-spacer-size:1.5rem;--dxp-s-section-columns-max-width-mobile:none;--dxp-s-header-content-max-width-mobile:none;--dxp-s-footer-content-max-width-mobile:none;--dxp-s-section-content-spacing-block-start-mobile:.75rem;--dxp-s-section-content-spacing-block-end-mobile:.75rem;--dxp-s-column-spacer-size-mobile:.75rem;--dxp-s-component-wrapper-spacer-size-mobile:1.5rem}</style></head><body class="null loading"><div class="auraMsgBox auraLoadingBox" id="auraLoadingBox"><div class="logo"></div><div class="spinner"></div><span>Loading</span></div><div class="" id="auraErrorMask"><div role="dialog" aria-labelledby="auraErrorTitle" aria-describedby="auraErrorMessage" aria-modal="true" class="auraErrorBox" id="auraError"><span><a role="button" href="#" id="dismissError" title="Cancel and close" class="close" aria-label="Cancel and close"><span aria-hidden="true">×</span></a><span id="auraErrorTitle">Sorry to interrupt</span></span><div id="auraErrorMessage">CSS Error</div><div id="auraErrorStack"></div><div class="auraErrorFooter"><a role="button" href="?" id="auraErrorReload">Refresh</a></div></div></div><script data-src="/jslibrary/3447087335229778/canvas/CanvasRendering.js"></script><script data-src="/jslibrary/308914287335020/ui-analytics-reporting/EclairNG.js"></script><script src="/s/sfsites/l/%7B%22mode%22%3A%22PROD%22%2C%22dfs%22%3A%2221%22%2C%22app%22%3A%22siteforce%3AcommunityApp%22%2C%22fwuid%22%3A%22cmpKNldRZXRSMkdjemxQdjBkbl9uQWtVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fsiteforce%3AcommunityApp%22%3A%221656_VnWO0GitG2zJ1ELHg8lMdg%22%7D%2C%22apce%22%3A1%2C%22apck%22%3A%22JHt0aW1lc3RhbXB9MDAwMDAwMDAwMDBlbl9VUw%22%2C%22mlr%22%3A1%2C%22pathPrefix%22%3A%22%22%2C%22dns%22%3A%22c%22%2C%22ls%22%3A1%2C%22lrmc%22%3A%22551347034%22%7D/inline.js?aura.attributes=%7B%22ac%22%3A%22%22%2C%22authenticated%22%3A%22false%22%2C%22brandingSetId%22%3A%22b35fcf1d-7c85-4358-a87e-304368b4a385%22%2C%22formFactor%22%3A%22LARGE%22%2C%22isHybrid%22%3A%22false%22%2C%22language%22%3A%22en_US%22%2C%22pageId%22%3A%226f9774c7-4a93-47e8-9703-8d1d2104bb58%22%2C%22publishedChangelistNum%22%3A%22175%22%2C%22schema%22%3A%22Published%22%2C%22themeLayoutType%22%3A%22Inner%22%2C%22uds%22%3A%22true%22%2C%22viewType%22%3A%22Published%22%7D"></script><script src="/s/sfsites/auraFW/javascript/cmpKNldRZXRSMkdjemxQdjBkbl9uQWtVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA/aura_prod.js"></script><script src="/s/sfsites/l/%7B%22mode%22%3A%22PROD%22%2C%22dfs%22%3A%2221%22%2C%22app%22%3A%22siteforce%3AcommunityApp%22%2C%22serializationVersion%22%3A%221-14.192.8388608-b%22%2C%22parts%22%3A%22f%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fsiteforce%3AcommunityApp%22%3A%221656_VnWO0GitG2zJ1ELHg8lMdg%22%7D%2C%22dns%22%3A%22c%22%2C%22ls%22%3A2%2C%22lrmc%22%3A%22551347034%22%7D/app.js?3="></script><script src="/s/sfsites/l/%7B%22mode%22%3A%22PROD%22%2C%22dfs%22%3A%2221%22%2C%22app%22%3A%22siteforce%3AcommunityApp%22%2C%22fwuid%22%3A%22cmpKNldRZXRSMkdjemxQdjBkbl9uQWtVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fsiteforce%3AcommunityApp%22%3A%221656_VnWO0GitG2zJ1ELHg8lMdg%22%7D%2C%22apce%22%3A1%2C%22apck%22%3A%22JHt0aW1lc3RhbXB9MDAwMDAwMDAwMDBlbl9VUw%22%2C%22mlr%22%3A1%2C%22pathPrefix%22%3A%22%22%2C%22dns%22%3A%22c%22%2C%22ls%22%3A1%2C%22lrmc%22%3A%22551347034%22%7D/resources.js?pu=1&pv=1782868436000-1917327314&rv=1782264126000"></script><script src="/s/sfsites/l/%7B%22mode%22%3A%22PROD%22%2C%22dfs%22%3A%2221%22%2C%22app%22%3A%22siteforce%3AcommunityApp%22%2C%22fwuid%22%3A%22cmpKNldRZXRSMkdjemxQdjBkbl9uQWtVMjdnTGFERUU2S3FfSVdrcU92bkExNC4xOTIuODM4ODYwOA%22%2C%22loaded%22%3A%7B%22APPLICATION%40markup%3A%2F%2Fsiteforce%3AcommunityApp%22%3A%221656_VnWO0GitG2zJ1ELHg8lMdg%22%7D%2C%22apce%22%3A1%2C%22apck%22%3A%22JHt0aW1lc3RhbXB9MDAwMDAwMDAwMDBlbl9VUw%22%2C%22mlr%22%3A1%2C%22pathPrefix%22%3A%22%22%2C%22dns%22%3A%22c%22%2C%22ls%22%3A1%2C%22lrmc%22%3A%22551347034%22%7D/bootstrap.js?aura.attributes=%7B%22ac%22%3A%22%22%2C%22authenticated%22%3A%22false%22%2C%22brandingSetId%22%3A%22b35fcf1d-7c85-4358-a87e-304368b4a385%22%2C%22formFactor%22%3A%22LARGE%22%2C%22isHybrid%22%3A%22false%22%2C%22language%22%3A%22en_US%22%2C%22pageId%22%3A%226f9774c7-4a93-47e8-9703-8d1d2104bb58%22%2C%22publishedChangelistNum%22%3A%22175%22%2C%22schema%22%3A%22Published%22%2C%22themeLayoutType%22%3A%22Inner%22%2C%22uds%22%3A%22true%22%2C%22viewType%22%3A%22Published%22%7D"></script></body></html>

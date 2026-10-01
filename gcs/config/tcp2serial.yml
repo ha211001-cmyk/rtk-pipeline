@@ -1,0 +1,13 @@
+# tcp2serial.yml — TCP→シリアル橋渡し（tcp2serial.py）設定例
+#
+# TCP で受けた RTCM3 を F9P Rover の UART2（例: /dev/ttyAMA4）へ注入する。
+# 起動: python3 -m gcs.rtk_tools.tcp2serial --config tcp2serial.yml
+
+bind_host: 0.0.0.0
+bind_port: 2102
+serial_device: /dev/ttyAMA4
+baudrate: 115200
+health_timeout_sec: 30.0
+tcp_timeout_sec: 5.0
+serial_timeout_sec: 1.0
+stats_interval_sec: 60.0

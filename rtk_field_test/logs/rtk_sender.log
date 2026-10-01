@@ -1,0 +1,14 @@
+[INFO] 基地局F9P: /dev/cu.usbmodem112301
+[INFO] 基地局設定をスキップします（事前設定済み前提）
+============================================================
+RTCM → UDP 送信を開始します
+  シリアル: /dev/cu.usbmodem112301 @ 115200 bps
+  送信先:   192.168.11.50:50010 (ユニキャスト)
+  連番ヘッダ: 無効
+  Ctrl+C で終了
+============================================================
+[INFO] frames=153  bytes=19798  udp_pkts=153  udp_bytes=19798  最終受信から0.0秒 (OK)
+[INFO] frames=323  bytes=41835  udp_pkts=323  udp_bytes=41835  最終受信から0.0秒 (OK)
+[INFO] frames=493  bytes=63988  udp_pkts=493  udp_bytes=63988  最終受信から0.0秒 (OK)
+[INFO] frames=664  bytes=86264  udp_pkts=664  udp_bytes=86264  最終受信から0.0秒 (OK)
+[INFO] frames=832  bytes=108279  udp_pkts=832  udp_bytes=108279  最終受信から0.0秒 (OK)

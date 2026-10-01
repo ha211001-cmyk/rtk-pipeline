@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Drone Dashboard - UmemotoLab</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Plotly.js CDN (required by graph.js) -->
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+
+<!-- ====== STATUS BAR ====== -->
+<div class="status-bar">
+    <span class="status-dot off" id="ws-dot"></span>
+    <span class="status-label">WebSocket</span>
+    <span class="status-value" id="ws-text">Disconnected</span>
+    <span class="status-sep">|</span>
+    <span class="status-label">Backend</span>
+    <span class="status-value" id="backend-status-text">Not connected</span>
+    <div class="status-bar-right">
+        <span class="rtk-badge rtk-none" id="rtk-badge" title="RTK Fix Status">RTK: None</span>
+        <span class="rtk-detail" id="rtk-detail"></span>
+        <span class="nominal-text" id="all-nominal-text"></span>
+        <button class="btn-sm btn-connect-sm pulse" id="btn-connect-status">Connect</button>
+        <button class="btn-sm btn-disconnect-sm" id="btn-disconnect-status">Disconnect</button>
+    </div>
+</div>
+
+<!-- ====== ALERT BAR ====== -->
+<div class="alert-bar alert-ok" id="alert-bar">
+    <span id="alert-icon">&#10003;</span>
+    <span id="alert-text">All Systems Nominal</span>
+</div>
+
+<!-- ====== TAB BAR + CONTENT (Graph / Raw Data) ====== -->
+<div class="tab-area">
+    <div id="tab-bar">
+        <button id="tab-graph" onclick="switchTab('graph')">📈 Graph</button>
+        <button id="tab-raw"  onclick="switchTab('raw')">📄 Raw Data</button>
+        <button id="tab-ops"  onclick="switchTab('ops')">⚙️ 運用 (Operations)</button>
+    </div>
+    <div id="tab-content">
+        <div id="panel-graph" style="display:none;">
+            <div id="graph-container"></div>
+            <div id="graph-altitude-container"></div>
+        </div>
+        <div id="panel-raw" style="display:none;">
+            <pre id="raw-data-content">No drone selected</pre>
+        </div>
+        <div id="panel-ops" style="display:none;">
+            <div class="ops-layout">
+                <div class="ops-section" id="ops-catalog"></div>
+                <div class="jobs-panel">
+                    <h3>実行ジョブ</h3>
+                    <div id="ops-jobs"></div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /tab-content -->
+</div><!-- /tab-area -->
+
+<!-- ====== MULTI-DRONE CARD GRID (main content) ====== -->
+<div class="multi-drone-grid" id="multi-drone-grid">
+    <!-- Filled by renderAllCards() -->
+</div>
+
+<!--
+  Canonical NED (North/East/Down) row markup for each drone card.
+  Cards are rendered dynamically by dashboard.js (renderDroneCard); this
+  template documents the NED display element and is kept in sync with the
+  HTML produced there. Values are updated live from getDroneNED() in
+  websocket.js (GLOBAL_POSITION_INT / LOCAL_POSITION_NED -> local NED).
+-->
+<template id="drone-card-ned-template">
+    <div class="ned-row">
+        <span class="ned-coord ned-n">N: 0.00m</span>
+        <span class="ned-coord ned-e">E: 0.00m</span>
+        <span class="ned-coord ned-d">D: 0.00m</span>
+    </div>
+</template>
+
+<!--
+  Canonical RTK precision-control row markup for each drone card. Rendered
+  dynamically by dashboard.js (renderDroneCard); this template documents the
+  Heading / Distance inputs and the Go / RTL buttons and is kept in sync with
+  the HTML produced there. Go -> sendGuidedPosition() (NED move), RTL ->
+  sendRTL() (Return to Launch). See web/static/js/controls.js.
+-->
+<template id="drone-card-rtk-template">
+    <div class="rtk-control-row">
+        <label class="rtk-ctrl-label">Hdg
+            <input class="rtk-input rtk-heading-input" type="number" min="0" max="360" step="1" value="0" title="Heading (deg, 0-360)">
+        </label>
+        <label class="rtk-ctrl-label">Dist
+            <input class="rtk-input rtk-distance-input" type="number" min="0" max="1000" step="0.5" value="1" title="Distance (m)">
+        </label>
+        <button class="btn-go">Go</button>
+        <button class="btn-rtl">RTL</button>
+    </div>
+</template>
+
+<!-- ====== BROADCAST PANEL ====== -->
+<div class="broadcast-panel" id="broadcast-panel">
+    <span class="broadcast-label">&#128227; ALL DRONES</span>
+    <button id="btn-arm-all" onclick="broadcastArm()">ARM ALL</button>
+    <button id="btn-disarm-all" onclick="broadcastDisarm()">DISARM ALL</button>
+    <label class="takeoff-alt-label" for="takeoff-all-alt">Alt (m):</label>
+    <input type="number" class="takeoff-alt-input" id="takeoff-all-alt" value="10" min="0.5" max="500" step="0.5" placeholder="Altitude in meters" title="Takeoff altitude in meters">
+    <button id="btn-takeoff-all" onclick="broadcastTakeoff()">TAKEOFF ALL</button>
+    <button id="btn-land-all" class="btn-land-all" onclick="broadcastLand()">LAND ALL</button>
+</div>
+
+<!-- ====== CONFIRM MODAL (broadcast ARM/DISARM safety) ======
+     The `hidden` attribute keeps the dialog invisible even if style.css has
+     not loaded yet (FOUC guard): the browser's built-in [hidden]{display:none}
+     UA rule applies with zero external CSS. JS (showConfirmModal /
+     showAlertModal in controls.js) sets `hidden = false` + adds `.show` to
+     reveal it on demand, and restores `hidden = true` on close. -->
+<div class="modal-overlay" id="confirm-modal" aria-hidden="true" hidden>
+    <div class="modal-box danger" role="dialog" aria-modal="true" aria-labelledby="confirm-modal-title">
+        <div class="modal-icon" id="confirm-modal-icon">&#9888;</div>
+        <h2 class="modal-title" id="confirm-modal-title">確認</h2>
+        <p class="modal-message" id="confirm-modal-message"></p>
+        <div class="modal-actions">
+            <button type="button" class="modal-btn modal-btn-cancel" id="confirm-modal-cancel">キャンセル</button>
+            <button type="button" class="modal-btn modal-btn-confirm" id="confirm-modal-confirm">実行</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts: load order matters -->
+<script src="/static/js/websocket.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/controls.js"></script>
+<script src="/static/js/graph.js"></script>
+<script src="/static/js/rawdata.js"></script>
+<script src="/static/js/operations.js"></script>
+</body>
+</html>

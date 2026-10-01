@@ -1,0 +1,38 @@
+# ============================================================================
+# gcs/config/config.local.example.yaml — 個人用設定のテンプレート（TCP 接続版）
+# ============================================================================
+# 実地検証（物理ハードウェア確認）の際は、このファイルを下記のようにコピーして
+# 実機環境に合わせて編集してください。
+#
+#   cp gcs/config/config.local.example.yaml gcs/config/config.local.yaml
+#
+# ・config.local.yaml は gcs/config/.gitignore の対象（コミットされない）ため、
+#   実 IP アドレスやシリアルポートなどの環境依存値を安全に記録できます。
+# ・gcs/config/loader.py は「config.yaml → config.local.yaml」の順に deep merge
+#   するため、ここには「上書きしたいキーだけ」を記述すれば十分です。
+# ============================================================================
+
+# --- ① コンフィグ自動診断（F9pConfigGuard）の接続先 -------------------------
+# ローバー（ドローン側）を完全ワイヤレス化し、GCS PC から機体 Raspberry Pi 5 の
+# DroneCAN Serial Forwarding（TCP）サービスへ接続します。
+forward:
+  mode: tcp                 # "tcp"（DroneCAN Serial Forwarding）または "serial"（F9P 直結）
+  host: 192.168.11.50       # ★ 機体 RPi5 の実 IP アドレスに置き換えること（例: 192.168.11.50 / raspi5.local）
+  port: 5001                # DroneCAN Serial Forwarding の TCP ポート（既定 5001）
+
+# --- 基地局 F9P（GCS PC へ USB 直結）----------------------------------------
+# 省略時はシリアルポートを自動検出します（macOS: /dev/cu.usbmodemXXXX 等）。
+# 自動検出がうまくいかない場合は明示指定してください。
+# base_station:
+#   serial_port: /dev/cu.usbmodemXXXX
+
+# --- ローバー F9P -----------------------------------------------------------
+# 完全ワイヤレス構成のため、ローバーへ GCS PC から直接シリアル接続はしません。
+# （①は forward.mode=tcp で機体 RPi5 経由に接続します）
+# rover:
+#   serial_port: null
+
+# --- 観測パラメータ（必要時のみ上書き）--------------------------------------
+# 例: 観測時間を 300 秒に短縮する場合。
+# monitor:
+#   duration_sec: 300.0

@@ -1,0 +1,8 @@
+# 実飛行試験（Phase 4）の出力（レポート・ログはコミットしない）
+reports/
+logs/
+*.csv
+*.jsonl
+
+__pycache__/
+*.pyc

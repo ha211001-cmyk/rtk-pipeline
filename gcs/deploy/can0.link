@@ -1,0 +1,10 @@
+# CAN0 — Always-activate link policy (systemd-networkd)
+#
+# Deploy: gcs/deploy/can_setup_raspi.sh
+# Target: /etc/systemd/network/80-can0.link
+
+[Match]
+OriginalName=can0
+
+[Link]
+ActivationPolicy=always-up

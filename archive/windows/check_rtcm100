@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+"""RTCM 1005メッセージをデコードして基地局座標を確認"""
+import serial
+import time
+from pyrtcm import RTCMReader
+
+COM_PORT = "COM7"
+BAUD = 38400
+
+print("=" * 60)
+print("RTCM 1005 Base Station Coordinate Check")
+print("=" * 60)
+
+ser = serial.Serial(COM_PORT, BAUD, timeout=1.0)
+print(f"[OK] Connected to {COM_PORT}")
+
+rtr = RTCMReader(ser)
+print("Listening for RTCM 1005 messages (30 seconds)...\n")
+
+deadline = time.time() + 30
+found_1005 = False
+
+while time.time() < deadline:
+    try:
+        raw, parsed = rtr.read()
+        if raw is None:
+            continue
+        
+        msg_id = parsed.identity
+        if msg_id == "1005":
+            found_1005 = True
+            print(f"[FOUND] RTCM 1005 - Base Station Coordinates")
+            print(f"  Raw: {raw.hex(' ').upper()}")
+            # RTCM 1005の内容を表示
+            for attr in dir(parsed):
+                if not attr.startswith('_') and attr not in ('identity', 'payload', 'transport'):
+                    try:
+                        val = getattr(parsed, attr)
+                        if val is not None and not callable(val):
+                            print(f"  {attr}: {val}")
+                    except:
+                        pass
+            break
+    except Exception:
+        continue
+
+if not found_1005:
+    print("[WARN] RTCM 1005 not received within 30 seconds")
+    print("  → 基準局座標が設定されていない可能性があります")
+
+ser.close()
+print("\n[OK] Port closed")
