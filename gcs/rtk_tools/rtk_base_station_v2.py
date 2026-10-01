@@ -286,7 +286,7 @@ class RtcmSerialReader:
 
 
 class TcpServer:
-    """Raspberry Pi 接続用 TCP サーバー"""
+    """TCP 配信サーバー（全クライアントへのブロードキャスト配信）"""
 
     def __init__(self, config: Config, queue: Queue):
         self.config = config
@@ -294,6 +294,9 @@ class TcpServer:
         self.logger = logging.getLogger("TcpServer")
         self.running = False
         self.thread = None
+        self.dispatcher_thread = None
+        self.client_queues = {}
+        self.lock = threading.Lock()
         self.stats = {
             'connections': 0,
             'frames_sent': 0,
@@ -305,6 +308,10 @@ class TcpServer:
         self.running = True
         self.thread = threading.Thread(target=self._run_server, daemon=True)
         self.thread.start()
+        self.dispatcher_thread = threading.Thread(
+            target=self._dispatch_loop, daemon=True
+        )
+        self.dispatcher_thread.start()
         self.logger.info(
             f"TCP server started on {self.config.tcp_host}:{self.config.tcp_port}"
         )
@@ -313,7 +320,36 @@ class TcpServer:
         self.running = False
         if self.thread:
             self.thread.join(timeout=2)
+        if self.dispatcher_thread:
+            self.dispatcher_thread.join(timeout=2)
+        with self.lock:
+            for sock, _ in self.client_queues.values():
+                try:
+                    sock.close()
+                except Exception:
+                    pass
+            self.client_queues.clear()
         self.logger.info(f"TCP server stopped. Stats: {self.stats}")
+
+    def _dispatch_loop(self):
+        """中央キューからフレームを取り出し、接続中の全クライアントキューに複製配信"""
+        while self.running:
+            try:
+                frame = self.queue.get(timeout=1.0)
+            except Empty:
+                continue
+
+            with self.lock:
+                for client_id, (sock, q) in list(self.client_queues.items()):
+                    try:
+                        if q.full():
+                            try:
+                                q.get_nowait()
+                            except Empty:
+                                pass
+                        q.put_nowait(frame)
+                    except Exception as e:
+                        self.logger.warning(f"Failed to queue frame for {client_id}: {e}")
 
     def _run_server(self):
         sock = None
@@ -347,9 +383,16 @@ class TcpServer:
                     except Exception:
                         pass
 
+                    client_id = f"{client_addr[0]}:{client_addr[1]}"
+                    client_q = Queue(maxsize=50)
+
+                    with self.lock:
+                        self.client_queues[client_id] = (client_sock, client_q)
+                        self.stats['clients'].append(client_id)
+
                     client_thread = threading.Thread(
                         target=self._handle_client,
-                        args=(client_sock, client_addr),
+                        args=(client_sock, client_addr, client_q),
                         daemon=True
                     )
                     client_thread.start()
@@ -364,46 +407,46 @@ class TcpServer:
             if sock:
                 sock.close()
 
-    def _handle_client(self, client_sock: socket.socket, client_addr):
+    def _handle_client(self, client_sock: socket.socket, client_addr, client_q: Queue):
         client_id = f"{client_addr[0]}:{client_addr[1]}"
-        self.stats['clients'].append(client_id)
+        frames_sent = 0
+        bytes_sent = 0
 
         try:
-            frames_sent = 0
-            bytes_sent = 0
-
             while self.running:
                 try:
-                    frame = self.queue.get(timeout=1)
+                    frame = client_q.get(timeout=1.0)
                     client_sock.sendall(frame)
                     frames_sent += 1
                     bytes_sent += len(frame)
                     self.stats['frames_sent'] += 1
-                    self.stats['bytes_sent'] += bytes_sent
+                    self.stats['bytes_sent'] += len(frame)
                     self.logger.debug(
                         f"Sent to {client_id}: {len(frame)} bytes"
                     )
 
                 except Empty:
                     continue
-                except (socket.error, BrokenPipeError) as e:
+                except (socket.error, BrokenPipeError, ConnectionResetError) as e:
                     self.logger.warning(
                         f"Client {client_id} disconnected: {e}"
                     )
                     break
 
         finally:
+            with self.lock:
+                if client_id in self.client_queues:
+                    del self.client_queues[client_id]
+                if client_id in self.stats['clients']:
+                    self.stats['clients'].remove(client_id)
             try:
                 client_sock.close()
             except Exception:
                 pass
-            if client_id in self.stats['clients']:
-                self.stats['clients'].remove(client_id)
             self.logger.info(
                 f"Client {client_id} closed. "
                 f"Sent {frames_sent} frames ({bytes_sent} bytes)"
             )
-
 
 class UdpBroadcaster:
     """UDP ブロードキャスト配信（オプション）"""

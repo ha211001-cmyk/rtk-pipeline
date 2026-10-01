@@ -11,6 +11,7 @@ import csv
 from datetime import datetime
 import math
 import os
+os.environ["MAVLINK20"] = "1"
 from pathlib import Path
 import socket
 import sys
@@ -157,6 +158,8 @@ def main():
     parser = argparse.ArgumentParser(description="Pixhawk Serial <-> GCS UDP Bridge + RTCM MAVLink Injector + Auto Logger")
     parser.add_argument("--serial", default="/dev/ttyAMA0", help="Pixhawk UART port (default: /dev/ttyAMA0)")
     parser.add_argument("--baud", type=int, default=921600, help="Baudrate (default: 921600)")
+    parser.add_argument("--rtscts", action="store_true", default=True, help="Enable RTS/CTS hardware flow control (default: True)")
+    parser.add_argument("--no-rtscts", action="store_false", dest="rtscts", help="Disable RTS/CTS hardware flow control")
     parser.add_argument("--target-host", default="100.80.225.4", help="Mac GCS Tailscale IP")
     parser.add_argument("--target-port", type=int, default=14550, help="GCS UDP port (default: 14550)")
     parser.add_argument("--rtcm-host", default="100.80.225.4", help="RTK Base Station TCP host")
@@ -181,7 +184,7 @@ def main():
     print("=" * 66)
     print("  🚀 MAVLink Bridge + RTCM Injector + Realtime Logger")
     print("=" * 66)
-    print(f"  Pixhawk Serial : {args.serial} @ {args.baud} bps")
+    print(f"  Pixhawk Serial : {args.serial} @ {args.baud} bps (RTS/CTS: {args.rtscts})")
     print(f"  Mac GCS Target : {args.target_host}:{args.target_port} (UDP)")
     print(f"  Base Station   : {args.rtcm_host}:{args.rtcm_port} (TCP)")
     print(f"  📝 RTK CSVログ : {csv_path}")
@@ -189,7 +192,7 @@ def main():
     print("=" * 66)
 
     try:
-        ser = serial.Serial(args.serial, args.baud, timeout=1.0)
+        ser = serial.Serial(args.serial, args.baud, timeout=1.0, rtscts=args.rtscts)
     except Exception as e:
         print(f"[ERROR] Failed to open serial port {args.serial}: {e}")
         csv_file.close()

@@ -67,6 +67,50 @@ gcs/
 └── _retired/               # 退避済み GUI（PyQt5 / Tkinter / 旧 fix 監視）
 ```
 
+---
+
+## 📂 フォルダ整理ガイド：RTK FIXED ログ取得に使用したスクリプト一覧
+
+本システムで **`RTK_FIXED`（fix_type: 6）を達成し、ログ（CSV / RTCM3）を取得する際に実際に稼働・必須となるファイル群** の一覧です。`gcs/` フォルダの整理や仕分けの基準として参照してください。
+
+### 🏆 1. 直接実行するコアスクリプト（最重要・削除厳禁）
+
+| 実行ホスト | 役割 | ファイルパス | 実行内容・用途 |
+|---|---|---|---|
+| **Mac (基地局)** | 基地局配信 | [`gcs/rtk_tools/rtk_base_station_v2.py`](file:///Users/taitai0123/rtk-pipeline/gcs/rtk_tools/rtk_base_station_v2.py) | F9Pを基地局設定し、RTCM3をTCP:2101でブロードキャスト配信 |
+| **Mac (設定)** | 基地局座標 | [`gcs/config/base_station.json`](file:///Users/taitai0123/rtk-pipeline/gcs/config/base_station.json) | 実測した正確なアンテナ固定座標（lat/lon/alt） |
+| **Raspi (中継)** | 中継＆注入 | [`gcs/rtk_tools/mavlink_bridge.py`](file:///Users/taitai0123/rtk-pipeline/gcs/rtk_tools/mavlink_bridge.py) | TCP:2101からRTCM受信、PixhawkへMAVLink2.0/RTS-CTS注入、ログCSV記録 |
+| **Mac (GCS)** | Web UI起動 | [`gcs/server.py`](file:///Users/taitai0123/rtk-pipeline/gcs/server.py) | Webダッシュボード起動エントリポイント（port: 9000） |
+| **Mac (GCS)** | Web UI画面 | [`gcs/web/static/`](file:///Users/taitai0123/rtk-pipeline/gcs/web/static/) (`index.html`, `js/`, `css/`) | ブラウザにドローンカード・RTK FIXEDバッジを表示するUI |
+
+### 🧩 2. 内部で import されている必須依存モジュール（削除厳禁）
+
+上記コアスクリプトが正常に動作するために内部でインポートされているライブラリ群です：
+
+- **基地局側 (`rtk_base_station_v2.py`) の依存**:
+  - [`gcs/rtk_tools/f9p_config_all.py`](file:///Users/taitai0123/rtk-pipeline/gcs/rtk_tools/f9p_config_all.py): F9P の設定を CFG-VALSET で書き込み・全キー検証する正典ロジック。
+  - [`gcs/rtk_tools/config_loader.py`](file:///Users/taitai0123/rtk-pipeline/gcs/rtk_tools/config_loader.py): 設定パス解決。
+- **GCS サーバー側 (`server.py`) の依存**:
+  - `gcs/app/server.py`: FastAPI アプリケーション定義。
+  - `gcs/app/api/`: `server.py`（REST API）, `routes.py`（MAVLink接続）, `websocket.py`（テレメトリ配信）, `operations.py`（運用API）。
+  - `gcs/app/mavlink/`: `connection.py`（UDP:14550通信）, `message_router.py`（パケット振り分け）。
+  - `gcs/app/rtk_tools/`: `telemetry_store.py`（機体ステータス管理）。
+  - `gcs/app/display.py`: モード名変換。
+  - `gcs/config/gcs.user.local.yml`: GCS 通信設定。
+
+### 🛠️ 3. 検証・実測・解析用ツール（残すことを推奨）
+
+- [`single_unit_test/run_survey.py`](file:///Users/taitai0123/rtk-pipeline/single_unit_test/run_survey.py): 基地局アンテナを移動した際、その場の現在地（HAE楕円体高含む）を自動実測するスクリプト。
+- [`gcs/fix_metrics.py`](file:///Users/taitai0123/rtk-pipeline/gcs/fix_metrics.py) & [`gcs/analyze_fix_log.py`](file:///Users/taitai0123/rtk-pipeline/gcs/analyze_fix_log.py): 取得した CSV ログから RTK 維持率や位置標準偏差を事後解析するスクリプト。
+
+### 📦 4. 今回の運用では使用していないファイル（整理・退避候補）
+
+- **別構成の注入サービス**: `gcs/rtk_tools/rtk_forwarder_service.py`（UART4直結注入用）、`gcs/rtk_tools/tcp2serial.py`、`gcs/deploy/` 配下のスクリプト群
+- **退避・過去実験コード**: `gcs/_retired/`、`gcs/relpos/`（相対測位実験）、`gcs/ekf_failsafe/`、`gcs/flight_test/`、`gcs/hw_verify/`
+- **単体テストコード**: `gcs/**/test_*.py`
+
+---
+
 関連文書: `OPERATIONS.md`（運用操作カタログ）、`PHASE0_INTEGRATION_PLAN.md`（統合計画）、
 `config/README.md`、`deploy/README.md`、`RELEASE_CHECKLIST.md`（リリース手順）。
 
@@ -78,9 +122,9 @@ gcs/
 cd ~/rtk-pipeline
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-# Raspberry Pi（Rover 側）で RTCM 注入サービスを動かす場合:
-pip install -r gcs/deploy/requirements_raspi.txt
+# Raspberry Pi（Rover 側 / MAVLink ブリッジ）:
+#   既存の ~/Mavlink_venv/bin/python3 を使用、または新規作成時:
+#   python3 -m venv ~/Mavlink_venv && ~/Mavlink_venv/bin/pip install pymavlink pyserial
 ```
 
 ### 設定
@@ -134,6 +178,9 @@ python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.js
 ```
 *(※ `TCP listening on 0.0.0.0:2101` が出れば待機完了)*
 
+> ⚠️ **【重要】アンテナ設置場所を変更した場合の注意**:
+> `base_station.json` に設定する座標は、**実際のアンテナ位置と数メートル以内で一致している必要があります**。数十〜数百メートルのズレがあると幾何学的な位相差の矛盾により Rover F9P が RTK 計算を拒絶し、`3D_FIX` のまま `RTK_FLOAT / FIXED` に入りません。アンテナを移動した際は、事前に `python3 single_unit_test/run_survey.py --set-rover --duration 30` で実測した緯度・経度・高度（楕円体高 HAE）を `base_station.json` に反映してください。
+
 #### Step 2: GCS Web ダッシュボードの起動（Mac 側）
 Mac の第 2 ターミナルで、Web サーバーを起動します：
 ```bash
@@ -146,9 +193,11 @@ python3 -m gcs.server --port 9000
 ラズパイのターミナルで、統合ブリッジを実行します：
 ```bash
 cd ~/rtk-pipeline
-source .venv/bin/activate
-python3 mavlink_bridge.py --target-host 100.80.225.4
+~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py --serial /dev/ttyAMA0 --baud 921600 --target-host <Mac_Tailscale_IP>
 ```
+*(※ 例: `--target-host 100.80.225.4`。Mac 側で `tailscale ip -4` を実行して確認した IP を指定します。基地局 TCP ホスト (`--rtcm-host`) は自動的に `--target-host` と同じ IP が使用されます)*
+*(※ `--rtscts`（ハードウェアフロー制御）および `MAVLink 2.0`（`MAVLINK20=1`）が標準で組み込まれており、Pixhawk TELEM1 @ 921600bps での安定通信が担保されています)*
+*(※ `pymavlink` や `pyserial` は `~/Mavlink_venv/` にインストールされているため、必ず `~/Mavlink_venv/bin/python3` を使用してください)*
 
 - **実行中の動作**:
   1. Web ダッシュボードが **緑色の「Online」** に切り替わり、姿勢・バッテリー・GPS がリアルタイム表示されます。
@@ -258,16 +307,18 @@ python3 -m gcs.selftest
 - **CLI**: RTK 判定・監視・F9P 設定は `gcs/rtk_tools/README.md`、各モジュールの
   ヘッダコメントを参照。
 
-## トラブルシューティング
+## トラブルシューティング（実機運用での主要トラブルと対処法）
 
-| 症状 | 確認事項 |
-|---|---|
-| Web サーバーが起動しない | `pip install -r requirements.txt` 済みか、`uvicorn`/`fastapi` が入っているか |
-| Connect しても機体が出ない | `gcs/config/` の接続設定（`connection_type` / `endpoint`）と mavlink-router の UDP:14550 を確認 |
-| RTCM が Rover に届かない | `systemctl status rtk-uart4-inject.service` と `journalctl -u rtk-uart4-inject.service -f`、基地局 TCP:2101 の疎通、`/dev/ttyAMA4` の有効化 |
-| NTRIP 接続で 401/拒否 | `NTRIP_USER` / `NTRIP_PASSWORD` 環境変数が設定されているか（YAML には書かない） |
-| 設定が読み込まれない | `GCS_CONFIG_PATH` と優先順位（gcs.user.local.yml > gcs_local.yml > gcs.yml）を確認 |
-| テストが失敗する | `python3 -m pytest gcs/ -v` で該当テストを特定、`python3 -m gcs.selftest` で切り分け |
+| 症状 | 原因 | 確認・解決手順 |
+|---|---|---|
+| **RTCM を受信しているのに `3D_FIX` のまま昇格しない** | 基地局のアンテナ固定座標（`base_station.json`）と実機の位置が乖離している | 基地局座標が数百mずれていると、搬送波位相の幾何学的計算が成立せず F9P が補正を拒否します。<br>アンテナを動かした場合は、事前に `python3 single_unit_test/run_survey.py --set-rover --duration 30` で現在位置（楕円体高 HAE 含む）を実測し、`gcs/config/base_station.json` の `fixed_pos` に書き込んでください。 |
+| **Pixhawk に補正データが注入されない / RTK にならない** | MAVLink 1.0 によるパケット欠損、またはフロー制御（RTS/CTS）なしによるパケット化合 | ArduPilot への `GPS_RTCM_DATA` 注入には MAVLink 2.0 が必須です。また 921600bps の高速シリアル通信では RTS/CTS が不可欠です。<br>`mavlink_bridge.py` 冒頭の `os.environ["MAVLINK20"] = "1"` と `serial.Serial(..., rtscts=True)` が有効であることを確認してください。 |
+| **ラズパイで `ModuleNotFoundError: No module named 'pymavlink'`** | システム python3 や非対応の venv で実行している | ラズパイ側では `pymavlink` や `pyserial` が `~/Mavlink_venv/` 配下に環境構築されています。<br>`~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py ...` で実行してください。 |
+| **Pixhawk とのシリアルポート接続エラー** | ポート名間違い、または Linux シリアルコンソールの競合 | Raspberry Pi 5 のピンヘッダ UART は `/dev/ttyAMA0` です（`/dev/serial0` ではありません）。<br>開けない場合は `sudo raspi-config` → `Interface Options` → `Serial Port` で「login shell over serial: No」「hardware enabled: Yes」になっているか確認してください。 |
+| **Web UI で Connect しても機体が表示されない** | UDP:14550 が届いていない、またはポート競合 | 1. ラズパイ側の `--target-host` が Mac の Tailscale IP（`100.x.x.x`）になっているか確認（`tailscale status`）。<br>2. Mac 側で `python3 -m gcs.server --port 9000` が起動しているか確認。<br>3. 他の GCS（QGroundControl や Mission Planner）が UDP 14550 を占有していないか確認。 |
+| **基地局 TCP サーバー（2101）への再接続でタイムアウトする** | 複数クライアント接続時の受信キュー競合（旧実装バグ） | `gcs/rtk_tools/rtk_base_station_v2.py` のマルチクライアント・ブロードキャスト版を使用してください（クライアントごとに独立した Queue を割り当て、自動切断・破棄されるため安定動作します）。 |
+| **学内 Wi-Fi で Mac とラズパイが通信できない** | Wi-Fi ルーターの AP アイソレーション（端末間通信遮断） | 両端末で Tailscale を起動し、Tailscale の IP（`100.x.x.x`）同士で通信してください（学内 LAN でも問題なく P2P トンネルが確立されます）。 |
+| **Web サーバーが起動しない** | 依存パッケージ不足 | `pip install -r requirements.txt` を実行し、`fastapi` / `uvicorn` がインストールされているか確認してください。 |
 
 ## セキュリティ・シークレット
 
