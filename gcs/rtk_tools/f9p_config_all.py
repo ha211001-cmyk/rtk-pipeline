@@ -92,131 +92,131 @@ def _build_key_table(lat: float, lon: float, alt: float) -> List[dict]:
 
     return [
         # === Base Station (20 keys: #1-13 UART1 + #32-38 USB) ===
-        {"id": 1, "key": "CFG-TMODE-MODE",
+        {"id": 1, "key": "CFG_TMODE_MODE",
          "expected": 2, "type": "U1", "role": "base",
          "desc": "FIXED Mode (2=Fixed)", "key_id": _KEY_TMODE_MODE},
-        {"id": 2, "key": "CFG-TMODE-POS_TYPE",
+        {"id": 2, "key": "CFG_TMODE_POS_TYPE",
          "expected": 0, "type": "U1", "role": "base",
          "desc": "Position type (0=LLA)", "key_id": _KEY_TMODE_POS_TYPE},
-        {"id": 3, "key": "CFG-TMODE-LAT",
+        {"id": 3, "key": "CFG_TMODE_LAT",
          "expected": lat_e7, "type": "I4", "role": "base",
          "desc": f"Lat ({lat:.7f} deg)", "key_id": _KEY_TMODE_LAT},
-        {"id": 4, "key": "CFG-TMODE-LON",
+        {"id": 4, "key": "CFG_TMODE_LON",
          "expected": lon_e7, "type": "I4", "role": "base",
          "desc": f"Lon ({lon:.7f} deg)", "key_id": _KEY_TMODE_LON},
-        {"id": 5, "key": "CFG-TMODE-HEIGHT",
+        {"id": 5, "key": "CFG_TMODE_HEIGHT",
          "expected": alt_cm, "type": "I4", "role": "base",
          "desc": f"Height ({alt:.1f}m)", "key_id": _KEY_TMODE_HEIGHT},
-        {"id": 6, "key": "CFG-TMODE-FIXED_POS_ACC",
+        {"id": 6, "key": "CFG_TMODE_FIXED_POS_ACC",
          "expected": 10.0, "type": "R8", "role": "base",
          "desc": "FIXED Position Acc (10.0m)", "key_id": _KEY_TMODE_FIXED_POS_ACC},
-        {"id": 7, "key": "CFG-MSGOUT-RTCM_3X_TYPE1005_UART1",
+        {"id": 7, "key": "CFG_MSGOUT_RTCM_3X_TYPE1005_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Station ARP (1005)", "key_id": None},
-        {"id": 8, "key": "CFG-MSGOUT-RTCM_3X_TYPE1006_UART1",
+        {"id": 8, "key": "CFG_MSGOUT_RTCM_3X_TYPE1006_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Station ARP+Ant (1006)", "key_id": None},
-        {"id": 9, "key": "CFG-MSGOUT-RTCM_3X_TYPE1074_UART1",
+        {"id": 9, "key": "CFG_MSGOUT_RTCM_3X_TYPE1074_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GPS MSM4 (1074)", "key_id": None},
-        {"id": 10, "key": "CFG-MSGOUT-RTCM_3X_TYPE1084_UART1",
+        {"id": 10, "key": "CFG_MSGOUT_RTCM_3X_TYPE1084_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GLONASS MSM4 (1084)", "key_id": None},
-        {"id": 11, "key": "CFG-MSGOUT-RTCM_3X_TYPE1094_UART1",
+        {"id": 11, "key": "CFG_MSGOUT_RTCM_3X_TYPE1094_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Galileo MSM4 (1094)", "key_id": None},
-        {"id": 12, "key": "CFG-MSGOUT-RTCM_3X_TYPE1124_UART1",
+        {"id": 12, "key": "CFG_MSGOUT_RTCM_3X_TYPE1124_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "BeiDou MSM4 (1124)", "key_id": None},
-        {"id": 13, "key": "CFG-MSGOUT-RTCM_3X_TYPE1230_UART1",
+        {"id": 13, "key": "CFG_MSGOUT_RTCM_3X_TYPE1230_UART1",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GLONASS bias (1230)", "key_id": None},
 
 
         # === Base Station USB RTCM3 (7 keys: #32-38) ===
-        {"id": 32, "key": "CFG-MSGOUT-RTCM_3X_TYPE1005_USB",
+        {"id": 32, "key": "CFG_MSGOUT_RTCM_3X_TYPE1005_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Station ARP USB (1005)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1005_USB},
-        {"id": 33, "key": "CFG-MSGOUT-RTCM_3X_TYPE1006_USB",
+        {"id": 33, "key": "CFG_MSGOUT_RTCM_3X_TYPE1006_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Station ARP+Ant USB (1006)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1006_USB},
-        {"id": 34, "key": "CFG-MSGOUT-RTCM_3X_TYPE1074_USB",
+        {"id": 34, "key": "CFG_MSGOUT_RTCM_3X_TYPE1074_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GPS MSM4 USB (1074)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1074_USB},
-        {"id": 35, "key": "CFG-MSGOUT-RTCM_3X_TYPE1084_USB",
+        {"id": 35, "key": "CFG_MSGOUT_RTCM_3X_TYPE1084_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GLONASS MSM4 USB (1084)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1084_USB},
-        {"id": 36, "key": "CFG-MSGOUT-RTCM_3X_TYPE1094_USB",
+        {"id": 36, "key": "CFG_MSGOUT_RTCM_3X_TYPE1094_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "Galileo MSM4 USB (1094)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1094_USB},
-        {"id": 37, "key": "CFG-MSGOUT-RTCM_3X_TYPE1124_USB",
+        {"id": 37, "key": "CFG_MSGOUT_RTCM_3X_TYPE1124_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "BeiDou MSM4 USB (1124)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1124_USB},
-        {"id": 38, "key": "CFG-MSGOUT-RTCM_3X_TYPE1230_USB",
+        {"id": 38, "key": "CFG_MSGOUT_RTCM_3X_TYPE1230_USB",
          "expected": 1, "type": "U1", "role": "base",
          "desc": "GLONASS bias USB (1230)", "key_id": _KEY_MSGOUT_RTCM3_TYPE1230_USB},
 
         # === Rover (19 keys: #14-31, #39) ===
-        {"id": 14, "key": "CFG-UART2-BAUDRATE",
+        {"id": 14, "key": "CFG_UART2_BAUDRATE",
          "expected": 115200, "type": "U4", "role": "rover",
          "desc": "UART2 baudrate", "key_id": _KEY_UART2_BAUDRATE},
-        {"id": 15, "key": "CFG-UART2INPROT-UBX",
+        {"id": 15, "key": "CFG_UART2INPROT_UBX",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "UBX input enabled (RTCM3+UBX mixed)", "key_id": _KEY_UART2INPROT_UBX},
-        {"id": 16, "key": "CFG-UART2INPROT-NMEA",
+        {"id": 16, "key": "CFG_UART2INPROT_NMEA",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "NMEA input disabled", "key_id": _KEY_UART2INPROT_NMEA},
-        {"id": 17, "key": "CFG-UART2INPROT-RTCM3X",
+        {"id": 17, "key": "CFG_UART2INPROT_RTCM3X",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "RTCM3 input enabled", "key_id": _KEY_UART2INPROT_RTCM3X},
-        {"id": 18, "key": "CFG-UART2OUTPROT-UBX",
+        {"id": 18, "key": "CFG_UART2OUTPROT_UBX",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "UBX output enabled (RELPOSNED monitoring)",
          "key_id": _KEY_UART2OUTPROT_UBX},
-        {"id": 19, "key": "CFG-UART2OUTPROT-NMEA",
+        {"id": 19, "key": "CFG_UART2OUTPROT_NMEA",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "NMEA output disabled", "key_id": _KEY_UART2OUTPROT_NMEA},
-        {"id": 20, "key": "CFG-NAVHPG-DGNSSMODE",
+        {"id": 20, "key": "CFG_NAVHPG_DGNSSMODE",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "RTK Float+Fixed both (DGNSSMODE=3 blocks FLOAT→FIXED transition!)", "key_id": _KEY_NAVHPG_DGNSSMODE},
-        {"id": 21, "key": "CFG-RATE-MEAS",
+        {"id": 21, "key": "CFG_RATE_MEAS",
          "expected": 200, "type": "U2", "role": "rover",
          "desc": "Meas period 200ms (5Hz)", "key_id": _KEY_RATE_MEAS},
-        {"id": 22, "key": "CFG-RATE-NAV",
+        {"id": 22, "key": "CFG_RATE_NAV",
          "expected": 1, "type": "U2", "role": "rover",
          "desc": "Nav output ratio 1:1", "key_id": _KEY_RATE_NAV},
-        {"id": 23, "key": "CFG-MSGOUT-UBX-NAV-PVT-UART2",
+        {"id": 23, "key": "CFG_MSGOUT_UBX_NAV_PVT_UART2",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "NAV-PVT UART2 out disabled",
          "key_id": _KEY_MSGOUT_UBX_NAV_PVT_UART2},
-        {"id": 24, "key": "CFG-SIGNAL-GPS_ENA",
+        {"id": 24, "key": "CFG_SIGNAL_GPS_ENA",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "GPS L1C/A enabled", "key_id": None},
-        {"id": 25, "key": "CFG-SIGNAL-GPS_L5_ENA",
+        {"id": 25, "key": "CFG_SIGNAL_GPS_L5_ENA",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "GPS L5 disabled (ZED-F9P not supported)", "key_id": None},
-        {"id": 26, "key": "CFG-SIGNAL-GAL_ENA",
+        {"id": 26, "key": "CFG_SIGNAL_GAL_ENA",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "Galileo E1 enabled", "key_id": None},
-        {"id": 27, "key": "CFG-SIGNAL-GAL_E5A_ENA",
+        {"id": 27, "key": "CFG_SIGNAL_GAL_E5A_ENA",
          "expected": 0, "type": "U1", "role": "rover",
          "desc": "Galileo E5a disabled (ZED-F9P not supported)", "key_id": None},
-        {"id": 28, "key": "CFG-SIGNAL-BDS_ENA",
+        {"id": 28, "key": "CFG_SIGNAL_BDS_ENA",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "BeiDou B1I enabled", "key_id": None},
-        {"id": 29, "key": "CFG-SIGNAL-GLO_ENA",
+        {"id": 29, "key": "CFG_SIGNAL_GLO_ENA",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "GLONASS L1 enabled", "key_id": None},
-        {"id": 30, "key": "CFG-UART1OUTPROT-UBX",
+        {"id": 30, "key": "CFG_UART1OUTPROT_UBX",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "UART1 UBX -> AP_Periph",
          "key_id": _KEY_UART1OUTPROT_UBX},
-        {"id": 31, "key": "CFG-UART1-BAUDRATE",
+        {"id": 31, "key": "CFG_UART1_BAUDRATE",
          "expected": 230400, "type": "U4", "role": "rover",
          "desc": "UART1 baudrate (ArduPilot default)", "key_id": _KEY_UART1_BAUDRATE},
 
         # === Rover RELPOSNED monitoring (1 key: #39) ===
-        {"id": 39, "key": "CFG-MSGOUT-UBX-NAV-RELPOSNED-UART2",
+        {"id": 39, "key": "CFG_MSGOUT_UBX_NAV_RELPOSNED_UART2",
          "expected": 1, "type": "U1", "role": "rover",
          "desc": "NAV-RELPOSNED UART2 out enabled (RTK monitoring)",
          "key_id": _KEY_MSGOUT_UBX_NAV_RELPOSNED_UART2},
@@ -232,23 +232,23 @@ def _get_keys_by_role(keys: List[dict], role: str) -> List[dict]:
 # CFG-VALSET key groups (for write operations)
 # ==========================================================================
 _RTCM_MSG_KEYS_UART1 = [
-    "CFG-MSGOUT-RTCM_3X_TYPE1005_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1006_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1074_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1084_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1094_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1124_UART1",
-    "CFG-MSGOUT-RTCM_3X_TYPE1230_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1005_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1006_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1074_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1084_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1094_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1124_UART1",
+    "CFG_MSGOUT_RTCM_3X_TYPE1230_UART1",
 ]
 
 _RTCM_MSG_KEYS_USB = [
-    "CFG-MSGOUT-RTCM_3X_TYPE1005_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1006_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1074_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1084_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1094_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1124_USB",
-    "CFG-MSGOUT-RTCM_3X_TYPE1230_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1005_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1006_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1074_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1084_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1094_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1124_USB",
+    "CFG_MSGOUT_RTCM_3X_TYPE1230_USB",
 ]
 
 # Combined list (UART1 + USB)
@@ -272,26 +272,26 @@ def _get_rtcm_keys_for_port(port_type: str) -> List[str]:
 
 
 _UART2_ROVER_CFG_KEYS = [
-    ("CFG-UART2-BAUDRATE",              115200),
-    ("CFG-UART2INPROT-UBX",             1),
-    ("CFG-UART2INPROT-NMEA",            0),
-    ("CFG-UART2INPROT-RTCM3X",          1),
-    ("CFG-UART2OUTPROT-UBX",            1),   # UBX output enabled (for RELPOSNED monitoring)
-    ("CFG-UART2OUTPROT-NMEA",           0),   # NMEA output disabled (bandwidth saving)
-    ("CFG-NAVHPG-DGNSSMODE",            0),
-    ("CFG-RATE-MEAS",                   200),
-    ("CFG-RATE-NAV",                    1),
-    ("CFG-MSGOUT-UBX-NAV-PVT-UART2",    0),   # NAV-PVT disabled (use MAVLink instead)
-    ("CFG-MSGOUT-UBX-NAV-RELPOSNED-UART2", 1),   # ★ RELPOSNED enabled for RTK monitoring
+    ("CFG_UART2_BAUDRATE",              115200),
+    ("CFG_UART2INPROT_UBX",             1),
+    ("CFG_UART2INPROT_NMEA",            0),
+    ("CFG_UART2INPROT_RTCM3X",          1),
+    ("CFG_UART2OUTPROT_UBX",            1),   # UBX output enabled (for RELPOSNED monitoring)
+    ("CFG_UART2OUTPROT_NMEA",           0),   # NMEA output disabled (bandwidth saving)
+    ("CFG_NAVHPG_DGNSSMODE",            0),
+    ("CFG_RATE_MEAS",                   200),
+    ("CFG_RATE_NAV",                    1),
+    ("CFG_MSGOUT_UBX_NAV_PVT_UART2",    0),   # NAV-PVT disabled (use MAVLink instead)
+    ("CFG_MSGOUT_UBX_NAV_RELPOSNED_UART2", 1),   # ★ RELPOSNED enabled for RTK monitoring
 ]
 
 _GNSS_SIGNAL_CFG_KEYS = [
-    ("CFG-SIGNAL-GPS_ENA",     1),
-    ("CFG-SIGNAL-GPS_L5_ENA",  0),
-    ("CFG-SIGNAL-GAL_ENA",     1),
-    ("CFG-SIGNAL-GAL_E5A_ENA", 0),
-    ("CFG-SIGNAL-BDS_ENA",     1),
-    ("CFG-SIGNAL-GLO_ENA",     1),
+    ("CFG_SIGNAL_GPS_ENA",     1),
+    ("CFG_SIGNAL_GPS_L5_ENA",  0),
+    ("CFG_SIGNAL_GAL_ENA",     1),
+    ("CFG_SIGNAL_GAL_E5A_ENA", 0),
+    ("CFG_SIGNAL_BDS_ENA",     1),
+    ("CFG_SIGNAL_GLO_ENA",     1),
 ]
 
 
@@ -669,12 +669,12 @@ class F9pAllConfigurator:
             lon_e7 = int(lon * 1e7)
             alt_cm = int(alt * 100)
             cfg_data = [
-                ("CFG-TMODE-MODE", 2),
-                ("CFG-TMODE-POS_TYPE", 0),
-                ("CFG-TMODE-LAT", lat_e7),
-                ("CFG-TMODE-LON", lon_e7),
-                ("CFG-TMODE-HEIGHT", alt_cm),
-                ("CFG-TMODE-FIXED_POS_ACC", 10),
+                ("CFG_TMODE_MODE", 2),
+                ("CFG_TMODE_POS_TYPE", 0),
+                ("CFG_TMODE_LAT", lat_e7),
+                ("CFG_TMODE_LON", lon_e7),
+                ("CFG_TMODE_HEIGHT", alt_cm),
+                ("CFG_TMODE_FIXED_POS_ACC", 10),
             ]
             layers = LAYER_ALL if save_to_flash else LAYER_RAM
             msg = UBXMessage.config_set(layers, 0, cfg_data)
@@ -731,7 +731,7 @@ class F9pAllConfigurator:
 
             # Write UART2-BAUDRATE first separately
             baud_msg = UBXMessage.config_set(
-                layers, 0, [("CFG-UART2-BAUDRATE", 115200)])
+                layers, 0, [("CFG_UART2_BAUDRATE", 115200)])
             self._send_ubx(baud_msg.serialize())
             self.logger.info(
                 f"[ROVER Write] UART2-BAUDRATE=115200 "
@@ -740,7 +740,7 @@ class F9pAllConfigurator:
 
             # Write remaining UART2 config keys (skip BAUDRATE, already done)
             cfg_data = [(k, v) for k, v in _UART2_ROVER_CFG_KEYS
-                        if k != "CFG-UART2-BAUDRATE"]
+                        if k != "CFG_UART2_BAUDRATE"]
             msg = UBXMessage.config_set(layers, 0, cfg_data)
             self._send_ubx(msg.serialize())
             self.logger.info(
@@ -762,8 +762,8 @@ class F9pAllConfigurator:
         try:
             layers = LAYER_ALL if save_to_flash else LAYER_RAM
             cfg_data = list(_GNSS_SIGNAL_CFG_KEYS) + [
-                ("CFG-UART1OUTPROT-UBX", 1),
-                ("CFG-UART1-BAUDRATE", 230400),
+                ("CFG_UART1OUTPROT_UBX", 1),
+                ("CFG_UART1_BAUDRATE", 230400),
             ]
             msg = UBXMessage.config_set(layers, 0, cfg_data)
             self._send_ubx(msg.serialize())
