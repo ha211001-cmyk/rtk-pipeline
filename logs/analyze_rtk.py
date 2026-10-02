@@ -1,10 +1,16 @@
+import sys
+import os
 import pandas as pd
 import numpy as np
 import scipy.io as sio
-import matplotlib.pyplot as plt
 
 # Load the data
-csv_file = '/Users/taitai0123/rtk-pipeline/logs/rtk_status_60min_complete.csv'
+if len(sys.argv) < 3:
+    print('Usage: python analyze_rtk.py <TARGET_DIR> <TIMESTAMP>')
+    sys.exit(1)
+target_dir = sys.argv[1]
+timestamp = sys.argv[2]
+csv_file = os.path.join(target_dir, 'rtk_status_60min_complete.csv')
 df = pd.read_csv(csv_file)
 
 # We need to filter only RTK_FIXED if necessary, but assuming all are valid or we just take the data.
@@ -69,19 +75,6 @@ for m in durations:
     mat_data[f'err3D_{m}min'] = df_slice['3D_err'].values
 
 # Save to .mat file
-sio.savemat('/Users/taitai0123/rtk-pipeline/logs/rtk_evaluation_data.mat', mat_data)
-print("Saved .mat file to /Users/taitai0123/rtk-pipeline/logs/rtk_evaluation_data.mat")
+sio.savemat(os.path.join(target_dir, f'rtk_evaluation_data_{timestamp}.mat'), mat_data)
+print(f"Saved .mat file to {os.path.join(target_dir, f'rtk_evaluation_data_{timestamp}.mat')}")
 
-# Plotting Histogram
-fig, axs = plt.subplots(3, 1, figsize=(8, 12))
-colors = {5: 'blue', 20: 'orange', 60: 'green'}
-for i, m in enumerate(durations):
-    axs[i].hist(mat_data[f'Herr_{m}min'], bins=50, color=colors[m], alpha=0.7)
-    axs[i].set_title(f'Horizontal Error Distribution ({m} min)')
-    axs[i].set_xlabel('Error (m)')
-    axs[i].set_ylabel('Frequency')
-    axs[i].grid(True)
-
-plt.tight_layout()
-plt.savefig('/Users/taitai0123/rtk-pipeline/logs/rtk_histograms.png')
-print("Saved histograms to /Users/taitai0123/rtk-pipeline/logs/rtk_histograms.png")

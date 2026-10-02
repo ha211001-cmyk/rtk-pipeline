@@ -1,12 +1,17 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import scipy.io
 import datetime
 import os
+import sys
 
 print("Loading data...")
-df = pd.read_csv('logs/rtk_status_60min_complete.csv')
+if len(sys.argv) < 3:
+    print('Usage: python evaluate_rtk.py <TARGET_DIR> <TIMESTAMP>')
+    sys.exit(1)
+target_dir = sys.argv[1]
+timestamp = sys.argv[2]
+df = pd.read_csv(os.path.join(target_dir, 'rtk_status_60min_complete.csv'))
 
 df['time'] = pd.to_datetime(df['utc_time'], format='%H:%M:%S').dt.time
 dummy_date = datetime.date(2023, 1, 1)
@@ -47,25 +52,14 @@ for name, mins in periods.items():
         'mean_err_2d': mean_err_2d, 'rms_2d': rms_2d
     }
     
-    mat_data[f'{name}_dx'] = sub_df['dx'].values
-    mat_data[f'{name}_dy'] = sub_df['dy'].values
-    mat_data[f'{name}_dz'] = sub_df['dz'].values
-    mat_data[f'{name}_err2d'] = sub_df['err_2d'].values
+    mat_data[f'x{name}_dx'] = sub_df['dx'].values
+    mat_data[f'x{name}_dy'] = sub_df['dy'].values
+    mat_data[f'x{name}_dz'] = sub_df['dz'].values
+    mat_data[f'x{name}_err2d'] = sub_df['err_2d'].values
     
-    # Save a quick histogram
-    fig, axs = plt.subplots(1, 3, figsize=(15, 4))
-    axs[0].hist(sub_df['dx'], bins=30, color='r', alpha=0.7)
-    axs[0].set_title(f'Easting Error (m) - {name}')
-    axs[1].hist(sub_df['dy'], bins=30, color='g', alpha=0.7)
-    axs[1].set_title(f'Northing Error (m) - {name}')
-    axs[2].hist(sub_df['err_2d'], bins=30, color='b', alpha=0.7)
-    axs[2].set_title(f'2D Error (m) - {name}')
-    plt.tight_layout()
-    plt.savefig(f'logs/hist_{name}.png')
-    plt.close()
 
-scipy.io.savemat('logs/rtk_evaluation.mat', mat_data)
-print("Saved logs/rtk_evaluation.mat")
+scipy.io.savemat(os.path.join(target_dir, f'rtk_evaluation_{timestamp}.mat'), mat_data)
+print(f"Saved {os.path.join(target_dir, f'rtk_evaluation_{timestamp}.mat')}")
 
 for k, v in results.items():
     print(f"[{k}]")

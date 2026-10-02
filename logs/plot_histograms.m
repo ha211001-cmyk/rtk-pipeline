@@ -2,7 +2,12 @@
 clear; close all; clc;
 
 [script_dir, ~, ~] = fileparts(mfilename('fullpath'));
-mat_file = fullfile(script_dir, '20261001_181637', 'rtk_evaluation.mat');
+target_dir = getenv('TARGET_DIR');
+timestamp = getenv('TIMESTAMP');
+if isempty(target_dir) || isempty(timestamp)
+    error('環境変数が設定されていません。');
+end
+mat_file = fullfile(script_dir, target_dir, sprintf('rtk_evaluation_%s.mat', timestamp));
 if ~exist(mat_file, 'file')
     error('ファイルが見つかりません: %s', mat_file);
 end
@@ -79,12 +84,12 @@ linkaxes([az1, az2, az3], 'y'); % 縦軸のスケールを揃える
 [mat_dir, ~, ~] = fileparts(mat_file);
 
 % VS Codeですぐに見るためのプレビュー用 (PNG)
-fig1_png = fullfile(mat_dir, 'hist_horizontal.png');
-fig2_png = fullfile(mat_dir, 'hist_height.png');
+fig1_png = fullfile(mat_dir, sprintf('hist_horizontal_%s.png', timestamp));
+fig2_png = fullfile(mat_dir, sprintf('hist_height_%s.png', timestamp));
 
 % 論文やレポート用のベクター画像 (PDF)
-fig1_pdf = fullfile(mat_dir, 'hist_horizontal.pdf');
-fig2_pdf = fullfile(mat_dir, 'hist_height.pdf');
+fig1_pdf = fullfile(mat_dir, sprintf('hist_horizontal_%s.pdf', timestamp));
+fig2_pdf = fullfile(mat_dir, sprintf('hist_height_%s.pdf', timestamp));
 
 % 最新のMATLAB(R2020a以降)であれば exportgraphics で綺麗に保存できます
 try
