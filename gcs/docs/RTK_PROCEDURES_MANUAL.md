@@ -13,22 +13,26 @@ Mac（地上基地局・GCS）と Raspberry Pi 5（ドローン搭載機・Pixha
 2. **Raspberry Pi 5 (Rover)**: 機体側のMAVLink通信の中継、RTCMデータの受信・注入、およびログ記録。
 
 ```text
-┌───────────────────────── Mac (地上基地局 & GCS) ─────────────────────────┐
-│ 1. 基地局 RTCM3 配信 : TCP 2101 (F9P /dev/cu.usbmodem112301)             │
-│ 2. Web ダッシュボード : http://localhost:9000 (UDP:14550 受信)            │
-└───────────────────▲───────────────────────────────────▲──────────────────┘
-                    │ RTCM3 補正データ (Tailscale)       │ MAVLink テレメトリ
-┌───────────────────▼───────────────────────────────────┴──────────────────┐
-│ mavlink_bridge.py (Raspberry Pi 5)                                       │
-│   ├── [1] Pixhawk (/dev/ttyAMA0) ↔ Mac GCS の MAVLink 双方向中継         │
-│   ├── [2] Mac 基地局 (TCP:2101) から RTCM3 受信 → Pixhawk へ MAVLink 注入│
-│   ├── [3] RTK 測位 CSV & RTCM3 生バイナリの自動保存                      │
-│   └── [4] 終了時 (Ctrl+C) に「位置誤差の標準偏差 (1σ)」を自動解析・出力 │
-└───────────────────▲──────────────────────────────────────────────────────┘
-                    │ MAVLink (TELEM1 @ 921600bps, RTS/CTS)
-┌───────────────────▼───────────────────┐
-│ Pixhawk 6C ──(GPS ポート)──> Rover F9P│ (★ RTK-FIXED 達成!)
-└───────────────────────────────────────┘
+┌───────────────────────────────────────────────┐
+│              Mac (地上基地局 & GCS)            │
+│  - IP: 192.168.2.1 (Wi-Fi/有線ルーター親機)    │
+│  - 基地局 F9P: USB (/dev/cu.usbmodem112301)   │
+│  - RTCM3 配信: TCP 2101                       │
+│  - Web GCS ダッシュボード: http://localhost:9000│
+│                           (UDP:14550 受信)    │
+└───────────────────────┬───────────────────────┘
+                        │ 有線LAN (USB-LANアダプタ)
+┌───────────────────────▼───────────────────────┐
+│         アクセスポイント (BUFFALO AP)          │
+│  - IP: 192.168.2.3 (ブリッジ接続)              │
+└───────────────┬───────────────────────┬───────┘
+                │ Wi-Fi                 │ Wi-Fi
+┌───────────────▼───────────────┐   ┌───▼───────────────────────────┐
+│ ローバー (Raspberry Pi 5)     │   │ 別のPC (監視 / 作業用ノートPC)│
+│  - IP: 192.168.2.x (DHCP)     │   │  - IP: 192.168.2.2 (DHCP)     │
+│  - Pixhawk: /dev/ttyAMA0      │   │  - ブラウザ等で GCS を閲覧可能 │
+│  - mavlink_bridge.py 実行     │   │    http://192.168.2.1:9000    │
+└───────────────────────────────┘   └───────────────────────────────┘
 ```
 
 ### 1.1 仮想環境の構成と依存ライブラリのインストール（重要）
@@ -37,7 +41,7 @@ Mac（地上基地局・GCS）と Raspberry Pi 5（ドローン搭載機・Pixha
 
 | ホスト | 役割 | 仮想環境パス | 有効化コマンド / 実行バイナリ | 主なライブラリ |
 |---|---|---|---|---|
-| **Mac (基地局 & GCS)** | 基地局RTCM配信・Web UI・解析・プロット | `~/rtk-pipeline/.venv` | `source .venv/bin/activate`<br>（または `.venv/bin/python3`） | `fastapi`, `uvicorn`, `pyserial`, `matplotlib`, `numpy`, `pyyaml` 等 |
+| **Mac (基地局 & GCS)** | 基地局RTCM配信・Web UI・解析・プロット | `~/rtk-pipeline-local/.venv` | `source .venv/bin/activate`<br>（または `.venv/bin/python3`） | `fastapi`, `uvicorn`, `pyserial`, `matplotlib`, `numpy`, `pyyaml` 等 |
 | **Raspberry Pi 5 (Rover)** | MAVLink中継・RTCM注入・機体ロギング | `~/Mavlink_venv` | `~/Mavlink_venv/bin/python3` | `pymavlink`, `pyserial` |
 
 #### セットアップ手順
@@ -45,7 +49,7 @@ Mac（地上基地局・GCS）と Raspberry Pi 5（ドローン搭載機・Pixha
 **Mac (GCS/基地局側)**
 基地局プログラムや Web ダッシュボード、事後解析スクリプトを動かすため、リポジトリ直下に `.venv` を作成します：
 ```bash
-cd ~/rtk-pipeline
+cd ~/rtk-pipeline-local
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -64,13 +68,13 @@ python3 -m venv ~/Mavlink_venv
 
 ## 2. 標準運用フロー（実機運用クイックスタート）
 
-Mac と Raspberry Pi を **Tailscale (VPN)** 経由で接続し、自動で RTK-FIXED（サブセンチ精度）を達成し、実験ログを保存する手順です。
+Mac（ルーター親機: `192.168.2.1`）とアクセスポイント（`192.168.2.3`）、Raspberry Pi（Rover）を同一ローカルネットワークで接続し、自動で RTK-FIXED（サブセンチ精度）を達成し、実験ログを保存する手順です。
 
-### Step 1: 基地局 RTCM 配信の起動（Mac側）
+### Step 1: 基地局 RTCM 配信の起動（Mac側: 192.168.2.1）
 第 1 ターミナルを開き、**仮想環境 `.venv` を有効化**した上で、基地局の F9P を固定座標モードで起動します。これにより `TCP:2101` で補正データの配信が始まります。
 
 ```bash
-cd ~/rtk-pipeline
+cd ~/rtk-pipeline-local
 source .venv/bin/activate
 python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.json --serial-port /dev/cu.usbmodem112301
 ```
@@ -84,21 +88,20 @@ python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.js
 第 2 ターミナルを開き、**仮想環境 `.venv` を有効化**した上で、監視・制御用のWebサーバーを起動します。
 
 ```bash
-cd ~/rtk-pipeline
+cd ~/rtk-pipeline-local
 source .venv/bin/activate
 python3 -m gcs.server --port 9000
 ```
-> **確認:** ブラウザで **http://localhost:9000** にアクセスし、右上の **「Connect」** を1回クリックしてデータ待機状態にします。
+> **確認:** ブラウザで **http://localhost:9000**（または別PCから **http://192.168.2.1:9000**）にアクセスし、右上の **「Connect」** を1回クリックしてデータ待機状態にします。
 
 ### Step 3: MAVLink ブリッジ & RTK 注入・ロギング起動（Raspberry Pi側）
-機体に搭載したラズパイに SSH 接続し、**仮想環境 `~/Mavlink_venv` の Python を使って**統合ブリッジプログラムを起動します。
-`--target-host` には Mac（GCS）の Tailscale IP アドレスを指定します（Mac 側で `tailscale ip -4` で確認）。
+機体に搭載したラズパイに SSH 接続し、**仮想環境 `~/Mavlink_venv` の Python を使って**統合ブリッジプログラムを起動します（デフォルトで Mac の IP `192.168.2.1` に接続します）。
 
 ```bash
-cd ~/rtk-pipeline
-~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py --serial /dev/ttyAMA0 --baud 921600 --target-host <Mac_Tailscale_IP>
+cd ~/rtk-pipeline-local
+~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py --serial /dev/ttyAMA0 --baud 921600
 ```
-*(※ 例: `--target-host 100.80.225.4`)*  
+*(※ ターゲットホストのデフォルトは `192.168.2.1` です。明示指定する場合は `--target-host 192.168.2.1`)*  
 *(※ `--rtscts`（ハードウェアフロー制御）および `MAVLink 2.0`（`MAVLINK20=1`）が標準で組み込まれており、Pixhawk TELEM1 @ 921600bps での安定通信が担保されています)*
 
 **起動後の動作:**
@@ -176,16 +179,17 @@ F9Pの設定書き込み時、レイヤー（揮発・不揮発）を意識し�
 
 ---
 
-## 5. 学内Wi-Fiなどでの通信トラブル対策（Tailscale）
+## 5. ローカルアクセスポイント環境の運用・接続ポイント
 
-大学などのWi-Fi環境では、APアイソレーション（端末間通信の遮断）によりMacとラズパイが直接通信できない場合があります。
+本システムは Tailscale 等の VPN に依存せず、Mac 自身が親機ルーター（`192.168.2.1`）となり、有線接続されたアクセスポイント（AP: `192.168.2.3`）を通じて全機器を同一サブネット内で相互通信させます。
 
-- **解決策:** 学内Wi-Fi接続時でも、必ずMacとラズパイの**両方でTailscaleを起動**してください。これにより制限を越えて安全に通信できます。
-- **プロキシ設定:** もし学内プロキシの影響で通信エラー (`ProxyError`) が発生する場合は、Tailscale通信(`100.x.x.x`)やローカル通信(`127.0.0.1`)がプロキシを通らないように `no_proxy` を設定してください。
-  ```bash
-  export no_proxy="localhost,127.0.0.1,100.64.0.0/10"
-  ```
-  ※学外（自宅やテザリング）に移動した際は、プロキシ環境変数を削除 (`unset http_proxy https_proxy ...`) することを忘れないでください。
+1. **Mac 側のネットワーク設定**:
+   - USB-LAN アダプタ経由でアクセスポイント（AP）に有線接続。
+   - `bridge100` / 有線インターフェースにて `192.168.2.1`（サブネット `255.255.255.0`）を保持し、DHCP サーバー（bootpd）により配下の機器へ `192.168.2.x` を配布。
+2. **アクセスポイント（AP: 192.168.2.3）**:
+   - ブリッジモードで動作し、ラズパイおよび作業用別PCからの Wi-Fi 接続を中継。
+3. **別PC（ノートPC: 192.168.2.2 等）からのアクセス**:
+   - AP の Wi-Fi に接続することで、ブラウザから `http://192.168.2.1:9000` にアクセスし、GCS 画面を共有・監視可能。
 
 ---
 
@@ -197,7 +201,8 @@ F9Pの設定書き込み時、レイヤー（揮発・不揮発）を意識し�
 | **Pixhawk に補正データが注入されない / RTK にならない** | MAVLink 1.0 によるパケット欠損、またはフロー制御（RTS/CTS）なしによるパケット破壊 | ArduPilot への `GPS_RTCM_DATA` 注入には MAVLink 2.0 が必須です。また 921600bps の高速シリアル通信では RTS/CTS が不可欠です。<br>`mavlink_bridge.py` 冒頭の `os.environ["MAVLINK20"] = "1"` と `serial.Serial(..., rtscts=True)` が有効であることを確認してください。 |
 | **ラズパイで `ModuleNotFoundError: No module named 'pymavlink'`** | システム python3 や非対応の venv で実行している | ラズパイ側では `pymavlink` や `pyserial` が `~/Mavlink_venv/` 配下に環境構築されています。<br>`~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py ...` で実行してください。 |
 | **Pixhawk とのシリアルポート接続エラー** | ポート名間違い、または Linux シリアルコンソールの競合 | Raspberry Pi 5 のピンヘッダ UART は `/dev/ttyAMA0` です（`/dev/serial0` ではありません）。<br>開けない場合は `sudo raspi-config` でシリアルコンソールを無効化してください。 |
-| **Connect しても機体が表示されない** | UDP:14550 が届いていない、またはポート競合 | 1. ラズパイ側の `--target-host` が Mac の Tailscale IP になっているか確認。<br>2. Mac 側で `gcs.server` が起動しているか確認。<br>3. 他の GCS（QGroundControl 等）が UDP 14550 を占有していないか確認。 |
+| **Connect しても機体が表示されない** | UDP:14550 が届いていない、またはポート競合 | 1. ラズパイ側の `--target-host` が Mac のローカル IP（`192.168.2.1`）になっているか確認。<br>2. Mac 側で `gcs.server` が起動しているか確認。<br>3. 他の GCS（QGroundControl 等）が UDP 14550 を占有していないか確認。 |
+| **ローカル AP 経由で Mac とラズパイが通信できない** | 有線 LAN リンク切れ、または DHCP 未取得 | 1. Mac の USB-LAN アダプタが AP に接続され、IP が `192.168.2.1` になっているか確認。<br>2. ラズパイが AP の Wi-Fi に接続され、IP（`192.168.2.x`）を取得しているか確認。<br>3. ラズパイ側から `ping 192.168.2.1` が通るか確認してください。 |
 | **基地局 TCP サーバー（2101）への再接続でタイムアウトする** | 複数クライアント接続時の受信キュー競合（旧実装バグ） | `gcs/rtk_tools/rtk_base_station_v2.py` のマルチクライアント・ブロードキャスト版を使用してください。 |
 | **NTRIP 接続で 401 エラー / 拒否される** | 認証情報の設定不備 | 認証情報は設定ファイル（YAML）に書かず、環境変数 (`NTRIP_USER` / `NTRIP_PASSWORD`) にセットしてください。 |
 

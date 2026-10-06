@@ -10,13 +10,13 @@
 #   2. /dev/ttyAMA0 が有効化済み（config.txt: enable_uart=1）
 #   3. /dev/ttyAMA4 が有効化済み（dtoverlay=uart4 で追加UART有効）
 #   4. rtk_forwarder用のPython仮想環境が準備済み（deploy/setup_raspi.sh）
-#   5. gcs/config/rtk_forwarder.yml の host が Mac の Tailscale IP に設定されていること
+#   5. gcs/config/rtk_forwarder.yml の host が Mac のローカルIP (既定: 192.168.2.1) に設定されていること
 #
 # Usage:
 #   chmod +x gcs/deploy/start_raspi_services.sh
-#   ./gcs/deploy/start_raspi_services.sh [MAC_TAILSCALE_IP]
+#   ./gcs/deploy/start_raspi_services.sh [MAC_IP]
 #
-#   引数で MAC_TAILSCALE_IP を指定すると、rtk_forwarder.yml の host を自動置換します。
+#   引数で MAC_IP (省略時: 192.168.2.1) を指定すると、rtk_forwarder.yml の host を自動置換します。
 
 set -euo pipefail
 
@@ -51,7 +51,7 @@ else
     exit 1
 fi
 
-# ── MAC_TAILSCALE_IP 設定 ──────────────────────────
+# ── MAC_LOCAL_IP 設定 ──────────────────────────
 FORWARDER_CONFIG="${CONFIG_DIR}/rtk_forwarder.yml"
 
 if [ $# -ge 1 ]; then

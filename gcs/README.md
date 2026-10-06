@@ -147,33 +147,38 @@ python3 -c "from gcs.config.schema import validate_bundled_configs; print(valida
 
 ## 起動
 
-### 🚀 実機運用クイックスタート（Pixhawk TELEM1 接続構成・標準運用）
+### 🚀 実機運用クイックスタート（ローカルネットワーク接続・標準運用）
 
-Mac（地上基地局・GCS）と Raspberry Pi 5（ドローン搭載機・Pixhawk 接続）を **Tailscale (VPN)** で連携し、**RTK-FIXED（サブセンチ精度）達成・リアルタイム監視・実験ロギング・位置誤差標準偏差（std）算出** を完全自動で行う標準運用フローです。
+Mac（地上基地局・GCS・ルーター親機）とアクセスポイント（BUFFALO AP）、Raspberry Pi 5（ドローン搭載機・Pixhawk 接続）、および作業用ノートPC（別PC）を **ローカルネットワーク（Tailscale不要）** で連携し、**RTK-FIXED（サブセンチ精度）達成・リアルタイム監視・実験ロギング・位置誤差標準偏差（std）算出** を完全自動で行う標準運用フローです。
 
 ```text
-┌───────────────────────── Mac (地上基地局 & GCS) ─────────────────────────┐
-│ 1. 基地局 RTCM3 配信 : TCP 2101 (F9P /dev/cu.usbmodem112301)             │
-│ 2. Web ダッシュボード : http://localhost:9000 (UDP:14550 受信)            │
-└───────────────────▲───────────────────────────────────▲──────────────────┘
-                    │ RTCM3 補正データ (Tailscale)       │ MAVLink テレメトリ
-┌───────────────────▼───────────────────────────────────┴──────────────────┐
-│ mavlink_bridge.py (Raspberry Pi 5)                                       │
-│   ├── [1] Pixhawk (/dev/ttyAMA0) ↔ Mac GCS の MAVLink 双方向中継         │
-│   ├── [2] Mac 基地局 (TCP:2101) から RTCM3 受信 → Pixhawk へ MAVLink 注入│
-│   ├── [3] RTK 測位 CSV & RTCM3 生バイナリの自動保存                      │
-│   └── [4] 終了時 (Ctrl+C) に「位置誤差の標準偏差 (1σ)」を自動解析・出力 │
-└───────────────────▲──────────────────────────────────────────────────────┘
-                    │ MAVLink (TELEM1 @ 921600bps)
-┌───────────────────▼───────────────────┐
-│ Pixhawk 6C ──(GPS ポート)──> Rover F9P│ (★ RTK-FIXED 達成!)
-└───────────────────────────────────────┘
+┌───────────────────────────────────────────────┐
+│              Mac (地上基地局 & GCS)            │
+│  - IP: 192.168.2.1 (Wi-Fi/有線ルーター親機)    │
+│  - 基地局 F9P: USB (/dev/cu.usbmodem112301)   │
+│  - RTCM3 配信: TCP 2101                       │
+│  - Web GCS ダッシュボード: http://localhost:9000│
+│                           (UDP:14550 受信)    │
+└───────────────────────┬───────────────────────┘
+                        │ 有線LAN (USB-LANアダプタ)
+┌───────────────────────▼───────────────────────┐
+│         アクセスポイント (BUFFALO AP)          │
+│  - IP: 192.168.2.3 (ブリッジ接続)              │
+└───────────────┬───────────────────────┬───────┘
+                │ Wi-Fi                 │ Wi-Fi
+┌───────────────▼───────────────┐   ┌───▼───────────────────────────┐
+│ ローバー (Raspberry Pi 5)     │   │ 別のPC (監視 / 作業用ノートPC)│
+│  - IP: 192.168.2.x (DHCP)     │   │  - IP: 192.168.2.2 (DHCP)     │
+│  - Pixhawk: /dev/ttyAMA0      │   │  - ブラウザ等で GCS を閲覧可能 │
+│  - mavlink_bridge.py 実行     │   │    http://192.168.2.1:9000    │
+└───────────────────────────────┘   └───────────────────────────────┘
 ```
 
-#### Step 1: 基地局 RTCM 配信の起動（Mac 側）
+#### Step 1: 基地局 RTCM 配信の起動（Mac 側: 192.168.2.1）
 Mac の第 1 ターミナルで、基地局 F9P を固定座標モードで起動し TCP:2101 で配信します：
 ```bash
-cd ~/rtk-pipeline
+cd ~/rtk-pipeline-local
+source .venv/bin/activate
 python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.json --serial-port /dev/cu.usbmodem112301
 ```
 *(※ `TCP listening on 0.0.0.0:2101` が出れば待機完了)*
@@ -184,20 +189,21 @@ python3 gcs/rtk_tools/rtk_base_station_v2.py --config gcs/config/base_station.js
 #### Step 2: GCS Web ダッシュボードの起動（Mac 側）
 Mac の第 2 ターミナルで、Web サーバーを起動します：
 ```bash
-cd ~/rtk-pipeline
+cd ~/rtk-pipeline-local
+source .venv/bin/activate
 python3 -m gcs.server --port 9000
 ```
-ブラウザで **http://localhost:9000** を開き、右上の **「Connect」** を 1 回クリックします（データ待機状態）。
+ブラウザで **http://localhost:9000**（または別PCから **http://192.168.2.1:9000**）を開き、右上の **「Connect」** を 1 回クリックします（データ待機状態）。
 
 #### Step 3: MAVLink ブリッジ & RTK 注入・ロギング起動（Raspberry Pi 側）
-ラズパイのターミナルで、統合ブリッジを実行します：
+ラズパイのターミナルで、統合ブリッジを実行します（デフォルトで Mac の IP `192.168.2.1` に接続します）：
 ```bash
-cd ~/rtk-pipeline
-~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py --serial /dev/ttyAMA0 --baud 921600 --target-host <Mac_Tailscale_IP>
+cd ~/rtk-pipeline-local
+~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py --serial /dev/ttyAMA0 --baud 921600
 ```
-*(※ 例: `--target-host 100.80.225.4`。Mac 側で `tailscale ip -4` を実行して確認した IP を指定します。基地局 TCP ホスト (`--rtcm-host`) は自動的に `--target-host` と同じ IP が使用されます)*
+*(※ ターゲットホストのデフォルトは `192.168.2.1` です。明示する場合は `--target-host 192.168.2.1` を付与してください)*
 *(※ `--rtscts`（ハードウェアフロー制御）および `MAVLink 2.0`（`MAVLINK20=1`）が標準で組み込まれており、Pixhawk TELEM1 @ 921600bps での安定通信が担保されています)*
-*(※ `pymavlink` や `pyserial` は `~/Mavlink_venv/` にインストールされているため、必ず `~/Mavlink_venv/bin/python3` を使用してください)*
+*(※ `pymavlink` や `pyserial` は `~/Mavlink_venv/` 配下にインストールされているため、必ず `~/Mavlink_venv/bin/python3` を使用してください)*
 
 - **実行中の動作**:
   1. Web ダッシュボードが **緑色の「Online」** に切り替わり、姿勢・バッテリー・GPS がリアルタイム表示されます。
@@ -232,22 +238,17 @@ cd ~/rtk-pipeline
 
 ---
 
-### 🏫 大学・学内 Wi-Fi 環境での運用手順
+### 🌐 ローカルアクセスポイント環境の運用・接続ポイント
 
-大学や研究室の Wi-Fi（学内 LAN / eduroam 等）を利用する場合のネットワーク運用ガイドです。
+本システムは Tailscale 等の VPN に依存せず、Mac 自身が親機ルーター（`192.168.2.1`）となり、有線接続されたアクセスポイント（AP）を通じて全機器を同一サブネット内で相互通信させます。
 
-#### 1. Mac ↔ ラズパイ間の通信（Tailscale を推奨）
-学内 Wi-Fi はセキュリティ上、**同じ Wi-Fi に接続している端末同士の直接通信（端末間通信）がブロック（AP アイソレーション）されている** ことがほとんどです。
-- **解決策**: 学内 Wi-Fi に接続した状態でも、**Mac とラズパイの両方で Tailscale を起動** してください。
-- Tailscale は大学の NAT / ファイアウォールを自動で越えて 1 対 1 の暗号化トンネル（）を確立するため、**学内でもテザリング時と全く同じ IP・設定で通信できます**。
-
-#### 2. 学内プロキシ（Proxy）が必要な場合
-大学のネットワークポリシーで外部インターネットへのアクセスにプロキシが必要な場合：
-
-- **プロキシ設定の一時適用（pip や git pull 等を実行する際）**:
-  ```bash
-  export http_proxy="http://proxy.xxxx.ac.jp:ポート番号"
-  export https_proxy="http://proxy.xxxx.ac.jp:ポート番号"
+1. **Mac 側のネットワーク設定**:
+   - USB-LAN アダプタ（Lenovo 等）経由でアクセスポイント（AP）に有線接続。
+   - `bridge100` / 有線インターフェースにて `192.168.2.1`（サブネット `255.255.255.0`）を保持し、DHCP サーバー（bootpd）により配下の機器へ `192.168.2.x` を配布。
+2. **アクセスポイント（AP: 192.168.2.3）**:
+   - ブリッジモードで動作し、ラズパイおよび作業用別PCからの Wi-Fi 接続を中継。
+3. **別PC（ノートPC: 192.168.2.2 等）からのアクセス**:
+   - AP の Wi-Fi に接続することで、ブラウザから `http://192.168.2.1:9000` にアクセスし、GCS 画面を共有・監視可能。
   ```
 
 - **テザリングや自宅 Wi-Fi（学外）に切り替えた場合の解除**:
@@ -315,9 +316,9 @@ python3 -m gcs.selftest
 | **Pixhawk に補正データが注入されない / RTK にならない** | MAVLink 1.0 によるパケット欠損、またはフロー制御（RTS/CTS）なしによるパケット化合 | ArduPilot への `GPS_RTCM_DATA` 注入には MAVLink 2.0 が必須です。また 921600bps の高速シリアル通信では RTS/CTS が不可欠です。<br>`mavlink_bridge.py` 冒頭の `os.environ["MAVLINK20"] = "1"` と `serial.Serial(..., rtscts=True)` が有効であることを確認してください。 |
 | **ラズパイで `ModuleNotFoundError: No module named 'pymavlink'`** | システム python3 や非対応の venv で実行している | ラズパイ側では `pymavlink` や `pyserial` が `~/Mavlink_venv/` 配下に環境構築されています。<br>`~/Mavlink_venv/bin/python3 gcs/rtk_tools/mavlink_bridge.py ...` で実行してください。 |
 | **Pixhawk とのシリアルポート接続エラー** | ポート名間違い、または Linux シリアルコンソールの競合 | Raspberry Pi 5 のピンヘッダ UART は `/dev/ttyAMA0` です（`/dev/serial0` ではありません）。<br>開けない場合は `sudo raspi-config` → `Interface Options` → `Serial Port` で「login shell over serial: No」「hardware enabled: Yes」になっているか確認してください。 |
-| **Web UI で Connect しても機体が表示されない** | UDP:14550 が届いていない、またはポート競合 | 1. ラズパイ側の `--target-host` が Mac の Tailscale IP（`100.x.x.x`）になっているか確認（`tailscale status`）。<br>2. Mac 側で `python3 -m gcs.server --port 9000` が起動しているか確認。<br>3. 他の GCS（QGroundControl や Mission Planner）が UDP 14550 を占有していないか確認。 |
+| **Web UI で Connect しても機体が表示されない** | UDP:14550 が届いていない、またはポート競合 | 1. ラズパイ側の `--target-host` が Mac のローカル IP（`192.168.2.1`）になっているか確認。<br>2. Mac 側で `python3 -m gcs.server --port 9000` が起動しているか確認。<br>3. 他の GCS（QGroundControl や Mission Planner）が UDP 14550 を占有していないか確認。 |
 | **基地局 TCP サーバー（2101）への再接続でタイムアウトする** | 複数クライアント接続時の受信キュー競合（旧実装バグ） | `gcs/rtk_tools/rtk_base_station_v2.py` のマルチクライアント・ブロードキャスト版を使用してください（クライアントごとに独立した Queue を割り当て、自動切断・破棄されるため安定動作します）。 |
-| **学内 Wi-Fi で Mac とラズパイが通信できない** | Wi-Fi ルーターの AP アイソレーション（端末間通信遮断） | 両端末で Tailscale を起動し、Tailscale の IP（`100.x.x.x`）同士で通信してください（学内 LAN でも問題なく P2P トンネルが確立されます）。 |
+| **ローカル AP 経由で Mac とラズパイが通信できない** | 有線 LAN リンク切れ、または DHCP 未取得 | 1. Mac の USB-LAN アダプタが AP に接続され、IP が `192.168.2.1` になっているか確認（`ifconfig`）。<br>2. ラズパイが AP の Wi-Fi に接続され、IP（`192.168.2.x`）を取得しているか確認。<br>3. ラズパイ側から `ping 192.168.2.1` が通るか確認してください。 |
 | **Web サーバーが起動しない** | 依存パッケージ不足 | `pip install -r requirements.txt` を実行し、`fastapi` / `uvicorn` がインストールされているか確認してください。 |
 
 ## セキュリティ・シークレット
