@@ -168,35 +168,35 @@ def main():
     parser.add_argument("--auto-fix-fs", action="store_true", help="FS_GCS_ENABLE が 1 の場合に自動で 0 に設定する")
     args = parser.parse_args()
 
-    # ログ保存先準備
-    Path(args.log_dir).mkdir(parents=True, exist_ok=True)
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    csv_path = os.path.join(args.log_dir, f"rtk_status_{ts}.csv")
-    rtcm_path = os.path.join(args.log_dir, f"rtcm_rover_{ts}.rtcm3")
+    # ログ保存先準備（コメントアウト）
+    # Path(args.log_dir).mkdir(parents=True, exist_ok=True)
+    # ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    # csv_path = os.path.join(args.log_dir, f"rtk_status_{ts}.csv")
+    # rtcm_path = os.path.join(args.log_dir, f"rtcm_rover_{ts}.rtcm3")
 
-    csv_file = open(csv_path, "w", newline="")
-    csv_writer = csv.writer(csv_file)
-    csv_writer.writerow(["utc_time", "elapsed_sec", "fix_type", "fix_name", "sats", "lat", "lon", "alt", "eph", "epv"])
-    csv_file.flush()
+    # csv_file = open(csv_path, "w", newline="")
+    # csv_writer = csv.writer(csv_file)
+    # csv_writer.writerow(["utc_time", "elapsed_sec", "fix_type", "fix_name", "sats", "lat", "lon", "alt", "eph", "epv"])
+    # csv_file.flush()
 
-    rtcm_file = open(rtcm_path, "wb")
+    # rtcm_file = open(rtcm_path, "wb")
 
     print("=" * 66)
-    print("  🚀 MAVLink Bridge + RTCM Injector + Realtime Logger")
+    print("  🚀 MAVLink Bridge + RTCM Injector (Logging Disabled)")
     print("=" * 66)
     print(f"  Pixhawk Serial : {args.serial} @ {args.baud} bps (RTS/CTS: {args.rtscts})")
     print(f"  Mac GCS Target : {args.target_host}:{args.target_port} (UDP)")
     print(f"  Base Station   : {args.rtcm_host}:{args.rtcm_port} (TCP)")
-    print(f"  📝 RTK CSVログ : {csv_path}")
-    print(f"  📦 RTCM3 生ログ: {rtcm_path}")
+    # print(f"  📝 RTK CSVログ : {csv_path}")
+    # print(f"  📦 RTCM3 生ログ: {rtcm_path}")
     print("=" * 66)
 
     try:
         ser = serial.Serial(args.serial, args.baud, timeout=1.0, rtscts=args.rtscts)
     except Exception as e:
         print(f"[ERROR] Failed to open serial port {args.serial}: {e}")
-        csv_file.close()
-        rtcm_file.close()
+        # csv_file.close()
+        # rtcm_file.close()
         sys.exit(1)
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -241,25 +241,26 @@ def main():
                                 continue
                             mtype = msg.get_type()
 
-                            if mtype == 'GPS_RAW_INT':
-                                now = time.time()
-                                if now - last_log_time >= 1.0:
-                                    last_log_time = now
-                                    lat = msg.lat / 1e7
-                                    lon = msg.lon / 1e7
-                                    alt = msg.alt / 1000.0
-                                    fix_type = msg.fix_type
-                                    fix_name = FIX_NAMES.get(fix_type, f"FIX_{fix_type}")
-                                    sats = msg.satellites_visible
-                                    eph = msg.eph / 100.0 if msg.eph != 65535 else None
-                                    epv = msg.epv / 100.0 if msg.epv != 65535 else None
-                                    elapsed = round(now - start_time, 2)
-                                    utc_str = datetime.now().strftime("%H:%M:%S")
+                            # GPS_RAW_INT ログ記録（コメントアウト）
+                            # if mtype == 'GPS_RAW_INT':
+                            #     now = time.time()
+                            #     if now - last_log_time >= 1.0:
+                            #         last_log_time = now
+                            #         lat = msg.lat / 1e7
+                            #         lon = msg.lon / 1e7
+                            #         alt = msg.alt / 1000.0
+                            #         fix_type = msg.fix_type
+                            #         fix_name = FIX_NAMES.get(fix_type, f"FIX_{fix_type}")
+                            #         sats = msg.satellites_visible
+                            #         eph = msg.eph / 100.0 if msg.eph != 65535 else None
+                            #         epv = msg.epv / 100.0 if msg.epv != 65535 else None
+                            #         elapsed = round(now - start_time, 2)
+                            #         utc_str = datetime.now().strftime("%H:%M:%S")
 
-                                    csv_writer.writerow([utc_str, elapsed, fix_type, fix_name, sats, lat, lon, alt, eph, epv])
-                                    csv_file.flush()
+                            #         csv_writer.writerow([utc_str, elapsed, fix_type, fix_name, sats, lat, lon, alt, eph, epv])
+                            #         csv_file.flush()
 
-                            elif mtype == 'PARAM_VALUE' and not fs_checked:
+                            if mtype == 'PARAM_VALUE' and not fs_checked:
                                 pid = msg.param_id
                                 if pid == 'FS_GCS_ENABLE' or pid.startswith('FS_GCS_ENABLE'):
                                     val = int(msg.param_value)
@@ -315,8 +316,9 @@ def main():
                             break
                         buf.extend(chunk)
                         for frame in extract_rtcm_frames(buf):
-                            rtcm_file.write(frame)
-                            rtcm_file.flush()
+                            # RTCM 生ログ保存（コメントアウト）
+                            # rtcm_file.write(frame)
+                            # rtcm_file.flush()
 
                             frame_len = len(frame)
                             if frame_len <= MAX_SIZE:
@@ -342,7 +344,7 @@ def main():
                             seq = (seq + 1) % 32
                             injected_frames += 1
                             if injected_frames % 50 == 1:
-                                print(f"[RTCM Injected] Total {injected_frames} frames -> Pixhawk TELEM1 (Saved to .rtcm3)")
+                                print(f"[RTCM Injected] Total {injected_frames} frames -> Pixhawk TELEM1")
             except Exception as e:
                 print(f"[RTCM Warning] {e}. Reconnecting in 3s...")
                 time.sleep(3.0)
@@ -354,17 +356,17 @@ def main():
     t2.start()
     t3.start()
 
-    print("[Bridge] Running! Press Ctrl+C when finished to view statistics.")
+    print("[Bridge] Running! Press Ctrl+C when finished.")
     try:
         t1.join()
     except KeyboardInterrupt:
         print("\n[Bridge] Stopping...")
     finally:
-        csv_file.close()
-        rtcm_file.close()
+        # csv_file.close()
+        # rtcm_file.close()
         ser.close()
         sock.close()
-        print_statistics(csv_path)
+        # print_statistics(csv_path)
 
 if __name__ == "__main__":
     main()

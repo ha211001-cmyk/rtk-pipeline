@@ -124,6 +124,8 @@ def _merge_config(json_path: Optional[str], args: argparse.Namespace) -> Config:
         )
 
     # CLI 引数で上書き（JSONより優先）
+    if hasattr(args, 'serial_port') and args.serial_port is not None:
+        config.serial_port = args.serial_port
     if hasattr(args, 'tcp_port') and args.tcp_port is not None:
         config.tcp_port = args.tcp_port
     if hasattr(args, 'log_level') and args.log_level is not None:
